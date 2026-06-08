@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import CasterFooter from '../components/CasterFooter'
 import CasterNav from '../components/CasterNav'
 import './globals.css'
 
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <CasterNav />
         {children}
+        <CasterFooter />
       </body>
     </html>
   )
