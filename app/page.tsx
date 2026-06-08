@@ -28,6 +28,24 @@ const apps = [
   },
 ]
 
+const previews = [
+  {
+    title: 'Scorecaster Live Edge',
+    tag: 'Sports Market AI',
+    items: ['Top Pick: NHL moneyline', 'Model probability: 61%', 'Market implied: 54%', 'Suggested stake: 1.8%'],
+  },
+  {
+    title: 'Stockcaster Signal Desk',
+    tag: 'Market Intelligence',
+    items: ['Portfolio risk: Moderate', 'Macro pressure: Rising', 'News quality: High', 'Trend signal: Watch'],
+  },
+  {
+    title: 'Relaxcaster Control Mode',
+    tag: 'Human Intelligence',
+    items: ['State: Overloaded', 'Action: Slow decision', 'Impulse shield: Active', 'Next step: 5 minute pause'],
+  },
+]
+
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#03040a] text-white">
@@ -37,15 +55,6 @@ export default function Home() {
         <div className="orb orb-one" />
         <div className="orb orb-two" />
 
-        <nav className="absolute left-0 right-0 top-0 z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-8 text-sm uppercase tracking-[0.35em] text-white/70">
-          <a href="#top" className="font-semibold text-white">Caster</a>
-          <div className="hidden gap-8 md:flex">
-            <a href="#ecosystem">Ecosystem</a>
-            <a href="#apps">Applications</a>
-            <a href="#technology">Technology</a>
-          </div>
-        </nav>
-
         <div id="top" className="relative z-10 mx-auto max-w-6xl text-center">
           <p className="mb-6 text-sm uppercase tracking-[0.55em] text-blue-200/80">Luxury Tech · Cinematic UI · AI Ecosystem</p>
           <h1 className="hero-title">CASTER</h1>
@@ -54,7 +63,7 @@ export default function Home() {
           </p>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a className="primary-button" href="#apps">Explore Ecosystem</a>
-            <a className="secondary-button" href="#technology">View Intelligence Core</a>
+            <a className="secondary-button" href="#core">View Intelligence Core</a>
           </div>
         </div>
       </section>
@@ -89,10 +98,45 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="core" className="px-6 py-32">
+        <div className="mx-auto max-w-7xl text-center">
+          <p className="section-label">Caster Core AI</p>
+          <h2 className="section-title mx-auto">The intelligence layer connecting every decision.</h2>
+          <div className="core-visual">
+            <div className="core-node">Caster Core</div>
+            <div className="core-branches">
+              <a href="/scorecaster">Scorecaster<span>Sports probability</span></a>
+              <a href="/stockcaster">Stockcaster<span>Market signals</span></a>
+              <a href="/relaxcaster">Relaxcaster<span>Human control</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="showcase" className="px-6 py-28">
+        <div className="mx-auto max-w-7xl">
+          <p className="section-label">Dashboard Previews</p>
+          <h2 className="section-title">Designed to feel like an AI command center.</h2>
+          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+            {previews.map((preview) => (
+              <div key={preview.title} className="dashboard-preview">
+                <p className="text-xs uppercase tracking-[0.32em] text-blue-200/70">{preview.tag}</p>
+                <h3 className="mt-5 text-2xl font-semibold">{preview.title}</h3>
+                <div className="mt-8 space-y-3">
+                  {preview.items.map((item) => (
+                    <div key={item} className="preview-row">{item}</div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="technology" className="relative px-6 py-32">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <div>
-            <p className="section-label">Caster Core AI</p>
+            <p className="section-label">Technology</p>
             <h2 className="section-title">Data intelligence designed for better decisions.</h2>
             <p className="mt-6 text-lg leading-8 text-white/60">
               The ecosystem is built around probability, risk, signal quality, market movement and behavioral control. The result is not just information — it is decision intelligence.
