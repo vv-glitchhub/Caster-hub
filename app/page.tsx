@@ -1,4 +1,5 @@
 import HeroMotion from '../components/HeroMotion'
+import NeuralHero from '../components/NeuralHero'
 
 const apps = [
   {
@@ -66,6 +67,7 @@ export default function Home() {
     <main className="min-h-screen overflow-hidden bg-[#03040a] text-white">
       <section className="relative flex min-h-screen items-center justify-center px-6 py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(60,120,255,0.35),transparent_35%),radial-gradient(circle_at_20%_80%,rgba(180,20,60,0.22),transparent_30%),linear-gradient(180deg,#03040a_0%,#070814_55%,#020207_100%)]" />
+        <NeuralHero />
         <div className="grid-overlay" />
         <div className="orb orb-one" />
         <div className="orb orb-two" />
