@@ -1,4 +1,5 @@
 import HeroMotion from '../components/HeroMotion'
+import LiveSignalFeed from '../components/LiveSignalFeed'
 import NeuralHero from '../components/NeuralHero'
 
 const apps = [
@@ -71,7 +72,10 @@ export default function Home() {
         <div className="grid-overlay" />
         <div className="orb orb-one" />
         <div className="orb orb-two" />
-        <HeroMotion />
+        <div className="hero-shell">
+          <HeroMotion />
+          <LiveSignalFeed />
+        </div>
       </section>
 
       <section className="px-6 py-20">
