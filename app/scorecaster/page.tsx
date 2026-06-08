@@ -5,16 +5,14 @@ const engine = [
   ['Kelly staking', 'Suggests stake size based on edge and bankroll risk.'],
 ]
 
+const flow = ['Live odds', 'Scorecaster Engine', 'Top Picks', 'Risk control', 'Tracking']
+
 export default function ScorecasterPage() {
   return (
     <main className="min-h-screen bg-[#03040a] text-white">
       <section className="relative flex min-h-screen items-center px-6 py-28">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_20%,rgba(59,130,246,0.34),transparent_34%),radial-gradient(circle_at_18%_75%,rgba(220,38,38,0.24),transparent_30%),linear-gradient(180deg,#03040a,#07101f_55%,#020207)]" />
         <div className="grid-overlay" />
-        <nav className="absolute left-0 right-0 top-0 z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-8 text-sm uppercase tracking-[0.35em] text-white/70">
-          <a href="/">Caster</a>
-          <a href="/" className="text-white/55">Back to Hub</a>
-        </nav>
         <div className="relative z-10 mx-auto max-w-7xl">
           <p className="section-label">Betting Intelligence</p>
           <h1 className="section-title">Beat the market before it moves.</h1>
@@ -23,7 +21,7 @@ export default function ScorecasterPage() {
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <a className="primary-button" href="#engine">View Engine</a>
-            <a className="secondary-button" href="/">Open Hub</a>
+            <a className="secondary-button" href="#flow">How It Works</a>
           </div>
         </div>
       </section>
@@ -37,6 +35,21 @@ export default function ScorecasterPage() {
               <div className="app-card min-h-0" key={title}>
                 <p className="text-2xl font-semibold">{title}</p>
                 <p className="mt-4 text-white/60 leading-7">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="flow" className="px-6 py-28">
+        <div className="mx-auto max-w-7xl">
+          <p className="section-label">Operating Flow</p>
+          <h2 className="section-title">One data path from market to action.</h2>
+          <div className="mt-14 grid gap-4 md:grid-cols-5">
+            {flow.map((item, index) => (
+              <div key={item} className="dashboard-preview min-h-0">
+                <p className="text-sm text-white/45">0{index + 1}</p>
+                <h3 className="mt-5 text-2xl font-semibold">{item}</h3>
               </div>
             ))}
           </div>
