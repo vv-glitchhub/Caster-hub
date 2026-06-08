@@ -2,6 +2,7 @@ import AIStatus from '../components/AIStatus'
 import HeroMotion from '../components/HeroMotion'
 import LiveSignalFeed from '../components/LiveSignalFeed'
 import NeuralHero from '../components/NeuralHero'
+import Reveal from '../components/Reveal'
 
 const apps = [
   {
@@ -80,7 +81,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-6 py-20">
+      <Reveal className="px-6 py-20">
         <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-4">
           {metrics.map(([value, label]) => (
             <div key={label} className="dashboard-preview min-h-0 text-center">
@@ -89,20 +90,20 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </Reveal>
 
-      <section id="ecosystem" className="relative px-6 py-28">
-        <div className="mx-auto max-w-7xl">
+      <Reveal className="relative px-6 py-28" >
+        <div id="ecosystem" className="mx-auto max-w-7xl">
           <p className="section-label">Unified Intelligence</p>
           <h2 className="section-title">Three systems. One intelligence philosophy.</h2>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/60">
             Scorecaster analyzes sports markets. Stockcaster analyzes financial markets. Relaxcaster analyzes the person making the decision. Together they form one intelligent tech operating layer.
           </p>
         </div>
-      </section>
+      </Reveal>
 
-      <section id="apps" className="px-6 pb-28">
-        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
+      <Reveal className="px-6 pb-28">
+        <div id="apps" className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
           {apps.map((app) => (
             <a key={app.name} href={app.href} className="app-card group">
               <div className="card-glow" />
@@ -119,10 +120,10 @@ export default function Home() {
             </a>
           ))}
         </div>
-      </section>
+      </Reveal>
 
-      <section id="core" className="px-6 py-32">
-        <div className="mx-auto max-w-7xl text-center">
+      <Reveal className="px-6 py-32">
+        <div id="core" className="mx-auto max-w-7xl text-center">
           <p className="section-label">Caster Core AI</p>
           <h2 className="section-title mx-auto">The intelligence layer connecting every decision.</h2>
           <div className="core-visual">
@@ -134,10 +135,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section id="showcase" className="px-6 py-28">
-        <div className="mx-auto max-w-7xl">
+      <Reveal className="px-6 py-28">
+        <div id="showcase" className="mx-auto max-w-7xl">
           <p className="section-label">Dashboard Previews</p>
           <h2 className="section-title">Designed to feel like an intelligent tech command center.</h2>
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
@@ -154,9 +155,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="px-6 py-28">
+      <Reveal className="px-6 py-28">
         <div className="mx-auto max-w-7xl">
           <p className="section-label">Build Path</p>
           <h2 className="section-title">From landing page to intelligent tech platform.</h2>
@@ -169,10 +170,10 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section id="technology" className="relative px-6 py-32">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+      <Reveal className="relative px-6 py-32">
+        <div id="technology" className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <div>
             <p className="section-label">Technology</p>
             <h2 className="section-title">Data intelligence designed for better decisions.</h2>
@@ -190,9 +191,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="flex min-h-[70vh] items-center justify-center px-6 py-32 text-center">
+      <Reveal className="flex min-h-[70vh] items-center justify-center px-6 py-32 text-center">
         <div>
           <p className="section-label">The Vision</p>
           <h2 className="final-title">Intelligence is evolving.</h2>
@@ -201,7 +202,7 @@ export default function Home() {
           </p>
           <a className="primary-button mt-10 inline-flex" href="#top">Enter Caster</a>
         </div>
-      </section>
+      </Reveal>
     </main>
   )
 }
