@@ -1,3 +1,5 @@
+import HeroMotion from '../components/HeroMotion'
+
 const apps = [
   {
     name: 'Scorecaster',
@@ -67,18 +69,7 @@ export default function Home() {
         <div className="grid-overlay" />
         <div className="orb orb-one" />
         <div className="orb orb-two" />
-
-        <div id="top" className="relative z-10 mx-auto max-w-6xl text-center">
-          <h1 className="hero-title">CASTER</h1>
-          <p className="hero-statement">Intelligence<br />Engineered For Decisions</p>
-          <p className="mx-auto mt-8 max-w-3xl text-xl leading-8 text-white/72 md:text-2xl">
-            Intelligent tech ecosystem for sports, markets and human decision-making.
-          </p>
-          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a className="primary-button" href="#apps">Explore Ecosystem</a>
-            <a className="secondary-button" href="#core">View Intelligence Core</a>
-          </div>
-        </div>
+        <HeroMotion />
       </section>
 
       <section className="px-6 py-20">
