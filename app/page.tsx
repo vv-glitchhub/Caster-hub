@@ -69,8 +69,8 @@ export default function Home() {
         <div className="orb orb-two" />
 
         <div id="top" className="relative z-10 mx-auto max-w-6xl text-center">
-          <p className="mb-6 text-sm uppercase tracking-[0.55em] text-blue-200/80">Intelligent Tech · Decision Intelligence · AI Ecosystem</p>
           <h1 className="hero-title">CASTER</h1>
+          <p className="hero-statement">Intelligence<br />Engineered For Decisions</p>
           <p className="mx-auto mt-8 max-w-3xl text-xl leading-8 text-white/72 md:text-2xl">
             Intelligent tech ecosystem for sports, markets and human decision-making.
           </p>
