@@ -53,6 +53,12 @@ const metrics = [
   ['∞', 'Decision loops'],
 ]
 
+const roadmap = [
+  ['Now', 'Caster Hub, product pages and shared intelligence identity.'],
+  ['Next', 'Animated command center, richer dashboard previews and Caster Core visual system.'],
+  ['Later', 'Autonomous agents, alerts, live data integrations and cross-app decision intelligence.'],
+]
+
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#03040a] text-white">
@@ -63,10 +69,10 @@ export default function Home() {
         <div className="orb orb-two" />
 
         <div id="top" className="relative z-10 mx-auto max-w-6xl text-center">
-          <p className="mb-6 text-sm uppercase tracking-[0.55em] text-blue-200/80">Intelligent Tech · Cinematic UI · AI Ecosystem</p>
+          <p className="mb-6 text-sm uppercase tracking-[0.55em] text-blue-200/80">Intelligent Tech · Decision Intelligence · AI Ecosystem</p>
           <h1 className="hero-title">CASTER</h1>
           <p className="mx-auto mt-8 max-w-3xl text-xl leading-8 text-white/72 md:text-2xl">
-            Unified intelligence ecosystem for sports, markets and human decision-making.
+            Intelligent tech ecosystem for sports, markets and human decision-making.
           </p>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a className="primary-button" href="#apps">Explore Ecosystem</a>
@@ -91,7 +97,7 @@ export default function Home() {
           <p className="section-label">Unified Intelligence</p>
           <h2 className="section-title">Three systems. One intelligence philosophy.</h2>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/60">
-            Scorecaster analyzes sports markets. Stockcaster analyzes financial markets. Relaxcaster analyzes the person making the decision. Together they form one premium AI operating layer.
+            Scorecaster analyzes sports markets. Stockcaster analyzes financial markets. Relaxcaster analyzes the person making the decision. Together they form one intelligent tech operating layer.
           </p>
         </div>
       </section>
@@ -145,6 +151,21 @@ export default function Home() {
                     <div key={item} className="preview-row">{item}</div>
                   ))}
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-28">
+        <div className="mx-auto max-w-7xl">
+          <p className="section-label">Build Path</p>
+          <h2 className="section-title">From landing page to intelligent tech platform.</h2>
+          <div className="mt-14 grid gap-5 md:grid-cols-3">
+            {roadmap.map(([phase, text]) => (
+              <div className="dashboard-preview min-h-0" key={phase}>
+                <p className="text-5xl font-semibold tracking-tight">{phase}</p>
+                <p className="mt-6 text-white/60 leading-7">{text}</p>
               </div>
             ))}
           </div>
