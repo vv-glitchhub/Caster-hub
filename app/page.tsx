@@ -1,3 +1,4 @@
+import AIStatus from '../components/AIStatus'
 import HeroMotion from '../components/HeroMotion'
 import LiveSignalFeed from '../components/LiveSignalFeed'
 import NeuralHero from '../components/NeuralHero'
@@ -75,6 +76,7 @@ export default function Home() {
         <div className="hero-shell">
           <HeroMotion />
           <LiveSignalFeed />
+          <AIStatus />
         </div>
       </section>
 
