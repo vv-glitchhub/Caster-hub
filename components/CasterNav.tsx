@@ -3,6 +3,7 @@ const links = [
   { href: '/scorecaster', label: 'Scorecaster' },
   { href: '/stockcaster', label: 'Stockcaster' },
   { href: '/relaxcaster', label: 'Relaxcaster' },
+  { href: '/caster-core', label: 'Core' }
 ]
 
 export default function CasterNav() {
@@ -14,7 +15,7 @@ export default function CasterNav() {
           <a key={link.href} href={link.href}>{link.label}</a>
         ))}
       </nav>
-      <a className="caster-nav-cta" href="/#apps">Enter Ecosystem</a>
+      <a className="caster-nav-cta" href="/caster-core">Core</a>
     </header>
   )
 }
