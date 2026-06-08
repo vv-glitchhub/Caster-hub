@@ -36,6 +36,7 @@ a { color: inherit; text-decoration: none; }
 .neural-svg { width: 100%; height: 100%; }
 .neural-line { stroke: rgba(147,197,253,.46); stroke-width: .14; vector-effect: non-scaling-stroke; animation: neuralLine 4.6s ease-in-out infinite; }
 .neural-node { fill: rgb(147,197,253); transform-origin: center; filter: drop-shadow(0 0 10px rgba(147,197,253,.85)); animation: neuralNode 3.4s ease-in-out infinite; }
+.neural-signal { fill: white; filter: drop-shadow(0 0 10px rgba(255,255,255,.95)) drop-shadow(0 0 24px rgba(147,197,253,.9)); opacity: .92; }
 
 .grid-overlay { position: absolute; inset: 0; opacity: 0.18; background-image: linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 70px 70px; mask-image: radial-gradient(circle at center, black 0%, transparent 68%); animation: gridDrift 18s linear infinite; }
 .orb { position: absolute; width: 34rem; height: 34rem; border-radius: 999px; filter: blur(80px); opacity: 0.34; animation: float 9s ease-in-out infinite alternate; }
