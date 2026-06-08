@@ -13,7 +13,7 @@ const apps = [
     label: 'Market Intelligence',
     headline: 'Understand markets before the noise does.',
     description:
-      'Portfolio intelligence, stock analysis, macro signals, news quality scoring, sentiment tracking and autonomous market scouting.',
+      'Portfolio intelligence, stock analysis, macro signals, news quality scoring and autonomous market scouting.',
     href: '/stockcaster',
     stats: ['Risk', 'Macro', 'Signals'],
   },
@@ -46,6 +46,13 @@ const previews = [
   },
 ]
 
+const metrics = [
+  ['24/7', 'Intelligence layer'],
+  ['3', 'Core systems'],
+  ['AI', 'Signal analysis'],
+  ['∞', 'Decision loops'],
+]
+
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#03040a] text-white">
@@ -56,7 +63,7 @@ export default function Home() {
         <div className="orb orb-two" />
 
         <div id="top" className="relative z-10 mx-auto max-w-6xl text-center">
-          <p className="mb-6 text-sm uppercase tracking-[0.55em] text-blue-200/80">Luxury Tech · Cinematic UI · AI Ecosystem</p>
+          <p className="mb-6 text-sm uppercase tracking-[0.55em] text-blue-200/80">Intelligent Tech · Cinematic UI · AI Ecosystem</p>
           <h1 className="hero-title">CASTER</h1>
           <p className="mx-auto mt-8 max-w-3xl text-xl leading-8 text-white/72 md:text-2xl">
             Unified intelligence ecosystem for sports, markets and human decision-making.
@@ -65,6 +72,17 @@ export default function Home() {
             <a className="primary-button" href="#apps">Explore Ecosystem</a>
             <a className="secondary-button" href="#core">View Intelligence Core</a>
           </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20">
+        <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-4">
+          {metrics.map(([value, label]) => (
+            <div key={label} className="dashboard-preview min-h-0 text-center">
+              <div className="text-5xl font-bold tracking-tight">{value}</div>
+              <p className="mt-4 text-sm uppercase tracking-[0.25em] text-white/55">{label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -116,7 +134,7 @@ export default function Home() {
       <section id="showcase" className="px-6 py-28">
         <div className="mx-auto max-w-7xl">
           <p className="section-label">Dashboard Previews</p>
-          <h2 className="section-title">Designed to feel like an AI command center.</h2>
+          <h2 className="section-title">Designed to feel like an intelligent tech command center.</h2>
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
             {previews.map((preview) => (
               <div key={preview.title} className="dashboard-preview">
@@ -159,7 +177,7 @@ export default function Home() {
           <p className="section-label">The Vision</p>
           <h2 className="final-title">Intelligence is evolving.</h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/60">
-            Caster is the home for premium AI systems that help people understand data, pressure and decisions before the moment passes.
+            Caster is the home for intelligent tech systems that help people understand data, pressure and decisions before the moment passes.
           </p>
           <a className="primary-button mt-10 inline-flex" href="#top">Enter Caster</a>
         </div>
