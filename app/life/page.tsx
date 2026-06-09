@@ -1,3 +1,5 @@
+import LaunchCTA from '../../components/LaunchCTA'
+
 const widgets = [
   ['Goals', 'Track the life targets that matter most and see what needs attention.'],
   ['Projects', 'Turn big ideas into weekly execution with a clean command board.'],
@@ -100,6 +102,13 @@ export default function LifePage() {
             </div>
           ))}
         </section>
+
+        <LaunchCTA
+          eyebrow="Lifecaster"
+          title="Turn life direction into a daily system."
+          description="Continue to the main Caster OS dashboard and connect goals, widgets and AI recommendations."
+          tone="light"
+        />
       </div>
     </main>
   )
