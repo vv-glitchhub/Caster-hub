@@ -1,16 +1,11 @@
 import AgentContextPanel from '../../components/AgentContextPanel'
+import AgentRecommendations from '../../components/AgentRecommendations'
 
 const prompts = [
   ['Today', 'What should I focus on today?'],
   ['Money', 'How should I plan my next financial goal?'],
   ['Project', 'What is the next step for Caster OS?'],
   ['Health', 'How do I recover and stay consistent?'],
-]
-
-const recommendations = [
-  'Use the dashboard profile and selected widgets as the first context source.',
-  'Prioritize active high-impact projects before adding more tools.',
-  'Connect persistent memory before adding external APIs.',
 ]
 
 export default function AgentPage() {
@@ -24,7 +19,7 @@ export default function AgentPage() {
         <p className="mt-16 section-label">Caster AI Agent V1</p>
         <h1 className="section-title">Context-aware command layer.</h1>
         <p className="mt-8 max-w-3xl text-xl leading-8 text-white/62">
-          The Agent now reads the first Caster OS context layer: profile, memory, widgets, goals, projects and health state.
+          The Agent now reads the first Caster OS context layer and generates dynamic recommendations from profile, memory, widgets, goals and projects.
         </p>
 
         <section className="mt-14 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
@@ -37,7 +32,7 @@ export default function AgentPage() {
             <div className="mt-4 rounded-[2rem] border border-blue-200/20 bg-blue-400/10 p-5">
               <p className="text-sm text-blue-100/70">Caster Agent</p>
               <p className="mt-2 leading-7 text-white/78">
-                I will use your selected profile, active widgets, goals and projects to decide the next best action. Real model calls come after persistent memory is connected.
+                I now use your profile, selected widgets, active projects and goals to form the first recommendation layer. Real model calls come after persistent memory is connected.
               </p>
             </div>
           </div>
@@ -52,15 +47,11 @@ export default function AgentPage() {
                 </div>
               ))}
             </div>
-            <div className="mt-8 space-y-3">
-              {recommendations.map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.045] p-4 text-white/70">{item}</div>
-              ))}
-            </div>
           </div>
         </section>
 
-        <section className="mt-8">
+        <section className="mt-8 grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <AgentRecommendations />
           <AgentContextPanel />
         </section>
       </div>
