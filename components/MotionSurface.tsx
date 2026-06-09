@@ -1,5 +1,7 @@
+import type { ReactNode } from 'react'
+
 type MotionSurfaceProps = {
-  children: React.ReactNode
+  children: ReactNode
   className?: string
   href?: string
 }
