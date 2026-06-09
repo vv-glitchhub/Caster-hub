@@ -3,6 +3,7 @@ import ProfileSelector from '../../components/ProfileSelector'
 import PersonalDashboardWidgets from '../../components/PersonalDashboardWidgets'
 import WidgetManager from '../../components/WidgetManager'
 import WidgetOrderControls from '../../components/WidgetOrderControls'
+import DragDropLayout from '../../components/DragDropLayout'
 
 const actions = [
   ['Open Agent', '/agent'],
@@ -15,8 +16,8 @@ const actions = [
 const agentFeed = [
   'Profile selection controls the default widget stack.',
   'Widget Manager lets you add and remove dashboard blocks.',
-  'Widget Order Controls save layout order locally.',
-  'Next step: drag and drop layout editing.',
+  'Drag & Drop saves layout order locally.',
+  'Next step: cloud memory with Supabase persistence.',
 ]
 
 export default function DashboardPage() {
@@ -41,8 +42,8 @@ export default function DashboardPage() {
               <div className="preview-row">✓ Home 2.0 created</div>
               <div className="preview-row">✓ Dashboard 3.0 started</div>
               <div className="preview-row">✓ Widget Manager connected</div>
-              <div className="preview-row">✓ Widget Order Controls connected</div>
-              <div className="preview-row">→ Build drag and drop layout</div>
+              <div className="preview-row">✓ Drag & Drop Layout connected</div>
+              <div className="preview-row">→ Prepare Supabase persistence</div>
             </div>
           </div>
         </section>
@@ -51,8 +52,12 @@ export default function DashboardPage() {
           <ProfileSelector />
         </section>
 
-        <section className="mt-8 grid gap-6 lg:grid-cols-[1fr_1fr]">
+        <section className="mt-8 grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
           <WidgetManager />
+          <DragDropLayout />
+        </section>
+
+        <section className="mt-8">
           <WidgetOrderControls />
         </section>
 
