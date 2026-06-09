@@ -1,3 +1,5 @@
+import MotionSurface from '../components/MotionSurface'
+
 const modules = [
   ['Dashboard', 'Command Center', 'Profile-aware widgets, memory and daily AI focus.', '/dashboard'],
   ['Agent', 'Caster AI', 'Context-aware recommendations for the next decision.', '/agent'],
@@ -36,10 +38,10 @@ export default function Home() {
 
           <div className="mx-auto mt-10 grid max-w-4xl gap-3 md:grid-cols-4">
             {highlights.map(([title, text]) => (
-              <div key={title} className="rounded-3xl border border-white/10 bg-white/[0.045] p-5 text-left backdrop-blur-xl">
+              <MotionSurface key={title} className="p-5 text-left">
                 <p className="text-sm font-semibold text-white">{title}</p>
                 <p className="mt-2 text-xs leading-5 text-white/45">{text}</p>
-              </div>
+              </MotionSurface>
             ))}
           </div>
 
@@ -60,12 +62,12 @@ export default function Home() {
 
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {modules.map(([name, label, text, href]) => (
-              <a key={name} href={href} className="group rounded-[2.2rem] border border-white/10 bg-white/[0.045] p-7 transition hover:-translate-y-1 hover:border-blue-200/30 hover:bg-white/[0.07]">
+              <MotionSurface key={name} href={href} className="group p-7">
                 <p className="text-xs uppercase tracking-[0.34em] text-blue-200/65">{label}</p>
                 <h3 className="mt-8 text-4xl font-semibold tracking-tight">{name}</h3>
                 <p className="mt-5 min-h-16 text-sm leading-6 text-white/56">{text}</p>
                 <p className="mt-10 text-xs uppercase tracking-[0.28em] text-white/70">Open {name} →</p>
-              </a>
+              </MotionSurface>
             ))}
           </div>
         </div>
@@ -80,7 +82,7 @@ export default function Home() {
               The prototype already includes profile selection, widget state, layout memory, focus logic and an agent recommendation layer.
             </p>
           </div>
-          <div className="rounded-[2.4rem] border border-white/10 bg-white/[0.045] p-8 backdrop-blur-xl">
+          <MotionSurface className="p-8">
             <div className="rounded-full border border-blue-200/20 bg-blue-400/10 px-6 py-5 text-center text-sm uppercase tracking-[0.35em] text-blue-100/80">
               Caster OS
             </div>
@@ -89,7 +91,7 @@ export default function Home() {
                 <div key={item} className="rounded-3xl border border-white/10 bg-black/20 p-5 text-white/72">{item}</div>
               ))}
             </div>
-          </div>
+          </MotionSurface>
         </div>
       </section>
 
