@@ -1,6 +1,6 @@
 import TimeAwareFocus from '../../components/TimeAwareFocus'
-import WidgetCard from '../../components/widgets/WidgetCard'
-import { getDashboardWidgets } from '../../lib/caster-core/widget-engine'
+import ProfileSelector from '../../components/ProfileSelector'
+import PersonalDashboardWidgets from '../../components/PersonalDashboardWidgets'
 
 const actions = [
   ['Open Agent', '/agent'],
@@ -11,15 +11,11 @@ const actions = [
 ]
 
 const agentFeed = [
-  'Finish Dashboard 2.0 before adding real APIs.',
-  'Keep the prototype visual and easy to understand.',
-  'Next technical step: widget engine and shared state.',
-  'Do not add Supabase until the UX direction feels right.',
+  'Profile selection now controls the visible widgets.',
+  'Memory Layer stores the selected dashboard setup locally.',
+  'Next technical step: add and remove widgets from the dashboard.',
+  'Supabase comes later after the personal UX feels right.',
 ]
-
-const widgets = getDashboardWidgets().filter((widget) => widget.id !== 'ai-focus')
-const mediumWidgets = widgets.filter((widget) => widget.size === 'medium')
-const smallWidgets = widgets.filter((widget) => widget.size === 'small')
 
 export default function DashboardPage() {
   return (
@@ -28,10 +24,10 @@ export default function DashboardPage() {
       <div className="grid-overlay" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        <p className="section-label">Caster OS Dashboard 2.0</p>
-        <h1 className="section-title">Command center for the day.</h1>
+        <p className="section-label">Caster OS Dashboard 3.0</p>
+        <h1 className="section-title">Personal command center.</h1>
         <p className="mt-7 max-w-3xl text-lg leading-8 text-white/60">
-          A daily operating view for AI focus, goals, projects, wealth, gaming, health and quick actions.
+          A profile-aware dashboard powered by memory, widgets and the Caster focus engine.
         </p>
 
         <section className="mt-14 grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
@@ -41,25 +37,19 @@ export default function DashboardPage() {
             <p className="text-xs uppercase tracking-[0.35em] text-blue-200/70">Today</p>
             <div className="mt-6 space-y-3">
               <div className="preview-row">✓ Home 2.0 created</div>
-              <div className="preview-row">✓ Navigation upgraded</div>
-              <div className="preview-row">✓ Health module added</div>
-              <div className="preview-row">✓ Widget Engine connected</div>
-              <div className="preview-row">→ Validate deployment</div>
+              <div className="preview-row">✓ Dashboard 3.0 started</div>
+              <div className="preview-row">✓ Profile Selector connected</div>
+              <div className="preview-row">✓ Personal widgets connected</div>
+              <div className="preview-row">→ Build add/remove widget controls</div>
             </div>
           </div>
         </section>
 
-        <section className="mt-8 grid gap-6 lg:grid-cols-2">
-          {mediumWidgets.map((widget) => (
-            <WidgetCard key={widget.id} widget={widget} />
-          ))}
+        <section className="mt-8">
+          <ProfileSelector />
         </section>
 
-        <section className="mt-8 grid gap-6 lg:grid-cols-3">
-          {smallWidgets.map((widget) => (
-            <WidgetCard key={widget.id} widget={widget} />
-          ))}
-        </section>
+        <PersonalDashboardWidgets />
 
         <section className="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="dashboard-preview min-h-0">
