@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import CasterFooter from '../components/CasterFooter'
 import CasterNav from '../components/CasterNav'
 import './globals.css'
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <CasterNav />
         {children}
         <CasterFooter />
+        <Analytics />
       </body>
     </html>
   )
