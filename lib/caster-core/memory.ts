@@ -25,20 +25,36 @@ export const defaultWidgetLayout: WidgetLayoutItem[] = [
   { id: 'ai-focus', order: 1, size: 'wide' },
   { id: 'projects', order: 2, size: 'medium' },
   { id: 'goals', order: 3, size: 'medium' },
-  { id: 'wealth', order: 4, size: 'small' },
-  { id: 'gaming', order: 5, size: 'small' },
-  { id: 'health', order: 6, size: 'small' },
+  { id: 'calendar', order: 4, size: 'medium' },
+  { id: 'tasks', order: 5, size: 'medium' },
+  { id: 'wealth', order: 6, size: 'small' },
+  { id: 'gaming', order: 7, size: 'small' },
+  { id: 'health', order: 8, size: 'small' },
+  { id: 'notes', order: 9, size: 'small' },
+  { id: 'weather', order: 10, size: 'small' },
 ]
 
 export const defaultMemory: CasterMemory = {
   selectedProfile: 'entrepreneur',
-  selectedWidgets: ['ai-focus', 'projects', 'goals', 'wealth', 'health'],
+  selectedWidgets: ['ai-focus', 'projects', 'goals', 'calendar', 'tasks', 'wealth', 'health'],
   widgetLayout: defaultWidgetLayout,
   preferences: {
     compactMode: false,
     showGaming: true,
     showHealth: true,
   },
+}
+
+function mergeLayout(savedLayout: WidgetLayoutItem[] | undefined) {
+  if (!savedLayout?.length) return defaultWidgetLayout
+
+  const savedIds = savedLayout.map((item) => item.id)
+  const missingItems = defaultWidgetLayout.filter((item) => !savedIds.includes(item.id))
+
+  return [...savedLayout, ...missingItems].map((item, index) => ({
+    ...item,
+    order: index + 1,
+  }))
 }
 
 export function readMemory(): CasterMemory {
@@ -55,7 +71,7 @@ export function readMemory(): CasterMemory {
         ...defaultMemory.preferences,
         ...(parsed.preferences ?? {}),
       },
-      widgetLayout: parsed.widgetLayout ?? defaultWidgetLayout,
+      widgetLayout: mergeLayout(parsed.widgetLayout),
     }
   } catch {
     return defaultMemory
