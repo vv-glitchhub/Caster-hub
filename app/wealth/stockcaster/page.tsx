@@ -1,3 +1,5 @@
+import LaunchCTA from '../../../components/LaunchCTA'
+
 const signals = [
   ['Portfolio', 'Net worth, allocation and long-term progress.'],
   ['Market Signals', 'Macro, sectors, news quality and watchlist movement.'],
@@ -86,6 +88,13 @@ export default function StockcasterWealthPage() {
             </div>
           ))}
         </section>
+
+        <LaunchCTA
+          eyebrow="Stockcaster"
+          title="Turn market noise into direction."
+          description="Continue to the Caster OS dashboard and connect wealth signals with goals, risk and daily decisions."
+          tone="gold"
+        />
       </div>
     </main>
   )
