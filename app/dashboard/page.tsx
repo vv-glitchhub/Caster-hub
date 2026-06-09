@@ -6,59 +6,72 @@ import WidgetOrderControls from '../../components/WidgetOrderControls'
 import DragDropLayout from '../../components/DragDropLayout'
 
 const actions = [
-  ['Open Agent', '/agent'],
-  ['Open Life', '/life'],
+  ['Ask Agent', '/agent'],
+  ['Plan Life', '/life'],
   ['Open Wealth', '/wealth/stockcaster'],
-  ['Open Gaming', '/gaming/scorecaster'],
+  ['Open Scorecaster', '/gaming/scorecaster'],
   ['Open Health', '/health/relaxcaster'],
 ]
 
 const agentFeed = [
-  'Profile selection controls the default widget stack.',
-  'Widget Manager lets you add and remove dashboard blocks.',
-  'Drag & Drop saves layout order locally.',
-  'Next step: cloud memory with Supabase persistence.',
+  'Your profile shapes the dashboard stack.',
+  'Widgets, layout and memory are active in this prototype.',
+  'Caster Agent can now read the first context layer.',
+  'Cloud memory is the next production milestone.',
+]
+
+const launchStats = [
+  ['10', 'Widgets'],
+  ['5', 'Profiles'],
+  ['AI', 'Agent'],
+  ['V1', 'Memory'],
 ]
 
 export default function DashboardPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#03040a] px-6 py-28 text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_12%,rgba(96,165,250,0.26),transparent_34%),radial-gradient(circle_at_18%_76%,rgba(220,38,38,0.16),transparent_30%),linear-gradient(180deg,#03040a,#070814_55%,#020207)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_12%,rgba(96,165,250,0.30),transparent_34%),radial-gradient(circle_at_18%_76%,rgba(220,38,38,0.16),transparent_30%),linear-gradient(180deg,#03040a,#070814_55%,#020207)]" />
       <div className="grid-overlay" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        <p className="section-label">Caster OS Dashboard 3.0</p>
-        <h1 className="section-title">Personal command center.</h1>
-        <p className="mt-7 max-w-3xl text-lg leading-8 text-white/60">
-          A profile-aware dashboard powered by memory, widgets and the Caster focus engine.
-        </p>
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <div>
+            <p className="section-label">Caster OS Dashboard 3.0</p>
+            <h1 className="section-title">Your personal command center.</h1>
+            <p className="mt-7 max-w-3xl text-lg leading-8 text-white/64">
+              A profile-aware AI dashboard with widgets, memory, recommendations and customizable layout.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-2">
+            {launchStats.map(([value, label]) => (
+              <div key={label} className="rounded-3xl border border-white/10 bg-white/[0.045] p-5 text-center backdrop-blur-xl">
+                <p className="text-3xl font-semibold tracking-tight">{value}</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.22em] text-white/42">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <section className="mt-14 grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
           <TimeAwareFocus />
 
           <div className="dashboard-preview min-h-0">
-            <p className="text-xs uppercase tracking-[0.35em] text-blue-200/70">Today</p>
-            <div className="mt-6 space-y-3">
-              <div className="preview-row">✓ Home 2.0 created</div>
-              <div className="preview-row">✓ Dashboard 3.0 started</div>
-              <div className="preview-row">✓ Widget Manager connected</div>
-              <div className="preview-row">✓ Drag & Drop Layout connected</div>
-              <div className="preview-row">→ Prepare Supabase persistence</div>
+            <p className="text-xs uppercase tracking-[0.35em] text-blue-200/70">Live Prototype</p>
+            <h2 className="mt-5 text-3xl font-semibold">Caster is online.</h2>
+            <p className="mt-4 text-sm leading-6 text-white/52">
+              The dashboard is now powered by profile presets, widget memory, layout editing and agent context.
+            </p>
+            <div className="mt-8 space-y-3">
+              <div className="preview-row">✓ Profile-aware dashboard</div>
+              <div className="preview-row">✓ Widget marketplace</div>
+              <div className="preview-row">✓ Drag & drop layout</div>
+              <div className="preview-row">✓ Agent recommendations</div>
             </div>
           </div>
         </section>
 
         <section className="mt-8">
           <ProfileSelector />
-        </section>
-
-        <section className="mt-8 grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
-          <WidgetManager />
-          <DragDropLayout />
-        </section>
-
-        <section className="mt-8">
-          <WidgetOrderControls />
         </section>
 
         <PersonalDashboardWidgets />
@@ -85,6 +98,25 @@ export default function DashboardPage() {
               ))}
             </div>
             <a className="primary-button mt-8" href="/agent">Ask Caster AI</a>
+          </div>
+        </section>
+
+        <section className="mt-8 rounded-[2rem] border border-white/10 bg-white/[0.025] p-4 md:p-6">
+          <div className="mb-6 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-blue-200/70">Customize OS</p>
+              <h2 className="mt-4 text-3xl font-semibold">Edit the interface.</h2>
+            </div>
+            <p className="max-w-xl text-sm leading-6 text-white/45">
+              Prototype controls are kept below the main screenshot area so the first view stays clean and launch-ready.
+            </p>
+          </div>
+          <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
+            <WidgetManager />
+            <DragDropLayout />
+          </div>
+          <div className="mt-6">
+            <WidgetOrderControls />
           </div>
         </section>
       </div>
