@@ -1,17 +1,6 @@
 import TimeAwareFocus from '../../components/TimeAwareFocus'
-
-const goals = [
-  ['Caster OS Proto', 'Build the first usable command center', '78%'],
-  ['Golf Progress', 'Handicap 20 to 15 with weekly practice', '32%'],
-  ['Wealth Goal', 'Save and invest toward future freedom', '41%'],
-]
-
-const projects = [
-  ['Caster OS', 'Dashboard 2.0 in progress', 'Active'],
-  ['Scorecaster', 'Live engine connected as Gaming module', 'Live'],
-  ['Stockcaster', 'Wealth prototype ready', 'Proto'],
-  ['Relaxcaster', 'Sakura health space ready', 'Design'],
-]
+import WidgetCard from '../../components/widgets/WidgetCard'
+import { getDashboardWidgets } from '../../lib/caster-core/widget-engine'
 
 const actions = [
   ['Open Agent', '/agent'],
@@ -27,6 +16,10 @@ const agentFeed = [
   'Next technical step: widget engine and shared state.',
   'Do not add Supabase until the UX direction feels right.',
 ]
+
+const widgets = getDashboardWidgets().filter((widget) => widget.id !== 'ai-focus')
+const mediumWidgets = widgets.filter((widget) => widget.size === 'medium')
+const smallWidgets = widgets.filter((widget) => widget.size === 'small')
 
 export default function DashboardPage() {
   return (
@@ -50,94 +43,22 @@ export default function DashboardPage() {
               <div className="preview-row">✓ Home 2.0 created</div>
               <div className="preview-row">✓ Navigation upgraded</div>
               <div className="preview-row">✓ Health module added</div>
-              <div className="preview-row">✓ Time-aware focus added</div>
+              <div className="preview-row">✓ Widget Engine connected</div>
               <div className="preview-row">→ Validate deployment</div>
             </div>
           </div>
         </section>
 
         <section className="mt-8 grid gap-6 lg:grid-cols-2">
-          <div className="dashboard-preview min-h-0">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="text-xs uppercase tracking-[0.35em] text-blue-200/70">Goals</p>
-                <h2 className="mt-4 text-3xl font-semibold">Life targets</h2>
-              </div>
-              <a className="secondary-button" href="/life">Open Life</a>
-            </div>
-            <div className="mt-8 space-y-5">
-              {goals.map(([title, text, progress]) => (
-                <div key={title} className="rounded-3xl border border-white/10 bg-white/[0.045] p-5">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 className="text-xl font-semibold">{title}</h3>
-                      <p className="mt-2 text-sm leading-6 text-white/52">{text}</p>
-                    </div>
-                    <p className="text-sm text-white/45">{progress}</p>
-                  </div>
-                  <div className="mt-5 h-2 overflow-hidden rounded-full bg-white/10">
-                    <div className="h-full rounded-full bg-white/80" style={{ width: progress }} />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="dashboard-preview min-h-0">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="text-xs uppercase tracking-[0.35em] text-blue-200/70">Projects</p>
-                <h2 className="mt-4 text-3xl font-semibold">Execution board</h2>
-              </div>
-              <a className="secondary-button" href="/life">Plan</a>
-            </div>
-            <div className="mt-8 grid gap-3">
-              {projects.map(([name, detail, status]) => (
-                <div key={name} className="preview-row flex items-center justify-between gap-4">
-                  <div>
-                    <p className="font-semibold text-white">{name}</p>
-                    <p className="mt-1 text-sm text-white/45">{detail}</p>
-                  </div>
-                  <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-xs text-white/65">{status}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          {mediumWidgets.map((widget) => (
+            <WidgetCard key={widget.id} widget={widget} />
+          ))}
         </section>
 
         <section className="mt-8 grid gap-6 lg:grid-cols-3">
-          <a href="/wealth/stockcaster" className="dashboard-preview min-h-0 transition hover:-translate-y-2 hover:border-yellow-200/40">
-            <p className="text-xs uppercase tracking-[0.35em] text-yellow-200/70">Wealth</p>
-            <h2 className="mt-5 text-4xl font-semibold">€24,800</h2>
-            <p className="mt-3 text-white/50">Prototype net worth</p>
-            <div className="mt-8 space-y-3">
-              <div className="preview-row">Monthly saving: €350</div>
-              <div className="preview-row">Risk: balanced</div>
-              <div className="preview-row">AI outlook: positive</div>
-            </div>
-          </a>
-
-          <a href="/gaming/scorecaster" className="dashboard-preview min-h-0 transition hover:-translate-y-2 hover:border-emerald-200/40">
-            <p className="text-xs uppercase tracking-[0.35em] text-emerald-200/70">Gaming</p>
-            <h2 className="mt-5 text-4xl font-semibold">Scorecaster</h2>
-            <p className="mt-3 text-white/50">Modern sports intelligence</p>
-            <div className="mt-8 space-y-3">
-              <div className="preview-row">Top edge: +6.4%</div>
-              <div className="preview-row">Confidence: high</div>
-              <div className="preview-row">Engine: live portal</div>
-            </div>
-          </a>
-
-          <a href="/health/relaxcaster" className="dashboard-preview min-h-0 transition hover:-translate-y-2 hover:border-pink-200/40">
-            <p className="text-xs uppercase tracking-[0.35em] text-pink-200/70">Health</p>
-            <h2 className="mt-5 text-4xl font-semibold">78%</h2>
-            <p className="mt-3 text-white/50">Energy and recovery state</p>
-            <div className="mt-8 space-y-3">
-              <div className="preview-row">Recovery: good</div>
-              <div className="preview-row">Stress: low</div>
-              <div className="preview-row">Suggestion: short reset</div>
-            </div>
-          </a>
+          {smallWidgets.map((widget) => (
+            <WidgetCard key={widget.id} widget={widget} />
+          ))}
         </section>
 
         <section className="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
