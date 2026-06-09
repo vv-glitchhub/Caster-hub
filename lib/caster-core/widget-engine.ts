@@ -1,5 +1,5 @@
 export type WidgetSize = 'wide' | 'medium' | 'small'
-export type WidgetArea = 'core' | 'life' | 'wealth' | 'gaming' | 'health'
+export type WidgetArea = 'core' | 'life' | 'wealth' | 'gaming' | 'health' | 'utility'
 
 export type DashboardWidget = {
   id: string
@@ -38,6 +38,38 @@ export const dashboardWidgets: DashboardWidget[] = [
     href: '/life',
     description: 'Active execution board for building and planning.',
     items: ['Caster OS', 'Scorecaster', 'Stockcaster'],
+  },
+  {
+    id: 'calendar',
+    title: 'Calendar',
+    area: 'utility',
+    size: 'medium',
+    description: 'Upcoming schedule and daily planning window.',
+    items: ['Today overview', 'Next event', 'Focus block'],
+  },
+  {
+    id: 'tasks',
+    title: 'Tasks',
+    area: 'life',
+    size: 'medium',
+    description: 'Immediate execution list for the current profile.',
+    items: ['Build next feature', 'Validate deploy', 'Write recap'],
+  },
+  {
+    id: 'notes',
+    title: 'Notes',
+    area: 'utility',
+    size: 'small',
+    description: 'Quick capture for ideas, decisions and reminders.',
+    items: ['Idea inbox', 'Decision notes', 'Later list'],
+  },
+  {
+    id: 'weather',
+    title: 'Weather',
+    area: 'utility',
+    size: 'small',
+    description: 'Local planning signal for the day.',
+    items: ['Location later', 'Forecast later', 'Plan impact'],
   },
   {
     id: 'wealth',
