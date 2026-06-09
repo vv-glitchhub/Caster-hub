@@ -6,6 +6,7 @@ const areaTone: Record<DashboardWidget['area'], string> = {
   wealth: 'text-yellow-200/70',
   gaming: 'text-emerald-200/70',
   health: 'text-pink-200/70',
+  utility: 'text-cyan-200/70',
 }
 
 export default function WidgetCard({ widget }: { widget: DashboardWidget }) {
