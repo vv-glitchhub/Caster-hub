@@ -8,10 +8,10 @@ const modules = [
   {
     name: 'Dashboard',
     label: 'Command Center',
-    headline: 'Your operating view for the day.',
-    description: 'A single premium dashboard for goals, modules, AI recommendations and personal direction.',
+    headline: 'Your personal OS for the day.',
+    description: 'Profile-aware widgets, drag and drop layout, memory, recommendations and a premium AI command view.',
     href: '/dashboard',
-    stats: ['Today', 'Focus', 'Modules'],
+    stats: ['Profile', 'Widgets', 'Memory'],
   },
   {
     name: 'Life',
@@ -49,9 +49,9 @@ const modules = [
     name: 'Agent',
     label: 'Caster AI',
     headline: 'One command layer for decisions.',
-    description: 'The future intelligence layer connecting Life, Wealth, Gaming and Health into one personal AI system.',
+    description: 'Context-aware recommendations connecting Life, Wealth, Gaming and Health into one personal AI system.',
     href: '/agent',
-    stats: ['Ask', 'Plan', 'Act'],
+    stats: ['Context', 'Reason', 'Act'],
   },
 ]
 
@@ -59,38 +59,47 @@ const previews = [
   {
     title: 'AI Focus',
     tag: 'Caster Agent',
-    items: ['Today: finish prototype structure', 'Risk: too many features too early', 'Next: validate visual direction', 'Mode: command center'],
+    items: ['Profile: Entrepreneur', 'Today: ship the prototype', 'Risk: too many features too early', 'Next: validate the landing page'],
   },
   {
-    title: 'Life System',
-    tag: 'Lifecaster',
-    items: ['Caster OS Proto: 68%', 'Golf progress: 32%', 'Wealth goal: 41%', 'Projects: active'],
+    title: 'Personal Dashboard',
+    tag: 'Dashboard 3.0',
+    items: ['Drag & drop layout', 'Widget marketplace', 'Memory layer active', 'Profile-aware setup'],
   },
   {
-    title: 'Module Signals',
+    title: 'Agent Context',
     tag: 'Caster Core',
-    items: ['Gaming: Scorecaster live', 'Wealth: Stockcaster proto', 'Health: Sakura workspace', 'Agent: ready shell'],
+    items: ['Goals connected', 'Projects connected', 'Widgets connected', 'Recommendations generated'],
   },
 ]
 
 const metrics = [
-  ['1', 'Unified OS'],
+  ['1', 'AI OS'],
+  ['10', 'Widgets'],
   ['5', 'Life areas'],
-  ['AI', 'Command layer'],
-  ['V1', 'Prototype live'],
+  ['V1', 'Prototype'],
+]
+
+const launchPoints = [
+  'Profile-aware dashboard',
+  'Widget marketplace',
+  'Drag & drop layout',
+  'Memory layer',
+  'Agent recommendations',
+  'Supabase-ready foundation',
 ]
 
 const roadmap = [
-  ['Now', 'Caster OS Proto V1: Home, Dashboard, Life, Wealth, Gaming, Health and Agent.'],
-  ['Next', 'Real widgets, shared state, module navigation and first AI-powered workflows.'],
-  ['Later', 'Memory, accounts, live integrations, automations and cross-module decision intelligence.'],
+  ['Now', 'Caster OS Proto V1: cinematic home, personal dashboard, widgets, memory, layout editing and agent context.'],
+  ['Next', 'Cloud memory, real integrations, deeper agent workflows and module-specific live data.'],
+  ['Later', 'Mobile app, automations, accounts and cross-module decision intelligence.'],
 ]
 
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#03040a] text-white">
       <section id="top" className="relative flex min-h-screen items-center justify-center px-6 py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(60,120,255,0.38),transparent_35%),radial-gradient(circle_at_20%_80%,rgba(180,20,60,0.22),transparent_30%),linear-gradient(180deg,#03040a_0%,#070814_55%,#020207_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(60,120,255,0.42),transparent_35%),radial-gradient(circle_at_20%_80%,rgba(180,20,60,0.24),transparent_30%),linear-gradient(180deg,#03040a_0%,#070814_55%,#020207_100%)]" />
         <NeuralHero />
         <div className="grid-overlay" />
         <div className="orb orb-one" />
@@ -101,15 +110,20 @@ export default function Home() {
           <AIStatus />
         </div>
         <div className="relative z-10 mx-auto max-w-7xl pt-28 text-center">
-          <p className="section-label">Caster OS</p>
+          <p className="section-label">Caster OS Prototype</p>
           <h1 className="hero-title mt-8">One AI.</h1>
           <h2 className="hero-statement">Every Decision.</h2>
-          <p className="mx-auto mt-8 max-w-3xl text-xl leading-8 text-white/64">
-            A premium AI operating system for life, wealth, gaming, health and personal decision intelligence.
+          <p className="mx-auto mt-8 max-w-3xl text-xl leading-8 text-white/70">
+            A cinematic AI operating system prototype for life, wealth, gaming, health and personal decision intelligence.
           </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <span className="rounded-full border border-blue-200/20 bg-blue-400/10 px-5 py-2 text-sm text-blue-100/80">Dashboard 3.0</span>
+            <span className="rounded-full border border-white/10 bg-white/[0.06] px-5 py-2 text-sm text-white/70">Widget Marketplace</span>
+            <span className="rounded-full border border-white/10 bg-white/[0.06] px-5 py-2 text-sm text-white/70">AI Agent V1</span>
+          </div>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a className="primary-button" href="/dashboard">Open Dashboard</a>
-            <a className="secondary-button" href="/agent">Ask Caster AI</a>
+            <a className="primary-button" href="/dashboard">Open Prototype</a>
+            <a className="secondary-button" href="/agent">View Agent</a>
           </div>
         </div>
       </section>
@@ -127,11 +141,16 @@ export default function Home() {
 
       <Reveal className="relative px-6 py-28">
         <div id="ecosystem" className="mx-auto max-w-7xl">
-          <p className="section-label">Unified Personal Intelligence</p>
-          <h2 className="section-title">Not separate apps. One personal operating system.</h2>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-white/60">
-            Caster OS connects daily planning, long-term wealth, sports intelligence, calm wellbeing and an AI command layer into one premium ecosystem.
+          <p className="section-label">Prototype Launch</p>
+          <h2 className="section-title">Not another app. A personal AI command system.</h2>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-white/64">
+            Caster OS connects planning, money, sports intelligence, calm wellbeing and a context-aware AI agent into one premium ecosystem.
           </p>
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
+            {launchPoints.map((point) => (
+              <div key={point} className="rounded-3xl border border-white/10 bg-white/[0.045] p-5 text-white/72">✓ {point}</div>
+            ))}
+          </div>
         </div>
       </Reveal>
 
@@ -162,9 +181,9 @@ export default function Home() {
           <div className="core-visual">
             <div className="core-node">Caster OS</div>
             <div className="core-branches">
+              <a href="/dashboard">Dashboard<span>Profile and widgets</span></a>
+              <a href="/agent">Agent<span>Context and recommendations</span></a>
               <a href="/life">Life<span>Goals and projects</span></a>
-              <a href="/wealth/stockcaster">Wealth<span>Markets and money</span></a>
-              <a href="/health/relaxcaster">Health<span>Calm and recovery</span></a>
             </div>
           </div>
         </div>
@@ -172,8 +191,8 @@ export default function Home() {
 
       <Reveal className="px-6 py-28">
         <div id="showcase" className="mx-auto max-w-7xl">
-          <p className="section-label">Dashboard Previews</p>
-          <h2 className="section-title">Designed to feel like an intelligent command center.</h2>
+          <p className="section-label">Instagram-ready Prototype</p>
+          <h2 className="section-title">Built to look like a luxury AI product, not a school demo.</h2>
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
             {previews.map((preview) => (
               <div key={preview.title} className="dashboard-preview">
@@ -208,20 +227,20 @@ export default function Home() {
       <Reveal className="relative px-6 py-32">
         <div id="technology" className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <div>
-            <p className="section-label">The Product</p>
-            <h2 className="section-title">A luxury AI ecosystem that feels personal, not generic.</h2>
+            <p className="section-label">The Product Vision</p>
+            <h2 className="section-title">Luxury tech, cinematic UI and personal intelligence.</h2>
             <p className="mt-6 text-lg leading-8 text-white/60">
-              Scorecaster can stay modern and sporty. Relaxcaster can feel calm and sakura-inspired. Stockcaster can feel premium and financial. Caster OS keeps them unified.
+              Scorecaster stays modern and sporty. Relaxcaster feels calm and sakura-inspired. Stockcaster feels premium and financial. Caster OS keeps them unified.
             </p>
           </div>
           <div className="core-panel">
-            <div className="core-row"><span>Daily direction</span><strong>Lifecaster</strong></div>
-            <div className="core-row"><span>Long-term wealth</span><strong>Stockcaster</strong></div>
-            <div className="core-row"><span>Sports intelligence</span><strong>Scorecaster</strong></div>
-            <div className="core-row"><span>Calm wellbeing</span><strong>Relaxcaster</strong></div>
+            <div className="core-row"><span>Daily direction</span><strong>Dashboard 3.0</strong></div>
+            <div className="core-row"><span>AI reasoning</span><strong>Caster Agent</strong></div>
+            <div className="core-row"><span>Custom interface</span><strong>Widget Marketplace</strong></div>
+            <div className="core-row"><span>Persistent future</span><strong>Supabase-ready</strong></div>
             <div className="mt-8 rounded-3xl border border-blue-300/20 bg-blue-400/10 p-6">
               <p className="text-sm uppercase tracking-[0.28em] text-blue-100/80">Unified Layer</p>
-              <p className="mt-3 text-2xl font-semibold">AI agent · widgets · Caster Core · personal dashboard</p>
+              <p className="mt-3 text-2xl font-semibold">AI agent · widgets · memory · Caster Core · personal dashboard</p>
             </div>
           </div>
         </div>
@@ -229,10 +248,10 @@ export default function Home() {
 
       <Reveal className="flex min-h-[70vh] items-center justify-center px-6 py-32 text-center">
         <div>
-          <p className="section-label">Enter The OS</p>
-          <h2 className="final-title">Your next decision starts here.</h2>
+          <p className="section-label">Prototype Live</p>
+          <h2 className="final-title">The next decision starts here.</h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/60">
-            Open the dashboard, explore the modules and start shaping the first real version of Caster OS.
+            Open the prototype, explore the dashboard and watch Caster OS evolve from concept into a real personal AI platform.
           </p>
           <a className="primary-button mt-10 inline-flex" href="/dashboard">Launch Caster OS</a>
         </div>
