@@ -2,6 +2,7 @@ import TimeAwareFocus from '../../components/TimeAwareFocus'
 import ProfileSelector from '../../components/ProfileSelector'
 import PersonalDashboardWidgets from '../../components/PersonalDashboardWidgets'
 import WidgetManager from '../../components/WidgetManager'
+import WidgetOrderControls from '../../components/WidgetOrderControls'
 
 const actions = [
   ['Open Agent', '/agent'],
@@ -14,8 +15,8 @@ const actions = [
 const agentFeed = [
   'Profile selection controls the default widget stack.',
   'Widget Manager lets you add and remove dashboard blocks.',
-  'Memory Layer stores dashboard setup locally.',
-  'Next step: save layout order and prepare drag and drop.',
+  'Widget Order Controls save layout order locally.',
+  'Next step: drag and drop layout editing.',
 ]
 
 export default function DashboardPage() {
@@ -39,9 +40,9 @@ export default function DashboardPage() {
             <div className="mt-6 space-y-3">
               <div className="preview-row">✓ Home 2.0 created</div>
               <div className="preview-row">✓ Dashboard 3.0 started</div>
-              <div className="preview-row">✓ Profile Selector connected</div>
               <div className="preview-row">✓ Widget Manager connected</div>
-              <div className="preview-row">→ Prepare layout memory</div>
+              <div className="preview-row">✓ Widget Order Controls connected</div>
+              <div className="preview-row">→ Build drag and drop layout</div>
             </div>
           </div>
         </section>
@@ -50,8 +51,9 @@ export default function DashboardPage() {
           <ProfileSelector />
         </section>
 
-        <section className="mt-8">
+        <section className="mt-8 grid gap-6 lg:grid-cols-[1fr_1fr]">
           <WidgetManager />
+          <WidgetOrderControls />
         </section>
 
         <PersonalDashboardWidgets />
