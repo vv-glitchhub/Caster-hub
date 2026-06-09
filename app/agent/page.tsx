@@ -1,3 +1,5 @@
+import AgentContextPanel from '../../components/AgentContextPanel'
+
 const prompts = [
   ['Today', 'What should I focus on today?'],
   ['Money', 'How should I plan my next financial goal?'],
@@ -6,9 +8,9 @@ const prompts = [
 ]
 
 const recommendations = [
-  'Finish the prototype pages before adding real APIs.',
-  'Keep Scorecaster as the live gaming engine for now.',
-  'Use Lifecaster as the daily home for goals and projects.',
+  'Use the dashboard profile and selected widgets as the first context source.',
+  'Prioritize active high-impact projects before adding more tools.',
+  'Connect persistent memory before adding external APIs.',
 ]
 
 export default function AgentPage() {
@@ -19,10 +21,10 @@ export default function AgentPage() {
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <a href="/dashboard" className="text-xs uppercase tracking-[0.28em] text-white/45 hover:text-white">← Dashboard</a>
-        <p className="mt-16 section-label">Caster AI Agent</p>
-        <h1 className="section-title">One command layer for every decision.</h1>
+        <p className="mt-16 section-label">Caster AI Agent V1</p>
+        <h1 className="section-title">Context-aware command layer.</h1>
         <p className="mt-8 max-w-3xl text-xl leading-8 text-white/62">
-          The Agent is the center of Caster OS. In Proto V1 it shows the intended experience before real AI, memory and module tools are connected.
+          The Agent now reads the first Caster OS context layer: profile, memory, widgets, goals, projects and health state.
         </p>
 
         <section className="mt-14 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
@@ -35,7 +37,7 @@ export default function AgentPage() {
             <div className="mt-4 rounded-[2rem] border border-blue-200/20 bg-blue-400/10 p-5">
               <p className="text-sm text-blue-100/70">Caster Agent</p>
               <p className="mt-2 leading-7 text-white/78">
-                Focus on the prototype: connect the main pages, validate the feeling, then migrate real engines one by one.
+                I will use your selected profile, active widgets, goals and projects to decide the next best action. Real model calls come after persistent memory is connected.
               </p>
             </div>
           </div>
@@ -56,6 +58,10 @@ export default function AgentPage() {
               ))}
             </div>
           </div>
+        </section>
+
+        <section className="mt-8">
+          <AgentContextPanel />
         </section>
       </div>
     </main>
