@@ -1,16 +1,19 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { getDashboardWidgets } from '../lib/caster-core/widget-engine'
-import { readMemory } from '../lib/caster-core/memory'
+import { getDashboardWidgets, type DashboardWidget } from '../lib/caster-core/widget-engine'
+import { readMemory, type WidgetLayoutItem } from '../lib/caster-core/memory'
 import WidgetCard from './widgets/WidgetCard'
 
 export default function PersonalDashboardWidgets() {
   const [selectedWidgets, setSelectedWidgets] = useState<string[]>([])
+  const [layout, setLayout] = useState<WidgetLayoutItem[]>([])
 
   useEffect(() => {
     function syncMemory() {
-      setSelectedWidgets(readMemory().selectedWidgets)
+      const memory = readMemory()
+      setSelectedWidgets(memory.selectedWidgets)
+      setLayout(memory.widgetLayout)
     }
 
     syncMemory()
@@ -25,13 +28,28 @@ export default function PersonalDashboardWidgets() {
 
   const widgets = useMemo(() => {
     const allWidgets = getDashboardWidgets().filter((widget) => widget.id !== 'ai-focus')
-    if (!selectedWidgets.length) return allWidgets
+    const activeIds = selectedWidgets.length ? selectedWidgets.filter((id) => id !== 'ai-focus') : allWidgets.map((widget) => widget.id)
 
-    return selectedWidgets
-      .filter((id) => id !== 'ai-focus')
-      .map((id) => allWidgets.find((widget) => widget.id === id))
-      .filter(Boolean) as typeof allWidgets
-  }, [selectedWidgets])
+    const orderedIds = [...layout]
+      .sort((a, b) => a.order - b.order)
+      .map((item) => item.id)
+      .filter((id) => activeIds.includes(id))
+
+    const missingActiveIds = activeIds.filter((id) => !orderedIds.includes(id))
+    const finalIds = [...orderedIds, ...missingActiveIds]
+
+    return finalIds
+      .map((id) => {
+        const widget = allWidgets.find((entry) => entry.id === id)
+        const layoutItem = layout.find((item) => item.id === id)
+        if (!widget) return null
+        return {
+          ...widget,
+          size: layoutItem?.size ?? widget.size,
+        }
+      })
+      .filter(Boolean) as DashboardWidget[]
+  }, [selectedWidgets, layout])
 
   const mediumWidgets = widgets.filter((widget) => widget.size === 'medium')
   const smallWidgets = widgets.filter((widget) => widget.size === 'small')
