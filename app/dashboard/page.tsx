@@ -1,3 +1,5 @@
+import TimeAwareFocus from '../../components/TimeAwareFocus'
+
 const goals = [
   ['Caster OS Proto', 'Build the first usable command center', '78%'],
   ['Golf Progress', 'Handicap 20 to 15 with weekly practice', '32%'],
@@ -40,19 +42,7 @@ export default function DashboardPage() {
         </p>
 
         <section className="mt-14 grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
-          <div className="dashboard-preview min-h-0">
-            <p className="text-xs uppercase tracking-[0.35em] text-blue-200/70">AI Focus</p>
-            <h2 className="mt-5 text-5xl font-semibold tracking-tight">Good morning, Vikke.</h2>
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-white/62">
-              Today's focus is to make the dashboard feel like the real Caster OS home. Finish the widget grid, then test the full flow from Home to Agent.
-            </p>
-            <div className="mt-8 grid gap-3 md:grid-cols-4">
-              <div className="preview-row">Focus: Dashboard 2.0</div>
-              <div className="preview-row">Confidence: High</div>
-              <div className="preview-row">Risk: Feature creep</div>
-              <div className="preview-row">Next: Widget Engine</div>
-            </div>
-          </div>
+          <TimeAwareFocus />
 
           <div className="dashboard-preview min-h-0">
             <p className="text-xs uppercase tracking-[0.35em] text-blue-200/70">Today</p>
@@ -60,7 +50,7 @@ export default function DashboardPage() {
               <div className="preview-row">✓ Home 2.0 created</div>
               <div className="preview-row">✓ Navigation upgraded</div>
               <div className="preview-row">✓ Health module added</div>
-              <div className="preview-row">→ Build command dashboard</div>
+              <div className="preview-row">✓ Time-aware focus added</div>
               <div className="preview-row">→ Validate deployment</div>
             </div>
           </div>
