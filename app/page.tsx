@@ -1,6 +1,3 @@
-import AIStatus from '../components/AIStatus'
-import HeroMotion from '../components/HeroMotion'
-import LiveSignalFeed from '../components/LiveSignalFeed'
 import NeuralHero from '../components/NeuralHero'
 import Reveal from '../components/Reveal'
 
@@ -99,28 +96,37 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#03040a] text-white">
       <section id="top" className="relative flex min-h-screen items-center justify-center px-6 py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(60,120,255,0.42),transparent_35%),radial-gradient(circle_at_20%_80%,rgba(180,20,60,0.24),transparent_30%),linear-gradient(180deg,#03040a_0%,#070814_55%,#020207_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(60,120,255,0.34),transparent_34%),radial-gradient(circle_at_50%_88%,rgba(180,20,60,0.14),transparent_32%),linear-gradient(180deg,#020207_0%,#050814_56%,#020207_100%)]" />
         <NeuralHero />
-        <div className="grid-overlay" />
-        <div className="orb orb-one" />
-        <div className="orb orb-two" />
-        <div className="hero-shell">
-          <HeroMotion />
-          <LiveSignalFeed />
-          <AIStatus />
-        </div>
-        <div className="relative z-10 mx-auto max-w-7xl pt-28 text-center">
-          <p className="section-label">Caster OS Prototype</p>
-          <h1 className="hero-title mt-8">One AI.</h1>
-          <h2 className="hero-statement">Every Decision.</h2>
-          <p className="mx-auto mt-8 max-w-3xl text-xl leading-8 text-white/70">
-            A cinematic AI operating system prototype for life, wealth, gaming, health and personal decision intelligence.
+        <div className="grid-overlay opacity-35" />
+        <div className="absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-white/[0.015] blur-sm" />
+        <div className="relative z-10 mx-auto max-w-6xl text-center">
+          <p className="text-xs uppercase tracking-[0.55em] text-blue-100/60">Caster OS Prototype</p>
+          <h1 className="mt-10 text-[clamp(4rem,13vw,13rem)] font-semibold leading-[0.78] tracking-[-0.12em] text-white drop-shadow-[0_0_45px_rgba(255,255,255,0.18)]">
+            One AI.
+          </h1>
+          <h2 className="mt-8 text-[clamp(2.4rem,7vw,7.5rem)] font-semibold leading-none tracking-[-0.09em] text-white/92">
+            Every Decision.
+          </h2>
+          <p className="mx-auto mt-9 max-w-3xl text-lg leading-8 text-white/62 md:text-xl">
+            A cinematic AI operating system prototype for life, wealth, health, gaming and personal decision intelligence.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <span className="rounded-full border border-blue-200/20 bg-blue-400/10 px-5 py-2 text-sm text-blue-100/80">Dashboard 3.0</span>
-            <span className="rounded-full border border-white/10 bg-white/[0.06] px-5 py-2 text-sm text-white/70">Widget Marketplace</span>
-            <span className="rounded-full border border-white/10 bg-white/[0.06] px-5 py-2 text-sm text-white/70">AI Agent V1</span>
+
+          <div className="mx-auto mt-10 grid max-w-3xl gap-3 md:grid-cols-3">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.045] p-4 backdrop-blur-xl">
+              <p className="text-xs uppercase tracking-[0.24em] text-white/38">Dashboard</p>
+              <p className="mt-2 text-lg font-semibold">Command Center</p>
+            </div>
+            <div className="rounded-3xl border border-blue-200/20 bg-blue-400/10 p-4 backdrop-blur-xl">
+              <p className="text-xs uppercase tracking-[0.24em] text-blue-100/55">Agent</p>
+              <p className="mt-2 text-lg font-semibold">Context Aware</p>
+            </div>
+            <div className="rounded-3xl border border-white/10 bg-white/[0.045] p-4 backdrop-blur-xl">
+              <p className="text-xs uppercase tracking-[0.24em] text-white/38">Memory</p>
+              <p className="mt-2 text-lg font-semibold">Prototype V1</p>
+            </div>
           </div>
+
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a className="primary-button" href="/dashboard">Open Prototype</a>
             <a className="secondary-button" href="/agent">View Agent</a>
