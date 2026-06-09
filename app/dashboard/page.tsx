@@ -1,6 +1,7 @@
 import TimeAwareFocus from '../../components/TimeAwareFocus'
 import ProfileSelector from '../../components/ProfileSelector'
 import PersonalDashboardWidgets from '../../components/PersonalDashboardWidgets'
+import WidgetManager from '../../components/WidgetManager'
 
 const actions = [
   ['Open Agent', '/agent'],
@@ -11,10 +12,10 @@ const actions = [
 ]
 
 const agentFeed = [
-  'Profile selection now controls the visible widgets.',
-  'Memory Layer stores the selected dashboard setup locally.',
-  'Next technical step: add and remove widgets from the dashboard.',
-  'Supabase comes later after the personal UX feels right.',
+  'Profile selection controls the default widget stack.',
+  'Widget Manager lets you add and remove dashboard blocks.',
+  'Memory Layer stores dashboard setup locally.',
+  'Next step: save layout order and prepare drag and drop.',
 ]
 
 export default function DashboardPage() {
@@ -39,14 +40,18 @@ export default function DashboardPage() {
               <div className="preview-row">✓ Home 2.0 created</div>
               <div className="preview-row">✓ Dashboard 3.0 started</div>
               <div className="preview-row">✓ Profile Selector connected</div>
-              <div className="preview-row">✓ Personal widgets connected</div>
-              <div className="preview-row">→ Build add/remove widget controls</div>
+              <div className="preview-row">✓ Widget Manager connected</div>
+              <div className="preview-row">→ Prepare layout memory</div>
             </div>
           </div>
         </section>
 
         <section className="mt-8">
           <ProfileSelector />
+        </section>
+
+        <section className="mt-8">
+          <WidgetManager />
         </section>
 
         <PersonalDashboardWidgets />
