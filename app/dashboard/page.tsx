@@ -4,6 +4,7 @@ import PersonalDashboardWidgets from '../../components/PersonalDashboardWidgets'
 import WidgetManager from '../../components/WidgetManager'
 import WidgetOrderControls from '../../components/WidgetOrderControls'
 import DragDropLayout from '../../components/DragDropLayout'
+import MemoryPanel from '../../components/MemoryPanel'
 
 const actions = [
   ['Ask Agent', '/agent'],
@@ -67,8 +68,30 @@ export default function DashboardPage() {
               <div className="home-core-items">
                 <div className="home-core-item">Profile-aware</div>
                 <div className="home-core-item">Widgets active</div>
-                <div className="home-core-item">Layout memory</div>
+                <div className="home-core-item">Memory layer</div>
                 <div className="home-core-item">Agent ready</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-container">
+          <p className="section-label">Memory</p>
+          <h2 className="section-title">Caster OS now has a first memory layer.</h2>
+          <p className="home-section-lead">
+            This is currently local seed memory. Next it can be connected to Supabase so the system remembers real user goals, projects and preferences.
+          </p>
+          <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
+            <MemoryPanel />
+            <div className="motion-surface home-core-card">
+              <div className="home-core-pill">Next Sync</div>
+              <div className="home-core-items">
+                <div className="home-core-item">Supabase table</div>
+                <div className="home-core-item">User profile ID</div>
+                <div className="home-core-item">Agent context</div>
+                <div className="home-core-item">Memory updates</div>
               </div>
             </div>
           </div>
