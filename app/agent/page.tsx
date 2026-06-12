@@ -1,6 +1,7 @@
 import AgentContextPanel from '../../components/AgentContextPanel'
 import AgentRecommendations from '../../components/AgentRecommendations'
 import MemoryPanel from '../../components/MemoryPanel'
+import { generateAgentRecommendations } from '../../lib/agent-engine'
 import { loadMemorySummary } from '../../lib/memory-service'
 
 const prompts = [
@@ -19,6 +20,7 @@ const agentStats = [
 
 export default async function AgentPage() {
   const memorySummary = await loadMemorySummary()
+  const recommendations = await generateAgentRecommendations()
 
   return (
     <main className="home-page">
@@ -82,6 +84,26 @@ export default async function AgentPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-container">
+          <p className="section-label">Agent Engine</p>
+          <h2 className="section-title">Recommendations are now generated from the agent engine.</h2>
+          <p className="home-section-lead">
+            The first engine uses memory state, launch phase and product direction to produce next actions.
+          </p>
+          <div className="home-module-grid">
+            {recommendations.map((item) => (
+              <div key={item.title} className="motion-surface home-module-card">
+                <p className="home-module-label">Confidence {Math.round(item.confidence * 100)}%</p>
+                <h3 className="home-module-title">{item.title}</h3>
+                <p className="home-module-text">{item.reason}</p>
+                <p className="home-module-link">{item.nextAction}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
