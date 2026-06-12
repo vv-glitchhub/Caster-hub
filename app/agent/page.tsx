@@ -1,5 +1,7 @@
 import AgentContextPanel from '../../components/AgentContextPanel'
 import AgentRecommendations from '../../components/AgentRecommendations'
+import MemoryPanel from '../../components/MemoryPanel'
+import { loadMemorySummary } from '../../lib/memory-service'
 
 const prompts = [
   ['Today', 'What should I focus on today?'],
@@ -15,7 +17,9 @@ const agentStats = [
   ['Agent', 'V1'],
 ]
 
-export default function AgentPage() {
+export default async function AgentPage() {
+  const memorySummary = await loadMemorySummary()
+
   return (
     <main className="home-page">
       <section className="home-hero">
@@ -60,7 +64,7 @@ export default function AgentPage() {
               <div className="home-core-pill">Conversation</div>
               <div className="home-core-items">
                 <div className="home-core-item">User: Plan my next move.</div>
-                <div className="home-core-item">Agent: Read context first.</div>
+                <div className="home-core-item">Agent: Read memory first.</div>
                 <div className="home-core-item">Output: Recommendation.</div>
                 <div className="home-core-item">Next: Take action.</div>
               </div>
@@ -77,6 +81,25 @@ export default function AgentPage() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-container">
+          <p className="section-label">Memory Context</p>
+          <h2 className="section-title">Agent context now comes from the memory service.</h2>
+          <p className="home-section-lead">
+            Source: {memorySummary.source}. Connected: {memorySummary.connected ? 'Yes' : 'No'}.
+          </p>
+          <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
+            <MemoryPanel />
+            <div className="motion-surface home-core-card">
+              <div className="home-core-pill">Memory Summary</div>
+              <p className="home-section-lead" style={{ whiteSpace: 'pre-line', marginTop: '2rem' }}>
+                {memorySummary.data}
+              </p>
             </div>
           </div>
         </div>
