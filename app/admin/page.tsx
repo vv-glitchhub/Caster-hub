@@ -1,4 +1,5 @@
 import AgentBriefPanel from '../../components/AgentBriefPanel'
+import Spacing from '../../components/Spacing'
 import SupabaseStatusCard from '../../components/SupabaseStatusCard'
 
 const launchStats = [
@@ -63,9 +64,9 @@ export default function AdminPage() {
           <p className="home-section-lead">
             The admin console now shows the current generated agent brief from memory, recommendations and next actions.
           </p>
-          <div style={{ marginTop: '3.5rem' }}>
+          <Spacing>
             <AgentBriefPanel />
-          </div>
+          </Spacing>
         </div>
       </section>
 
@@ -97,18 +98,20 @@ export default function AdminPage() {
           <p className="home-section-lead">
             This card reads the current environment status and keeps the admin console honest about whether Caster OS is still using local memory or a configured Supabase backend.
           </p>
-          <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
-            <SupabaseStatusCard />
-            <div className="motion-surface home-core-card">
-              <div className="home-core-pill">Database Schema</div>
-              <div className="home-core-items">
-                <div className="home-core-item">profiles</div>
-                <div className="home-core-item">goals</div>
-                <div className="home-core-item">projects</div>
-                <div className="home-core-item">memories</div>
+          <Spacing>
+            <div className="home-core-grid">
+              <SupabaseStatusCard />
+              <div className="motion-surface home-core-card">
+                <div className="home-core-pill">Database Schema</div>
+                <div className="home-core-items">
+                  <div className="home-core-item">profiles</div>
+                  <div className="home-core-item">goals</div>
+                  <div className="home-core-item">projects</div>
+                  <div className="home-core-item">memories</div>
+                </div>
               </div>
             </div>
-          </div>
+          </Spacing>
         </div>
       </section>
 
