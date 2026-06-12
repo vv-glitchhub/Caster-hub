@@ -1,5 +1,4 @@
 import AgentContextPanel from '../../components/AgentContextPanel'
-import AgentRecommendations from '../../components/AgentRecommendations'
 import MemoryPanel from '../../components/MemoryPanel'
 import { generateAgentRecommendations } from '../../lib/agent-engine'
 import { loadMemorySummary } from '../../lib/memory-service'
@@ -132,8 +131,16 @@ export default async function AgentPage() {
           <p className="section-label">Context Layer</p>
           <h2 className="section-title">The agent becomes useful when it knows the system.</h2>
           <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
-            <AgentRecommendations />
             <AgentContextPanel />
+            <div className="motion-surface home-core-card">
+              <div className="home-core-pill">Next Engine Step</div>
+              <div className="home-core-items">
+                <div className="home-core-item">Live prompt context</div>
+                <div className="home-core-item">Real model call</div>
+                <div className="home-core-item">Action history</div>
+                <div className="home-core-item">Feedback loop</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
