@@ -5,6 +5,7 @@ import WidgetManager from '../../components/WidgetManager'
 import WidgetOrderControls from '../../components/WidgetOrderControls'
 import DragDropLayout from '../../components/DragDropLayout'
 import MemoryPanel from '../../components/MemoryPanel'
+import Spacing from '../../components/Spacing'
 import SupabaseStatusCard from '../../components/SupabaseStatusCard'
 
 const actions = [
@@ -62,18 +63,20 @@ export default function DashboardPage() {
             The dashboard brings the active profile, daily focus and module actions into one launch-ready surface.
           </p>
 
-          <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
-            <TimeAwareFocus />
-            <div className="motion-surface home-core-card">
-              <div className="home-core-pill">System Status</div>
-              <div className="home-core-items">
-                <div className="home-core-item">Profile-aware</div>
-                <div className="home-core-item">Widgets active</div>
-                <div className="home-core-item">Memory layer</div>
-                <div className="home-core-item">Agent ready</div>
+          <Spacing>
+            <div className="home-core-grid">
+              <TimeAwareFocus />
+              <div className="motion-surface home-core-card">
+                <div className="home-core-pill">System Status</div>
+                <div className="home-core-items">
+                  <div className="home-core-item">Profile-aware</div>
+                  <div className="home-core-item">Widgets active</div>
+                  <div className="home-core-item">Memory layer</div>
+                  <div className="home-core-item">Agent ready</div>
+                </div>
               </div>
             </div>
-          </div>
+          </Spacing>
         </div>
       </section>
 
@@ -84,10 +87,12 @@ export default function DashboardPage() {
           <p className="home-section-lead">
             This is currently local seed memory. Next it can be connected to Supabase so the system remembers real user goals, projects and preferences.
           </p>
-          <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
-            <MemoryPanel />
-            <SupabaseStatusCard />
-          </div>
+          <Spacing>
+            <div className="home-core-grid">
+              <MemoryPanel />
+              <SupabaseStatusCard />
+            </div>
+          </Spacing>
         </div>
       </section>
 
@@ -95,17 +100,19 @@ export default function DashboardPage() {
         <div className="home-container">
           <p className="section-label">Profile & Actions</p>
           <h2 className="section-title">Shape the OS around the current mode.</h2>
-          <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
-            <ProfileSelector />
-            <div className="motion-surface home-core-card">
-              <div className="home-core-pill">Quick Actions</div>
-              <div className="home-core-items">
-                {actions.map(([label, href]) => (
-                  <a key={label} href={href} className="home-core-item">{label}</a>
-                ))}
+          <Spacing>
+            <div className="home-core-grid">
+              <ProfileSelector />
+              <div className="motion-surface home-core-card">
+                <div className="home-core-pill">Quick Actions</div>
+                <div className="home-core-items">
+                  {actions.map(([label, href]) => (
+                    <a key={label} href={href} className="home-core-item">{label}</a>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </Spacing>
         </div>
       </section>
 
@@ -124,13 +131,15 @@ export default function DashboardPage() {
           <p className="home-section-lead">
             Prototype controls stay below the main view so the dashboard remains clean for publishing.
           </p>
-          <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
-            <WidgetManager />
-            <DragDropLayout />
-          </div>
-          <div style={{ marginTop: '1.5rem' }}>
+          <Spacing>
+            <div className="home-core-grid">
+              <WidgetManager />
+              <DragDropLayout />
+            </div>
+          </Spacing>
+          <Spacing size="sm">
             <WidgetOrderControls />
-          </div>
+          </Spacing>
         </div>
       </section>
     </main>
