@@ -5,6 +5,7 @@ import WidgetManager from '../../components/WidgetManager'
 import WidgetOrderControls from '../../components/WidgetOrderControls'
 import DragDropLayout from '../../components/DragDropLayout'
 import MemoryPanel from '../../components/MemoryPanel'
+import SupabaseStatusCard from '../../components/SupabaseStatusCard'
 
 const actions = [
   ['Ask Agent', '/agent'],
@@ -85,15 +86,7 @@ export default function DashboardPage() {
           </p>
           <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
             <MemoryPanel />
-            <div className="motion-surface home-core-card">
-              <div className="home-core-pill">Next Sync</div>
-              <div className="home-core-items">
-                <div className="home-core-item">Supabase table</div>
-                <div className="home-core-item">User profile ID</div>
-                <div className="home-core-item">Agent context</div>
-                <div className="home-core-item">Memory updates</div>
-              </div>
-            </div>
+            <SupabaseStatusCard />
           </div>
         </div>
       </section>
