@@ -1,3 +1,4 @@
+import Spacing from './Spacing'
 import { createAgentBrief } from '../lib/agent-engine'
 
 export default async function AgentBriefPanel() {
@@ -6,9 +7,11 @@ export default async function AgentBriefPanel() {
   return (
     <div className="motion-surface home-core-card">
       <div className="home-core-pill">Agent Brief</div>
-      <p className="home-section-lead" style={{ whiteSpace: 'pre-line', marginTop: '2rem' }}>
-        {brief}
-      </p>
+      <Spacing size="md">
+        <p className="home-section-lead">
+          {brief}
+        </p>
+      </Spacing>
     </div>
   )
 }
