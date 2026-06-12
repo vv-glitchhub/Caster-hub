@@ -1,3 +1,5 @@
+import SupabaseStatusCard from '../../components/SupabaseStatusCard'
+
 const launchStats = [
   ['Status', 'Beta'],
   ['Public site', 'Live'],
@@ -70,6 +72,28 @@ export default function AdminPage() {
                 <p className="home-module-link">Analytics status</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-container">
+          <p className="section-label">Database</p>
+          <h2 className="section-title">Supabase is ready to become the memory engine.</h2>
+          <p className="home-section-lead">
+            This card reads the current environment status and keeps the admin console honest about whether Caster OS is still using local memory or a configured Supabase backend.
+          </p>
+          <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
+            <SupabaseStatusCard />
+            <div className="motion-surface home-core-card">
+              <div className="home-core-pill">Database Schema</div>
+              <div className="home-core-items">
+                <div className="home-core-item">profiles</div>
+                <div className="home-core-item">goals</div>
+                <div className="home-core-item">projects</div>
+                <div className="home-core-item">memories</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
