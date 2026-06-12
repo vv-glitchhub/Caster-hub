@@ -1,3 +1,4 @@
+import AgentBriefPanel from '../../components/AgentBriefPanel'
 import SupabaseStatusCard from '../../components/SupabaseStatusCard'
 
 const launchStats = [
@@ -51,6 +52,19 @@ export default function AdminPage() {
           <div className="home-actions">
             <a className="primary-button" href="/">Open Public Site</a>
             <a className="secondary-button" href="/dashboard">Open Dashboard</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-container">
+          <p className="section-label">Agent Brief</p>
+          <h2 className="section-title">One operational view of the AI layer.</h2>
+          <p className="home-section-lead">
+            The admin console now shows the current generated agent brief from memory, recommendations and next actions.
+          </p>
+          <div style={{ marginTop: '3.5rem' }}>
+            <AgentBriefPanel />
           </div>
         </div>
       </section>
