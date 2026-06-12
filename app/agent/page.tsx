@@ -1,5 +1,6 @@
 import AgentContextPanel from '../../components/AgentContextPanel'
 import MemoryPanel from '../../components/MemoryPanel'
+import Spacing from '../../components/Spacing'
 import { generateAgentRecommendations } from '../../lib/agent-engine'
 import { loadMemorySummary } from '../../lib/memory-service'
 
@@ -60,30 +61,32 @@ export default async function AgentPage() {
             Instead of showing every possible option, the agent turns current context into a focused recommendation.
           </p>
 
-          <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
-            <div className="motion-surface home-core-card">
-              <div className="home-core-pill">Conversation</div>
-              <div className="home-core-items">
-                <div className="home-core-item">User: Plan my next move.</div>
-                <div className="home-core-item">Agent: Read memory first.</div>
-                <div className="home-core-item">Output: Recommendation.</div>
-                <div className="home-core-item">Next: Take action.</div>
+          <Spacing>
+            <div className="home-core-grid">
+              <div className="motion-surface home-core-card">
+                <div className="home-core-pill">Conversation</div>
+                <div className="home-core-items">
+                  <div className="home-core-item">User: Plan my next move.</div>
+                  <div className="home-core-item">Agent: Read memory first.</div>
+                  <div className="home-core-item">Output: Recommendation.</div>
+                  <div className="home-core-item">Next: Take action.</div>
+                </div>
               </div>
-            </div>
 
-            <div className="motion-surface home-core-card">
-              <div className="home-core-pill">Quick Prompts</div>
-              <div className="home-core-items">
-                {prompts.map(([tag, text]) => (
-                  <div key={tag} className="home-core-item">
-                    <strong>{tag}</strong>
-                    <br />
-                    {text}
-                  </div>
-                ))}
+              <div className="motion-surface home-core-card">
+                <div className="home-core-pill">Quick Prompts</div>
+                <div className="home-core-items">
+                  {prompts.map(([tag, text]) => (
+                    <div key={tag} className="home-core-item">
+                      <strong>{tag}</strong>
+                      <br />
+                      {text}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </Spacing>
         </div>
       </section>
 
@@ -114,15 +117,17 @@ export default async function AgentPage() {
           <p className="home-section-lead">
             Source: {memorySummary.source}. Connected: {memorySummary.connected ? 'Yes' : 'No'}.
           </p>
-          <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
-            <MemoryPanel />
-            <div className="motion-surface home-core-card">
-              <div className="home-core-pill">Memory Summary</div>
-              <p className="home-section-lead" style={{ whiteSpace: 'pre-line', marginTop: '2rem' }}>
-                {memorySummary.data}
-              </p>
+          <Spacing>
+            <div className="home-core-grid">
+              <MemoryPanel />
+              <div className="motion-surface home-core-card">
+                <div className="home-core-pill">Memory Summary</div>
+                <Spacing size="md">
+                  <p className="home-section-lead">{memorySummary.data}</p>
+                </Spacing>
+              </div>
             </div>
-          </div>
+          </Spacing>
         </div>
       </section>
 
@@ -130,18 +135,20 @@ export default async function AgentPage() {
         <div className="home-container">
           <p className="section-label">Context Layer</p>
           <h2 className="section-title">The agent becomes useful when it knows the system.</h2>
-          <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
-            <AgentContextPanel />
-            <div className="motion-surface home-core-card">
-              <div className="home-core-pill">Next Engine Step</div>
-              <div className="home-core-items">
-                <div className="home-core-item">Live prompt context</div>
-                <div className="home-core-item">Real model call</div>
-                <div className="home-core-item">Action history</div>
-                <div className="home-core-item">Feedback loop</div>
+          <Spacing>
+            <div className="home-core-grid">
+              <AgentContextPanel />
+              <div className="motion-surface home-core-card">
+                <div className="home-core-pill">Next Engine Step</div>
+                <div className="home-core-items">
+                  <div className="home-core-item">Live prompt context</div>
+                  <div className="home-core-item">Real model call</div>
+                  <div className="home-core-item">Action history</div>
+                  <div className="home-core-item">Feedback loop</div>
+                </div>
               </div>
             </div>
-          </div>
+          </Spacing>
         </div>
       </section>
     </main>
