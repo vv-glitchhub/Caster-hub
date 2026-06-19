@@ -1,3 +1,4 @@
+import CommandCenter from '../components/CommandCenter'
 import MotionSurface from '../components/MotionSurface'
 
 const modules = [
@@ -78,14 +79,7 @@ export default function Home() {
               The prototype already includes profile selection, widget state, layout memory, focus logic and an agent recommendation layer.
             </p>
           </div>
-          <MotionSurface className="home-core-card">
-            <div className="home-core-pill">Caster OS</div>
-            <div className="home-core-items">
-              {['Dashboard', 'Agent', 'Life', 'Wealth', 'Gaming', 'Health'].map((item) => (
-                <div key={item} className="home-core-item">{item}</div>
-              ))}
-            </div>
-          </MotionSurface>
+          <CommandCenter />
         </div>
       </section>
 
