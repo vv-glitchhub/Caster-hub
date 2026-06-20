@@ -1,4 +1,5 @@
 import LaunchCTA from '../../../components/LaunchCTA'
+import ProductOSExpansion from '../../../components/ProductOSExpansion'
 
 const signals = [
   ['Portfolio', 'Net worth, allocation and long-term progress.'],
@@ -99,6 +100,12 @@ export default function StockcasterWealthPage() {
           />
         </div>
       </section>
+
+      <ProductOSExpansion
+        label="Stockcaster"
+        title="Wealth intelligence now connects to the full Caster OS layer."
+        text="The wealth module links market signals, portfolio risk and long-term goals with agent recommendations and shared memory."
+      />
     </main>
   )
 }
