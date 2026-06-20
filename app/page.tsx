@@ -1,4 +1,5 @@
 import CommandCenter from '../components/CommandCenter'
+import HomeExpansion from '../components/HomeExpansion'
 import MotionSurface from '../components/MotionSurface'
 
 const modules = [
@@ -69,6 +70,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <HomeExpansion />
 
       <section className="home-section">
         <div className="home-core-grid home-container">
