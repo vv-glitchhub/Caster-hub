@@ -1,3 +1,5 @@
+import ProductOSExpansion from '../../../components/ProductOSExpansion'
+
 const modes = [
   ['Calm', 'Breathing, reset and quiet focus.'],
   ['Clarity', 'Facts, feelings and next steps.'],
@@ -90,6 +92,12 @@ export default function HealthRelaxcasterPage() {
           </div>
         </div>
       </section>
+
+      <ProductOSExpansion
+        label="Relaxcaster"
+        title="Human state now connects to the full Caster OS layer."
+        text="The wellness module links calm, recovery and clarity with agent recommendations, shared memory and decision timing."
+      />
     </main>
   )
 }
