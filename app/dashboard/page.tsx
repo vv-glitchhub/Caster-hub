@@ -1,12 +1,15 @@
-import TimeAwareFocus from '../../components/TimeAwareFocus'
-import ProfileSelector from '../../components/ProfileSelector'
-import PersonalDashboardWidgets from '../../components/PersonalDashboardWidgets'
-import WidgetManager from '../../components/WidgetManager'
-import WidgetOrderControls from '../../components/WidgetOrderControls'
+import AgentPreview from '../../components/AgentPreview'
+import CommandCenter from '../../components/CommandCenter'
 import DragDropLayout from '../../components/DragDropLayout'
+import IntelligenceGraphs from '../../components/IntelligenceGraphs'
 import MemoryPanel from '../../components/MemoryPanel'
+import PersonalDashboardWidgets from '../../components/PersonalDashboardWidgets'
+import ProfileSelector from '../../components/ProfileSelector'
 import Spacing from '../../components/Spacing'
 import SupabaseStatusCard from '../../components/SupabaseStatusCard'
+import TimeAwareFocus from '../../components/TimeAwareFocus'
+import WidgetManager from '../../components/WidgetManager'
+import WidgetOrderControls from '../../components/WidgetOrderControls'
 
 const actions = [
   ['Ask Agent', '/agent'],
@@ -66,17 +69,33 @@ export default function DashboardPage() {
           <Spacing>
             <div className="home-core-grid">
               <TimeAwareFocus />
-              <div className="motion-surface home-core-card">
-                <div className="home-core-pill">System Status</div>
-                <div className="home-core-items">
-                  <div className="home-core-item">Profile-aware</div>
-                  <div className="home-core-item">Widgets active</div>
-                  <div className="home-core-item">Memory layer</div>
-                  <div className="home-core-item">Agent ready</div>
-                </div>
-              </div>
+              <AgentPreview />
             </div>
           </Spacing>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-container">
+          <p className="section-label">Live Intelligence</p>
+          <h2 className="section-title">Signals across wealth, gaming and health.</h2>
+          <p className="home-section-lead">
+            Dashboard 3.0 now surfaces intelligence graphs directly inside the operating view.
+          </p>
+          <IntelligenceGraphs />
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-core-grid home-container">
+          <div>
+            <p className="section-label">System Core</p>
+            <h2 className="section-title">The engines behind every widget.</h2>
+            <p className="home-section-lead">
+              Probability, risk, decision and behavior engines connect the dashboard into one intelligence loop.
+            </p>
+          </div>
+          <CommandCenter />
         </div>
       </section>
 
