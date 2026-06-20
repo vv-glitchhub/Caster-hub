@@ -1,4 +1,6 @@
 import AgentContextPanel from '../../components/AgentContextPanel'
+import AgentPreview from '../../components/AgentPreview'
+import CommandCenter from '../../components/CommandCenter'
 import MemoryPanel from '../../components/MemoryPanel'
 import Spacing from '../../components/Spacing'
 import { generateAgentRecommendations } from '../../lib/agent-engine'
@@ -63,16 +65,7 @@ export default async function AgentPage() {
 
           <Spacing>
             <div className="home-core-grid">
-              <div className="motion-surface home-core-card">
-                <div className="home-core-pill">Conversation</div>
-                <div className="home-core-items">
-                  <div className="home-core-item">User: Plan my next move.</div>
-                  <div className="home-core-item">Agent: Read memory first.</div>
-                  <div className="home-core-item">Output: Recommendation.</div>
-                  <div className="home-core-item">Next: Take action.</div>
-                </div>
-              </div>
-
+              <AgentPreview />
               <div className="motion-surface home-core-card">
                 <div className="home-core-pill">Quick Prompts</div>
                 <div className="home-core-items">
@@ -149,6 +142,19 @@ export default async function AgentPage() {
               </div>
             </div>
           </Spacing>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-core-grid home-container">
+          <div>
+            <p className="section-label">Agent Command Layer</p>
+            <h2 className="section-title">Caster AI sits on top of the same core engines.</h2>
+            <p className="home-section-lead">
+              The agent should not be a chatbot. It should be the decision interface for probability, risk, behavior and action quality.
+            </p>
+          </div>
+          <CommandCenter />
         </div>
       </section>
     </main>
