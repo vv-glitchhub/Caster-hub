@@ -4,6 +4,7 @@ const links = [
   { href: '/system', label: 'System' },
   { href: '/modules', label: 'Modules' },
   { href: '/roadmap', label: 'Roadmap' },
+  { href: '/pitch', label: 'Pitch' },
   { href: '/wealth/stockcaster', label: 'Wealth' },
   { href: '/gaming/scorecaster', label: 'Gaming' },
   { href: '/health/relaxcaster', label: 'Health' },
