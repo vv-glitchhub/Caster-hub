@@ -9,6 +9,7 @@ import './globals.css'
 import './polish.css'
 import './cinematic.css'
 import './mobile-fixes.css'
+import './dashboard-polish.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://caster-hub.vercel.app'),
