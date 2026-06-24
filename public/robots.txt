@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://caster-hub.vercel.app/sitemap.xml
