@@ -1,20 +1,19 @@
 import MotionSurface from '../../components/MotionSurface'
 
 const demoSteps = [
-  ['01', 'Start at Home', 'Show the premium OS identity and explain that Caster is one AI layer for decisions.', '/'],
-  ['02', 'Open Dashboard', 'Show daily focus, widgets, memory, intelligence graphs and the command layer.', '/dashboard'],
-  ['03', 'Ask Agent', 'Show how Caster AI turns context into next actions instead of acting like a generic chatbot.', '/agent'],
-  ['04', 'System Health', 'Show that the platform already has core, memory, widgets, products and analytics status.', '/system'],
-  ['05', 'Product Modules', 'Show Stockcaster, Scorecaster and Relaxcaster as connected product surfaces.', '/modules'],
-  ['06', 'Roadmap', 'Show the path from prototype to live intelligence and autonomous agent actions.', '/roadmap'],
-  ['07', 'Pitch', 'Close with the business story: problem, solution, edge and product pillars.', '/pitch'],
+  ['01', 'The Vision', 'Open with the idea: Caster is not another app. It is an AI operating layer for decisions.', '/'],
+  ['02', 'The Process', 'Explain the flow: signal, context, decision, module and memory. This is the core product logic.', '/'],
+  ['03', 'The Dashboard', 'Show the command center, widgets, memory, focus and intelligence graphs.', '/dashboard'],
+  ['04', 'The Agent', 'Show Caster AI as the interface that turns context into the next step.', '/agent'],
+  ['05', 'The Ecosystem', 'Show modules: Wealth, Gaming, Health, Life and System working as one platform.', '/modules'],
+  ['06', 'The Business', 'Move into pitch, business model and pricing after the product has been understood.', '/pitch'],
 ]
 
 const proofPoints = [
-  ['Platform', 'One shared OS shell across all pages.'],
-  ['Agent', 'A decision interface connected to memory and context.'],
-  ['Products', 'Wealth, gaming and health modules connected to shared core.'],
-  ['Roadmap', 'Clear path toward accounts, memory, live data and safe actions.'],
+  ['Luxury tech', 'The experience should feel premium, calm and cinematic.'],
+  ['Cinematic UI', 'The product story is guided instead of feeling like a normal website.'],
+  ['AI ecosystem', 'The value is one agent across many decision surfaces.'],
+  ['Data intelligence', 'The system turns scattered signals into practical next actions.'],
 ]
 
 export default function DemoPage() {
@@ -25,23 +24,23 @@ export default function DemoPage() {
         <div className="home-grid" />
         <div className="home-orb" />
         <div className="home-hero-inner">
-          <p className="home-eyebrow">Investor Demo Flow</p>
-          <h1 className="home-title">Show.</h1>
-          <h2 className="home-subtitle">The system.</h2>
+          <p className="home-eyebrow">Public Alpha Demo Flow</p>
+          <h1 className="home-title">Present.</h1>
+          <h2 className="home-subtitle">The operating system.</h2>
           <p className="home-lead">
-            A guided path for presenting Caster OS as a premium AI operating system prototype, not just a collection of pages.
+            The demo should feel like a product reveal: first the vision, then the process, then the dashboard, agent, ecosystem and business layer.
           </p>
           <div className="home-actions">
-            <a className="primary-button" href="/dashboard">Start Demo</a>
-            <a className="secondary-button" href="/pitch">Open Pitch</a>
+            <a className="primary-button" href="/">Start From Vision</a>
+            <a className="secondary-button" href="/dashboard">Open Dashboard</a>
           </div>
         </div>
       </section>
 
       <section className="home-section">
         <div className="home-container">
-          <p className="section-label">Demo Path</p>
-          <h2 className="section-title">Present Caster OS in the right order.</h2>
+          <p className="section-label">Presentation Process</p>
+          <h2 className="section-title">Guide people through the story, not just the pages.</h2>
           <div className="home-module-grid">
             {demoSteps.map(([step, title, text, href]) => (
               <MotionSurface key={step} href={href} className="home-module-card min-h-0">
@@ -57,12 +56,12 @@ export default function DemoPage() {
 
       <section className="home-section">
         <div className="home-container">
-          <p className="section-label">Proof Points</p>
-          <h2 className="section-title">What the demo should prove.</h2>
+          <p className="section-label">Visual Direction</p>
+          <h2 className="section-title">The public alpha should feel premium before it explains itself.</h2>
           <div className="home-module-grid">
             {proofPoints.map(([title, text]) => (
               <MotionSurface key={title} className="home-module-card min-h-0">
-                <p className="home-module-label">Proof</p>
+                <p className="home-module-label">Direction</p>
                 <h3 className="home-module-title">{title}</h3>
                 <p className="home-module-text">{text}</p>
               </MotionSurface>
