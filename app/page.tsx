@@ -3,6 +3,7 @@ import CinematicReveal from '../components/CinematicReveal'
 import CommandCenter from '../components/CommandCenter'
 import HomeExpansion from '../components/HomeExpansion'
 import MotionSurface from '../components/MotionSurface'
+import SignalRibbon from '../components/SignalRibbon'
 
 const modules = [
   ['Dashboard', 'Command Center', 'Profile-aware widgets, memory and daily AI focus.', '/dashboard'],
@@ -54,6 +55,7 @@ export default function Home() {
         </div>
       </section>
 
+      <SignalRibbon />
       <CinematicReveal />
       <CasterProcess />
 
