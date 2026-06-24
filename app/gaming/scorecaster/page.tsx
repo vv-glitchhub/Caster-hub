@@ -1,3 +1,5 @@
+import ProductOSExpansion from '../../../components/ProductOSExpansion'
+
 const modules = [
   ['AI Picks', 'Ranked predictions, confidence and decision scoring.'],
   ['Live Odds', 'Odds movement, EV, best price and risk warnings.'],
@@ -53,7 +55,7 @@ export default function ScorecasterGamingPage() {
 
       <section className="home-section">
         <div className="home-container">
-          <p className="section-label">Betting Intelligence</p>
+          <p className="section-label">Sports Intelligence</p>
           <h2 className="section-title">Find the signal. Control the risk.</h2>
           <p className="home-section-lead">
             Scorecaster turns live odds, movement and model probability into a cleaner decision layer.
@@ -61,7 +63,7 @@ export default function ScorecasterGamingPage() {
 
           <div className="home-core-grid" style={{ marginTop: '3.5rem' }}>
             <div className="motion-surface home-core-card">
-              <div className="home-core-pill">AI Betting Desk</div>
+              <div className="home-core-pill">AI Sports Desk</div>
               <div className="home-core-items">
                 {picks.map(([tag, title]) => (
                   <div key={tag} className="home-core-item">
@@ -91,6 +93,12 @@ export default function ScorecasterGamingPage() {
           </div>
         </div>
       </section>
+
+      <ProductOSExpansion
+        label="Scorecaster"
+        title="Sports decisions now connect to the full Caster OS layer."
+        text="The sports module works with agent context, risk control, behavior protection and live signal quality instead of acting as a separate app."
+      />
 
       <section id="embedded-scorecaster" className="home-section">
         <div className="home-container">
