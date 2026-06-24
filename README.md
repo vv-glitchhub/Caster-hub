@@ -4,6 +4,12 @@ Caster OS is a premium AI operating system prototype for decisions, markets and 
 
 It is not just a landing page. It is a connected product demo that brings together a dashboard, AI agent, system health, product modules, business story, pricing concept and launch-ready trust pages.
 
+## Status
+
+**Public Alpha**
+
+Caster OS is ready for public preview, feedback, product direction discussions and early business conversations.
+
 ## Product vision
 
 Caster OS is designed as one intelligent layer for the decisions that matter:
@@ -18,7 +24,7 @@ Caster OS is designed as one intelligent layer for the decisions that matter:
 
 ## Launch pages
 
-The prototype includes the public-facing pages needed for a private demo or early launch:
+The prototype includes the public-facing pages needed for public alpha launch:
 
 - `/` — Home
 - `/dashboard` — Control Center
@@ -30,7 +36,7 @@ The prototype includes the public-facing pages needed for a private demo or earl
 - `/pitch` — Pitch Page
 - `/business` — Business Model
 - `/pricing` — Pricing Concept
-- `/launch` — Launch Checklist
+- `/launch` — Public Alpha Launch Checklist
 - `/privacy` — Privacy Notes
 - `/terms` — Prototype Terms
 - `/disclaimer` — Responsible Use Disclaimer
@@ -51,7 +57,9 @@ Implemented:
 
 - Metadata / SEO
 - OpenGraph and Twitter metadata
+- OpenGraph image
 - Sitemap
+- Robots file
 - Web app manifest
 - App icon
 - Loading screen
@@ -59,14 +67,28 @@ Implemented:
 - Footer with legal and launch links
 - Product, business, pricing and demo flows
 
+## Public demo path
+
+1. Home
+2. Demo
+3. Dashboard
+4. Agent
+5. System
+6. Modules
+7. Pitch
+8. Business
+9. Pricing
+10. Launch
+
 ## Next production steps
 
-1. Run and verify the production build.
-2. Polish mobile navigation.
+1. Verify production build and deployment logs.
+2. Check mobile navigation on real devices.
 3. Connect accounts and Supabase memory.
 4. Add saved dashboard layouts.
 5. Replace seed/demo content with real integrations.
 6. Add real Caster AI actions with confirmation and safety controls.
+7. Add billing, onboarding and production support pages.
 
 ## Development
 
@@ -74,8 +96,5 @@ Implemented:
 npm install
 npm run dev
 npm run build
+npm run lint
 ```
-
-## Status
-
-Caster OS is currently an alpha prototype ready for private demo, feedback and product direction discussions.
