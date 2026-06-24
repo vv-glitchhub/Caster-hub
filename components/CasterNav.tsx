@@ -6,6 +6,7 @@ const links = [
   { href: '/demo', label: 'Demo' },
   { href: '/roadmap', label: 'Roadmap' },
   { href: '/pitch', label: 'Pitch' },
+  { href: '/business', label: 'Business' },
   { href: '/wealth/stockcaster', label: 'Wealth' },
   { href: '/gaming/scorecaster', label: 'Gaming' },
   { href: '/health/relaxcaster', label: 'Health' },
