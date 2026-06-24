@@ -5,6 +5,7 @@ import CasterFooter from '../components/CasterFooter'
 import CasterNav from '../components/CasterNav'
 import CasterShell from '../components/CasterShell'
 import './globals.css'
+import './polish.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://caster-hub.vercel.app'),
