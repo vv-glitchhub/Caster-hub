@@ -1,3 +1,4 @@
+import CasterProcess from '../components/CasterProcess'
 import CommandCenter from '../components/CommandCenter'
 import HomeExpansion from '../components/HomeExpansion'
 import MotionSurface from '../components/MotionSurface'
@@ -14,10 +15,10 @@ const modules = [
 ]
 
 const highlights = [
-  ['Dashboard 3.0', 'Personal command center'],
-  ['Agent V1', 'Context and recommendations'],
-  ['System Health', 'Core status layer'],
-  ['Module Map', 'Full OS structure'],
+  ['Luxury Tech', 'Premium OS feeling'],
+  ['Cinematic UI', 'Motion-first product story'],
+  ['AI Ecosystem', 'One agent across modules'],
+  ['Data Intelligence', 'Signals into decisions'],
 ]
 
 export default function Home() {
@@ -29,11 +30,11 @@ export default function Home() {
         <div className="home-orb" />
 
         <div className="home-hero-inner">
-          <p className="home-eyebrow">Caster OS Prototype</p>
-          <h1 className="home-title">One AI.</h1>
-          <h2 className="home-subtitle">Every Decision.</h2>
+          <p className="home-eyebrow">Caster OS Public Alpha</p>
+          <h1 className="home-title">Intelligence.</h1>
+          <h2 className="home-subtitle">Engineered for decisions.</h2>
           <p className="home-lead">
-            A cinematic AI operating system prototype for life, wealth, health, gaming and personal decision intelligence.
+            A cinematic AI operating system for life, wealth, health, gaming and focused action. One premium layer for turning signals into decisions.
           </p>
 
           <div className="home-highlight-grid">
@@ -46,18 +47,20 @@ export default function Home() {
           </div>
 
           <div className="home-actions">
-            <a className="primary-button" href="/dashboard">Open Prototype</a>
-            <a className="secondary-button" href="/modules">View OS Map</a>
+            <a className="primary-button" href="/demo">Run Demo</a>
+            <a className="secondary-button" href="/pitch">Open Pitch</a>
           </div>
         </div>
       </section>
 
+      <CasterProcess />
+
       <section className="home-section">
         <div className="home-container">
-          <p className="section-label">Unified Personal Intelligence</p>
-          <h2 className="section-title">One ecosystem for decisions, goals, money, performance and recovery.</h2>
+          <p className="section-label">Unified Intelligence Ecosystem</p>
+          <h2 className="section-title">One operating layer for goals, money, performance and recovery.</h2>
           <p className="home-section-lead">
-            Caster OS is not a collection of disconnected pages. It is a prototype for a personal operating system where every module connects back to the same command layer.
+            Caster OS is not a set of disconnected pages. It is a premium product experience where every module connects back to the same agent, memory and command layer.
           </p>
 
           <div className="home-module-grid">
@@ -81,7 +84,7 @@ export default function Home() {
             <p className="section-label">Caster Core</p>
             <h2 className="section-title">The intelligence layer connecting every area of life.</h2>
             <p className="home-section-lead">
-              The prototype already includes profile selection, widget state, layout memory, focus logic and an agent recommendation layer.
+              The public alpha already includes profile selection, widget state, layout memory, focus logic and an agent recommendation layer.
             </p>
           </div>
           <CommandCenter />
@@ -90,12 +93,12 @@ export default function Home() {
 
       <section className="home-final">
         <div>
-          <p className="section-label">Prototype Live</p>
-          <h2 className="final-title">The next decision starts here.</h2>
+          <p className="section-label">Public Alpha Live</p>
+          <h2 className="final-title">Start with the demo flow.</h2>
           <p className="home-final-text">
-            Open the dashboard, explore the modules and watch Caster OS evolve from concept into a real personal AI platform.
+            The public presentation should move from the story into the dashboard, agent, modules, pitch and business layer.
           </p>
-          <a className="primary-button home-final-button" href="/dashboard">Launch Caster OS</a>
+          <a className="primary-button home-final-button" href="/demo">Run Caster Demo</a>
         </div>
       </section>
     </main>
