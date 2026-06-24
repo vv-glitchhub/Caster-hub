@@ -1,6 +1,7 @@
 const links = [
   { href: '/dashboard', label: 'Dashboard' },
   { href: '/agent', label: 'Agent' },
+  { href: '/system', label: 'System' },
   { href: '/life', label: 'Life' },
   { href: '/wealth/stockcaster', label: 'Wealth' },
   { href: '/gaming/scorecaster', label: 'Gaming' },
