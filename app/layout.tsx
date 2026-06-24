@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 import CasterFooter from '../components/CasterFooter'
+import CasterMobileBar from '../components/CasterMobileBar'
 import CasterNav from '../components/CasterNav'
 import CasterShell from '../components/CasterShell'
 import './globals.css'
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <CasterNav />
         <CasterShell />
+        <CasterMobileBar />
         {children}
         <CasterFooter />
         <Analytics />
