@@ -5,17 +5,19 @@ import MotionSurface from '../components/MotionSurface'
 const modules = [
   ['Dashboard', 'Command Center', 'Profile-aware widgets, memory and daily AI focus.', '/dashboard'],
   ['Agent', 'Caster AI', 'Context-aware recommendations for the next decision.', '/agent'],
-  ['Life', 'Lifecaster', 'Goals, projects, habits and future planning.', '/life'],
+  ['System', 'Health Center', 'Core status, product connections, memory and analytics readiness.', '/system'],
+  ['Modules', 'OS Map', 'Full map of surfaces, products and shared intelligence layers.', '/modules'],
   ['Wealth', 'Stockcaster', 'Portfolio intelligence, risk and market signals.', '/wealth/stockcaster'],
   ['Gaming', 'Scorecaster', 'AI picks, odds movement and edge analysis.', '/gaming/scorecaster'],
   ['Health', 'Relaxcaster', 'Calm, clarity, recovery and daily rhythm.', '/health/relaxcaster'],
+  ['Life', 'Lifecaster', 'Goals, projects, habits and future planning.', '/life'],
 ]
 
 const highlights = [
   ['Dashboard 3.0', 'Personal command center'],
   ['Agent V1', 'Context and recommendations'],
-  ['Memory Layer', 'Profile and layout state'],
-  ['Widget OS', 'Customizable interface'],
+  ['System Health', 'Core status layer'],
+  ['Module Map', 'Full OS structure'],
 ]
 
 export default function Home() {
@@ -45,7 +47,7 @@ export default function Home() {
 
           <div className="home-actions">
             <a className="primary-button" href="/dashboard">Open Prototype</a>
-            <a className="secondary-button" href="/agent">View Agent</a>
+            <a className="secondary-button" href="/modules">View OS Map</a>
           </div>
         </div>
       </section>
