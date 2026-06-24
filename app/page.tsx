@@ -1,4 +1,5 @@
 import CasterProcess from '../components/CasterProcess'
+import CinematicHero from '../components/CinematicHero'
 import CinematicReveal from '../components/CinematicReveal'
 import CommandCenter from '../components/CommandCenter'
 import HomeExpansion from '../components/HomeExpansion'
@@ -16,44 +17,10 @@ const modules = [
   ['Life', 'Lifecaster', 'Goals, projects, habits and future planning.', '/life'],
 ]
 
-const highlights = [
-  ['Luxury Tech', 'Premium OS feeling'],
-  ['Cinematic UI', 'Motion-first product story'],
-  ['AI Ecosystem', 'One agent across modules'],
-  ['Data Intelligence', 'Signals into decisions'],
-]
-
 export default function Home() {
   return (
     <main className="home-page">
-      <section className="home-hero cinematic-home-hero">
-        <div className="home-bg" />
-        <div className="home-grid" />
-        <div className="home-orb" />
-
-        <div className="home-hero-inner cinematic-hero-inner">
-          <p className="home-eyebrow">Caster OS Public Alpha</p>
-          <h1 className="home-title">Intelligence.</h1>
-          <h2 className="home-subtitle">Engineered for decisions.</h2>
-          <p className="home-lead">
-            A cinematic AI operating system for life, wealth, health, gaming and focused action. One premium layer for turning signals into decisions.
-          </p>
-
-          <div className="home-highlight-grid cinematic-highlight-grid">
-            {highlights.map(([title, text]) => (
-              <MotionSurface key={title} className="home-highlight-card">
-                <p className="home-card-title">{title}</p>
-                <p className="home-card-text">{text}</p>
-              </MotionSurface>
-            ))}
-          </div>
-
-          <div className="home-actions">
-            <a className="primary-button" href="/demo">Run Demo</a>
-            <a className="secondary-button" href="/pitch">Open Pitch</a>
-          </div>
-        </div>
-      </section>
+      <CinematicHero />
 
       <SignalRibbon />
       <CinematicReveal />
