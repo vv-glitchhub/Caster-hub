@@ -4,7 +4,9 @@ const links = [
   { href: '/business', label: 'Business' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/launch', label: 'Launch' },
+  { href: '/contact', label: 'Contact' },
   { href: '/privacy', label: 'Privacy' },
+  { href: '/terms', label: 'Terms' },
   { href: '/disclaimer', label: 'Disclaimer' },
 ]
 
