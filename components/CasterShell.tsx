@@ -2,11 +2,13 @@ const status = [
   ['CORE', 'Online'],
   ['MEMORY', 'V1'],
   ['AGENT', 'Ready'],
+  ['SYSTEM', 'Healthy'],
 ]
 
 const quickLinks = [
   ['AI', '/agent'],
   ['DASH', '/dashboard'],
+  ['SYS', '/system'],
   ['CORE', '/#core'],
 ]
 
@@ -27,7 +29,7 @@ export default function CasterShell() {
         </div>
       </aside>
 
-      <div className="pointer-events-none fixed bottom-4 left-1/2 z-40 hidden w-[min(760px,calc(100%-2rem))] -translate-x-1/2 md:block">
+      <div className="pointer-events-none fixed bottom-4 left-1/2 z-40 hidden w-[min(900px,calc(100%-2rem))] -translate-x-1/2 md:block">
         <div className="pointer-events-auto flex items-center justify-between gap-3 rounded-full border border-white/10 bg-black/38 px-4 py-3 shadow-[0_24px_90px_rgba(0,0,0,.35)] backdrop-blur-2xl">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-blue-200 shadow-[0_0_18px_rgba(147,197,253,.95)]" />
