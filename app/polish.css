@@ -29,6 +29,52 @@
   margin-top: 3.5rem;
 }
 
+.signal-ribbon {
+  position: relative;
+  overflow: hidden;
+  border-block: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.035);
+  backdrop-filter: blur(18px);
+}
+
+.signal-ribbon::before,
+.signal-ribbon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 16vw;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.signal-ribbon::before {
+  left: 0;
+  background: linear-gradient(90deg, #020207, transparent);
+}
+
+.signal-ribbon::after {
+  right: 0;
+  background: linear-gradient(270deg, #020207, transparent);
+}
+
+.signal-ribbon-track {
+  display: flex;
+  width: max-content;
+  gap: 3rem;
+  padding: 1.15rem 0;
+  animation: ribbonMove 26s linear infinite;
+}
+
+.signal-ribbon span {
+  color: rgba(255,255,255,.68);
+  font-size: .75rem;
+  font-weight: 650;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .cinematic-reveal {
   position: relative;
   min-height: 110vh;
@@ -342,4 +388,9 @@
 @keyframes cinematicBeam {
   0%, 100% { opacity: .22; transform: rotate(0deg) scaleX(.72); }
   50% { opacity: 1; transform: rotate(180deg) scaleX(1); }
+}
+
+@keyframes ribbonMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
