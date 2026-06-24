@@ -30,10 +30,6 @@
     display: none;
   }
 
-  .caster-nav-action::after {
-    content: ' / Menu';
-  }
-
   .home-hero {
     min-height: 92vh;
     padding: 7rem 1rem 5rem;
