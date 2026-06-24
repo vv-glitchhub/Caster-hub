@@ -1,4 +1,5 @@
 import CasterProcess from '../components/CasterProcess'
+import CinematicReveal from '../components/CinematicReveal'
 import CommandCenter from '../components/CommandCenter'
 import HomeExpansion from '../components/HomeExpansion'
 import MotionSurface from '../components/MotionSurface'
@@ -24,12 +25,12 @@ const highlights = [
 export default function Home() {
   return (
     <main className="home-page">
-      <section className="home-hero">
+      <section className="home-hero cinematic-home-hero">
         <div className="home-bg" />
         <div className="home-grid" />
         <div className="home-orb" />
 
-        <div className="home-hero-inner">
+        <div className="home-hero-inner cinematic-hero-inner">
           <p className="home-eyebrow">Caster OS Public Alpha</p>
           <h1 className="home-title">Intelligence.</h1>
           <h2 className="home-subtitle">Engineered for decisions.</h2>
@@ -37,7 +38,7 @@ export default function Home() {
             A cinematic AI operating system for life, wealth, health, gaming and focused action. One premium layer for turning signals into decisions.
           </p>
 
-          <div className="home-highlight-grid">
+          <div className="home-highlight-grid cinematic-highlight-grid">
             {highlights.map(([title, text]) => (
               <MotionSurface key={title} className="home-highlight-card">
                 <p className="home-card-title">{title}</p>
@@ -53,6 +54,7 @@ export default function Home() {
         </div>
       </section>
 
+      <CinematicReveal />
       <CasterProcess />
 
       <section className="home-section">
