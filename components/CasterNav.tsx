@@ -3,6 +3,7 @@ const links = [
   { href: '/agent', label: 'Agent' },
   { href: '/system', label: 'System' },
   { href: '/modules', label: 'Modules' },
+  { href: '/demo', label: 'Demo' },
   { href: '/roadmap', label: 'Roadmap' },
   { href: '/pitch', label: 'Pitch' },
   { href: '/wealth/stockcaster', label: 'Wealth' },
