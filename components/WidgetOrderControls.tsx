@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { getDashboardWidgets } from '../lib/caster-core/widget-engine'
 import { readMemory, updateMemory, type WidgetLayoutItem } from '../lib/caster-core/memory'
+import { getDashboardWidgets } from '../lib/caster-core/widget-engine'
 
 export default function WidgetOrderControls() {
   const [layout, setLayout] = useState<WidgetLayoutItem[]>([])
@@ -50,46 +50,30 @@ export default function WidgetOrderControls() {
   const sortedLayout = [...layout].sort((a, b) => a.order - b.order).filter((item) => item.id !== 'ai-focus')
 
   return (
-    <div className="dashboard-preview min-h-0">
-      <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+    <div className="premium-control-panel">
+      <div className="premium-control-head">
         <div>
-          <p className="text-xs uppercase tracking-[0.35em] text-blue-200/70">Layout Memory V1</p>
-          <h2 className="mt-4 text-3xl font-semibold">Widget order</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-white/52">
-            Move widgets up or down. This prepares the system for drag and drop layout editing.
-          </p>
+          <p className="home-module-label">Layout Memory V1</p>
+          <h2>Widget order</h2>
+          <p>Move widgets up or down. This prepares the system for drag and drop layout editing.</p>
         </div>
-        <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/55">
-          saved locally
-        </span>
+        <span>saved locally</span>
       </div>
 
-      <div className="mt-8 space-y-3">
+      <div className="premium-order-list">
         {sortedLayout.map((item) => {
           const widget = widgets.find((entry) => entry.id === item.id)
           if (!widget) return null
 
           return (
-            <div key={item.id} className="preview-row flex items-center justify-between gap-4">
+            <div key={item.id} className="premium-order-row">
               <div>
-                <p className="font-semibold text-white">{widget.title}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.22em] text-white/38">{item.size} · order {item.order}</p>
+                <strong>{widget.title}</strong>
+                <span>{item.size} · order {item.order}</span>
               </div>
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => move(item.id, 'up')}
-                  className="rounded-full border border-white/10 px-3 py-2 text-xs text-white/60 transition hover:border-blue-200/40 hover:text-white"
-                >
-                  ↑
-                </button>
-                <button
-                  type="button"
-                  onClick={() => move(item.id, 'down')}
-                  className="rounded-full border border-white/10 px-3 py-2 text-xs text-white/60 transition hover:border-blue-200/40 hover:text-white"
-                >
-                  ↓
-                </button>
+              <div className="premium-order-actions">
+                <button type="button" onClick={() => move(item.id, 'up')} aria-label={`Move ${widget.title} up`}>↑</button>
+                <button type="button" onClick={() => move(item.id, 'down')} aria-label={`Move ${widget.title} down`}>↓</button>
               </div>
             </div>
           )
