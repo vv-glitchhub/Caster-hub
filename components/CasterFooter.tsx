@@ -1,15 +1,19 @@
 const links = [
-  { href: '/scorecaster', label: 'Scorecaster' },
-  { href: '/stockcaster', label: 'Stockcaster' },
-  { href: '/relaxcaster', label: 'Relaxcaster' },
+  { href: '/demo', label: 'Demo' },
+  { href: '/pitch', label: 'Pitch' },
+  { href: '/business', label: 'Business' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/launch', label: 'Launch' },
+  { href: '/privacy', label: 'Privacy' },
+  { href: '/disclaimer', label: 'Disclaimer' },
 ]
 
 export default function CasterFooter() {
   return (
     <footer className="caster-footer">
       <div>
-        <p className="caster-footer-brand">Caster</p>
-        <p className="caster-footer-copy">Luxury AI ecosystem for decisions, markets and intelligence.</p>
+        <p className="caster-footer-brand">Caster OS</p>
+        <p className="caster-footer-copy">Premium AI operating system prototype for decisions, markets and personal intelligence.</p>
       </div>
       <div className="caster-footer-links">
         {links.map((link) => (
