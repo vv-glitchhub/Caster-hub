@@ -8,6 +8,7 @@ import CasterShell from '../components/CasterShell'
 import './globals.css'
 import './polish.css'
 import './cinematic.css'
+import './mobile-fixes.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://caster-hub.vercel.app'),
