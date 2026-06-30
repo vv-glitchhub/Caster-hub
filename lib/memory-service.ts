@@ -1,10 +1,18 @@
 import { CasterMemoryCategory, CasterMemoryItem, defaultCasterMemory } from './caster-memory'
+import { getSupabaseReadiness } from './supabase-readiness'
 import { getSupabaseStatus } from './supabase'
 
 export type MemoryServiceResult<T> = {
   data: T
   source: 'local' | 'supabase'
   connected: boolean
+}
+
+export type MemoryWriteReadiness = {
+  canRead: boolean
+  canWrite: boolean
+  mode: 'local' | 'supabase'
+  detail: string
 }
 
 type SupabaseMemoryRow = {
@@ -31,6 +39,19 @@ export function mapSupabaseMemoryRow(row: SupabaseMemoryRow): CasterMemoryItem {
   }
 }
 
+export function getMemoryWriteReadiness(): MemoryWriteReadiness {
+  const readiness = getSupabaseReadiness()
+
+  return {
+    canRead: true,
+    canWrite: readiness.ready,
+    mode: readiness.mode,
+    detail: readiness.ready
+      ? 'Memory write can be connected to Supabase route handlers.'
+      : 'Memory write is paused until Supabase configuration is added.',
+  }
+}
+
 export async function loadMemories(): Promise<MemoryServiceResult<CasterMemoryItem[]>> {
   const status = getSupabaseStatus()
 
@@ -42,8 +63,6 @@ export async function loadMemories(): Promise<MemoryServiceResult<CasterMemoryIt
     }
   }
 
-  // Supabase environment variables are configured, but the live client is intentionally
-  // kept behind this service so the UI stays stable while the database connection is added.
   return {
     data: defaultCasterMemory,
     source: 'supabase',
