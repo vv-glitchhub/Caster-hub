@@ -1,4 +1,5 @@
 const links = [
+  { href: '/apps', label: 'Apps' },
   { href: '/dashboard', label: 'Dashboard' },
   { href: '/agent', label: 'Agent' },
   { href: '/system', label: 'System' },
@@ -27,7 +28,7 @@ export default function CasterNav() {
         ))}
       </nav>
 
-      <a className="caster-nav-action" href="/dashboard">Open OS</a>
+      <a className="caster-nav-action" href="/apps">Apps</a>
     </header>
   )
 }
