@@ -5,16 +5,13 @@ import CommandCenter from '../components/CommandCenter'
 import HomeExpansion from '../components/HomeExpansion'
 import MotionSurface from '../components/MotionSurface'
 import SignalRibbon from '../components/SignalRibbon'
+import { casterApps } from '../lib/caster-apps'
 
-const modules = [
+const systemModules = [
   ['Dashboard', 'Command Center', 'Profile-aware widgets, memory and daily AI focus.', '/dashboard'],
   ['Agent', 'Caster AI', 'Context-aware recommendations for the next decision.', '/agent'],
   ['System', 'Health Center', 'Core status, product connections, memory and analytics readiness.', '/system'],
   ['Modules', 'OS Map', 'Full map of surfaces, products and shared intelligence layers.', '/modules'],
-  ['Wealth', 'Stockcaster', 'Portfolio intelligence, risk and market signals.', '/wealth/stockcaster'],
-  ['Gaming', 'Scorecaster', 'AI picks, odds movement and edge analysis.', '/gaming/scorecaster'],
-  ['Health', 'Relaxcaster', 'Calm, clarity, recovery and daily rhythm.', '/health/relaxcaster'],
-  ['Life', 'Lifecaster', 'Goals, projects, habits and future planning.', '/life'],
 ]
 
 export default function Home() {
@@ -29,18 +26,35 @@ export default function Home() {
       <section className="home-section">
         <div className="home-container">
           <p className="section-label">Unified Intelligence Ecosystem</p>
-          <h2 className="section-title">One operating layer for goals, money, performance and recovery.</h2>
+          <h2 className="section-title">One operating layer for sports, markets, cars and travel.</h2>
           <p className="home-section-lead">
-            Caster OS is not a set of disconnected pages. It is a premium product experience where every module connects back to the same agent, memory and command layer.
+            Caster OS is not a set of disconnected pages. It is a premium product experience where every app connects back to the same agent, memory and command layer.
           </p>
 
           <div className="home-module-grid">
-            {modules.map(([name, label, text, href]) => (
+            {systemModules.map(([name, label, text, href]) => (
               <MotionSurface key={name} href={href} className="home-module-card">
                 <p className="home-module-label">{label}</p>
                 <h3 className="home-module-title">{name}</h3>
                 <p className="home-module-text">{text}</p>
                 <p className="home-module-link">Open {name} →</p>
+              </MotionSurface>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-container">
+          <p className="section-label">Caster Apps</p>
+          <h2 className="section-title">Four focused products. One shared intelligence core.</h2>
+          <div className="home-module-grid">
+            {casterApps.map((app) => (
+              <MotionSurface key={app.slug} href={app.href} className="home-module-card">
+                <p className="home-module-label">{app.label}</p>
+                <h3 className="home-module-title">{app.name}</h3>
+                <p className="home-module-text">{app.summary}</p>
+                <p className="home-module-link">Open {app.name} →</p>
               </MotionSurface>
             ))}
           </div>
