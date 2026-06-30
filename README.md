@@ -21,6 +21,14 @@ Caster OS is designed as one intelligent layer for the decisions that matter:
 - **Stockcaster** — wealth, portfolio and market intelligence.
 - **Scorecaster** — sports signals, edge, odds movement and risk control.
 - **Relaxcaster** — calm, clarity, recovery and human decision control.
+- **Carcaster** — car diagnostics, maintenance, ownership costs and repair guidance.
+- **Travelcaster** — trips, hotels, routes, budgets, activities and local planning.
+
+## Caster app roadmap
+
+The first app roadmap for Scorecaster, Stockcaster, Carcaster and Travelcaster is available here:
+
+- [`docs/CASTER_APP_ROADMAP.md`](docs/CASTER_APP_ROADMAP.md)
 
 ## Launch pages
 
@@ -89,6 +97,7 @@ Implemented:
 5. Replace seed/demo content with real integrations.
 6. Add real Caster AI actions with confirmation and safety controls.
 7. Add billing, onboarding and production support pages.
+8. Build Scorecaster, Stockcaster, Carcaster and Travelcaster module pages.
 
 ## Development
 
