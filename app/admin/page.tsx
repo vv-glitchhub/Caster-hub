@@ -1,4 +1,5 @@
 import AgentBriefPanel from '../../components/AgentBriefPanel'
+import MemoryWriteReadinessCard from '../../components/MemoryWriteReadinessCard'
 import Spacing from '../../components/Spacing'
 import SupabaseStatusCard from '../../components/SupabaseStatusCard'
 
@@ -101,15 +102,7 @@ export default function AdminPage() {
           <Spacing>
             <div className="home-core-grid">
               <SupabaseStatusCard />
-              <div className="motion-surface home-core-card">
-                <div className="home-core-pill">Database Schema</div>
-                <div className="home-core-items">
-                  <div className="home-core-item">profiles</div>
-                  <div className="home-core-item">goals</div>
-                  <div className="home-core-item">projects</div>
-                  <div className="home-core-item">memories</div>
-                </div>
-              </div>
+              <MemoryWriteReadinessCard />
             </div>
           </Spacing>
         </div>
