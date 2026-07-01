@@ -10,6 +10,40 @@ It is not just a landing page. It is a connected product demo that brings togeth
 
 Caster OS is ready for public preview, feedback, product direction discussions and early business conversations.
 
+## Start using
+
+Open the new start page:
+
+- `/start`
+
+Recommended first route:
+
+1. `/start` — choose app
+2. `/dashboard` — Caster command center
+3. `/modules` — full module map
+4. `/apps/carcaster` — car assistant demo
+5. `/apps/travelcaster` — travel assistant demo
+
+Direct usable workspace pages:
+
+- `/apps/carcaster/faults`
+- `/apps/carcaster/maintenance`
+- `/apps/travelcaster/itinerary`
+- `/apps/travelcaster/budget`
+
+Run locally:
+
+```bash
+npm install
+npm run dev
+```
+
+Then open:
+
+```text
+http://localhost:3000/start
+```
+
 ## Product vision
 
 Caster OS is designed as one intelligent layer for the decisions that matter:
@@ -35,6 +69,7 @@ The first app roadmap for Scorecaster, Stockcaster, Carcaster and Travelcaster i
 The prototype includes the public-facing pages needed for public alpha launch:
 
 - `/` — Home
+- `/start` — Start using Caster apps
 - `/dashboard` — Control Center
 - `/agent` — AI Decision Interface
 - `/system` — System Health
@@ -74,19 +109,22 @@ Implemented:
 - Custom 404 page
 - Footer with legal and launch links
 - Product, business, pricing and demo flows
+- Start page for using apps
+- Carcaster workspaces
+- Travelcaster workspaces
 
 ## Public demo path
 
-1. Home
-2. Demo
-3. Dashboard
-4. Agent
-5. System
-6. Modules
-7. Pitch
-8. Business
-9. Pricing
-10. Launch
+1. Start
+2. Dashboard
+3. Modules
+4. Carcaster
+5. Travelcaster
+6. Demo
+7. Agent
+8. System
+9. Pitch
+10. Business
 
 ## Next production steps
 
@@ -97,7 +135,7 @@ Implemented:
 5. Replace seed/demo content with real integrations.
 6. Add real Caster AI actions with confirmation and safety controls.
 7. Add billing, onboarding and production support pages.
-8. Build Scorecaster, Stockcaster, Carcaster and Travelcaster module pages.
+8. Build persistent forms for Carcaster and Travelcaster.
 
 ## Development
 
