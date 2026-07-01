@@ -1,4 +1,5 @@
 import MotionSurface from '../../../components/MotionSurface'
+import TravelcasterLocalWorkspace from '../../../components/TravelcasterLocalWorkspace'
 import { buildDayPlan, calculateTripBudget, createPracticalTips, createTripProfile, generatePackingList } from '../../../lib/travelcaster-engine'
 
 const trip = createTripProfile({ destination: 'Warsaw, Poland', hotel: 'Premium hotel base', budget: 850, mood: 'relaxed, premium, good food, easy routes' })
@@ -27,17 +28,21 @@ export default function TravelcasterAppPage() {
           <h2 className="home-subtitle">Trips, budget and day plans.</h2>
           <p className="home-lead">AI travel assistant for destinations, routes, plans, packing, budget and reminders.</p>
           <div className="home-actions">
-            <a className="primary-button" href="/apps/travelcaster/itinerary">Open Itinerary</a>
+            <a className="primary-button" href="#your-travelcaster">Add Your Trip</a>
+            <a className="secondary-button" href="/apps/travelcaster/itinerary">Open Itinerary</a>
             <a className="secondary-button" href="/apps/travelcaster/budget">Open Budget</a>
-            <a className="secondary-button" href="/modules">Back to Modules</a>
           </div>
         </div>
       </section>
 
+      <div id="your-travelcaster">
+        <TravelcasterLocalWorkspace />
+      </div>
+
       <section className="home-section">
         <div className="home-container">
           <p className="section-label">Workspaces</p>
-          <h2 className="section-title">Travelcaster is now split into focused views.</h2>
+          <h2 className="section-title">Travelcaster is split into focused views.</h2>
           <div className="home-module-grid">
             <MotionSurface href="/apps/travelcaster/itinerary" className="home-module-card">
               <p className="home-module-label">Planning</p>
