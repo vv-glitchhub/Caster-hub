@@ -32,6 +32,7 @@ const apps = [
 ]
 
 const routes = [
+  ['/backup', 'Backup local data'],
   ['/dashboard', 'Caster dashboard'],
   ['/modules', 'All modules'],
   ['/apps/carcaster/faults', 'Carcaster faults'],
@@ -52,11 +53,12 @@ export default function StartPage() {
           <h1 className="home-title">Aloita sovellusten käyttö.</h1>
           <h2 className="home-subtitle">Yksi aloitussivu kaikille Caster-apeille.</h2>
           <p className="home-lead">
-            Tämä sivu näyttää mistä aloitat, mitä voit käyttää heti ja mitkä osat jatkuvat omissa GitHub-repoissa.
+            Tämä sivu näyttää mistä aloitat, mitä voit käyttää heti ja miten varmuuskopioit selaimeen tallennetun datan.
           </p>
           <div className="home-actions">
-            <a className="primary-button" href="/dashboard">Open Dashboard</a>
-            <a className="secondary-button" href="/modules">Open Modules</a>
+            <a className="primary-button" href="/apps/carcaster">Use Carcaster</a>
+            <a className="secondary-button" href="/apps/travelcaster">Use Travelcaster</a>
+            <a className="secondary-button" href="/backup">Backup Data</a>
           </div>
         </div>
       </section>
@@ -101,18 +103,19 @@ export default function StartPage() {
           <div className="home-module-grid">
             <MotionSurface className="home-module-card">
               <p className="home-module-label">1</p>
-              <h3 className="home-module-title">Avaa Caster-hub</h3>
-              <p className="home-module-text">Käytä Dashboardia ja Modules-sivua päävalikkona.</p>
+              <h3 className="home-module-title">Syötä dataa</h3>
+              <p className="home-module-text">Carcaster ja Travelcaster tallentavat nyt omat rivit selaimeen.</p>
             </MotionSurface>
             <MotionSurface className="home-module-card">
               <p className="home-module-label">2</p>
-              <h3 className="home-module-title">Kokeile Carcasteria</h3>
-              <p className="home-module-text">Katso vikakoodit, huollot ja kululaskelmat.</p>
+              <h3 className="home-module-title">Käytä workspaces</h3>
+              <p className="home-module-text">Avaa faults, maintenance, itinerary ja budget sivut.</p>
             </MotionSurface>
-            <MotionSurface className="home-module-card">
+            <MotionSurface href="/backup" className="home-module-card">
               <p className="home-module-label">3</p>
-              <h3 className="home-module-title">Kokeile Travelcasteria</h3>
-              <p className="home-module-text">Katso päiväohjelma, budjetti ja matkan käytännön muisti.</p>
+              <h3 className="home-module-title">Varmuuskopioi</h3>
+              <p className="home-module-text">Kopioi localStorage JSON talteen ennen pilvitallennusta.</p>
+              <p className="home-module-link">Open Backup →</p>
             </MotionSurface>
           </div>
         </div>
