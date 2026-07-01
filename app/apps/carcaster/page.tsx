@@ -31,8 +31,30 @@ export default function CarcasterAppPage() {
             AI car ownership assistant for fault codes, symptoms, repair-shop communication, service planning and fuel cost decisions.
           </p>
           <div className="home-actions">
-            <a className="primary-button" href="/modules">Back to Modules</a>
-            <a className="secondary-button" href="/dashboard">Open Dashboard</a>
+            <a className="primary-button" href="/apps/carcaster/faults">Open Faults</a>
+            <a className="secondary-button" href="/apps/carcaster/maintenance">Open Maintenance</a>
+            <a className="secondary-button" href="/modules">Back to Modules</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-container">
+          <p className="section-label">Workspaces</p>
+          <h2 className="section-title">Carcaster is now split into focused views.</h2>
+          <div className="home-module-grid">
+            <MotionSurface href="/apps/carcaster/faults" className="home-module-card">
+              <p className="home-module-label">Fault Workspace</p>
+              <h3 className="home-module-title">Faults</h3>
+              <p className="home-module-text">Track engine, parking sensor and camera issues separately with repair-shop message drafts.</p>
+              <p className="home-module-link">Open Faults →</p>
+            </MotionSurface>
+            <MotionSurface href="/apps/carcaster/maintenance" className="home-module-card">
+              <p className="home-module-label">Service Workspace</p>
+              <h3 className="home-module-title">Maintenance</h3>
+              <p className="home-module-text">Track service items, estimated costs, planned checks and fuel assumptions.</p>
+              <p className="home-module-link">Open Maintenance →</p>
+            </MotionSurface>
           </div>
         </div>
       </section>
@@ -42,22 +64,10 @@ export default function CarcasterAppPage() {
           <p className="section-label">Primary Car Profile</p>
           <h2 className="section-title">{car.year} {car.make} {car.model}</h2>
           <div className="home-highlight-grid">
-            <MotionSurface className="home-highlight-card">
-              <p className="home-card-title">Engine</p>
-              <p className="home-card-text">{car.engine}</p>
-            </MotionSurface>
-            <MotionSurface className="home-highlight-card">
-              <p className="home-card-title">Fuel</p>
-              <p className="home-card-text">{car.fuelType}</p>
-            </MotionSurface>
-            <MotionSurface className="home-highlight-card">
-              <p className="home-card-title">Transmission</p>
-              <p className="home-card-text">{car.transmission}</p>
-            </MotionSurface>
-            <MotionSurface className="home-highlight-card">
-              <p className="home-card-title">Mileage</p>
-              <p className="home-card-text">{car.mileageKm?.toLocaleString('fi-FI')} km</p>
-            </MotionSurface>
+            <MotionSurface className="home-highlight-card"><p className="home-card-title">Engine</p><p className="home-card-text">{car.engine}</p></MotionSurface>
+            <MotionSurface className="home-highlight-card"><p className="home-card-title">Fuel</p><p className="home-card-text">{car.fuelType}</p></MotionSurface>
+            <MotionSurface className="home-highlight-card"><p className="home-card-title">Transmission</p><p className="home-card-text">{car.transmission}</p></MotionSurface>
+            <MotionSurface className="home-highlight-card"><p className="home-card-title">Mileage</p><p className="home-card-text">{car.mileageKm?.toLocaleString('fi-FI')} km</p></MotionSurface>
           </div>
         </div>
       </section>
@@ -77,11 +87,6 @@ export default function CarcasterAppPage() {
               <h3 className="home-module-title">Ready to send.</h3>
               <p className="home-module-text">{fault.repairShopMessage}</p>
             </MotionSurface>
-            <MotionSurface className="home-module-card">
-              <p className="home-module-label">Separation</p>
-              <h3 className="home-module-title">Do not mix issues.</h3>
-              <p className="home-module-text">Engine lean codes, parking sensors, camera and lane assist should be tracked as separate systems.</p>
-            </MotionSurface>
           </div>
         </div>
       </section>
@@ -91,38 +96,10 @@ export default function CarcasterAppPage() {
           <p className="section-label">Maintenance and Costs</p>
           <h2 className="section-title">Planned work, fuel estimate and ownership visibility.</h2>
           <div className="home-highlight-grid">
-            <MotionSurface className="home-highlight-card">
-              <p className="home-card-title">Maintenance items</p>
-              <p className="home-card-text">{maintenanceStatus.total} total · {maintenanceStatus.planned} planned · {maintenanceStatus.done} done</p>
-            </MotionSurface>
-            <MotionSurface className="home-highlight-card">
-              <p className="home-card-title">Next action</p>
-              <p className="home-card-text">{maintenanceStatus.nextAction}</p>
-            </MotionSurface>
-            <MotionSurface className="home-highlight-card">
-              <p className="home-card-title">Estimated costs</p>
-              <p className="home-card-text">€{costs.total} total in this scenario</p>
-            </MotionSurface>
-            <MotionSurface className="home-highlight-card">
-              <p className="home-card-title">Fuel assumption</p>
-              <p className="home-card-text">{costs.fuelAssumption}</p>
-            </MotionSurface>
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section">
-        <div className="home-container">
-          <p className="section-label">Next Build Sprint</p>
-          <h2 className="section-title">Turn this into a full car workspace.</h2>
-          <div className="home-module-grid">
-            {['Car profile editor', 'Fault code history', 'Maintenance timeline', 'Fuel log and CNG calculator', 'Repair message drafts', 'Inspection reminders'].map((item) => (
-              <MotionSurface key={item} className="home-module-card min-h-0">
-                <p className="home-module-label">Carcaster</p>
-                <h3 className="home-module-title">{item}</h3>
-                <p className="home-module-text">Ready for database, forms and user-specific memory.</p>
-              </MotionSurface>
-            ))}
+            <MotionSurface className="home-highlight-card"><p className="home-card-title">Maintenance items</p><p className="home-card-text">{maintenanceStatus.total} total · {maintenanceStatus.planned} planned · {maintenanceStatus.done} done</p></MotionSurface>
+            <MotionSurface className="home-highlight-card"><p className="home-card-title">Next action</p><p className="home-card-text">{maintenanceStatus.nextAction}</p></MotionSurface>
+            <MotionSurface className="home-highlight-card"><p className="home-card-title">Estimated costs</p><p className="home-card-text">€{costs.total} total in this scenario</p></MotionSurface>
+            <MotionSurface className="home-highlight-card"><p className="home-card-title">Fuel assumption</p><p className="home-card-text">{costs.fuelAssumption}</p></MotionSurface>
           </div>
         </div>
       </section>
