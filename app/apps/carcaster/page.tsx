@@ -1,3 +1,4 @@
+import CarcasterLocalWorkspace from '../../../components/CarcasterLocalWorkspace'
 import MotionSurface from '../../../components/MotionSurface'
 import { calculateOwnershipCosts, createCarProfile, explainFault, getMaintenanceStatus } from '../../../lib/carcaster-engine'
 
@@ -31,17 +32,21 @@ export default function CarcasterAppPage() {
             AI car ownership assistant for fault codes, symptoms, repair-shop communication, service planning and fuel cost decisions.
           </p>
           <div className="home-actions">
-            <a className="primary-button" href="/apps/carcaster/faults">Open Faults</a>
+            <a className="primary-button" href="#your-carcaster">Add Your Data</a>
+            <a className="secondary-button" href="/apps/carcaster/faults">Open Faults</a>
             <a className="secondary-button" href="/apps/carcaster/maintenance">Open Maintenance</a>
-            <a className="secondary-button" href="/modules">Back to Modules</a>
           </div>
         </div>
       </section>
 
+      <div id="your-carcaster">
+        <CarcasterLocalWorkspace />
+      </div>
+
       <section className="home-section">
         <div className="home-container">
           <p className="section-label">Workspaces</p>
-          <h2 className="section-title">Carcaster is now split into focused views.</h2>
+          <h2 className="section-title">Carcaster is split into focused views.</h2>
           <div className="home-module-grid">
             <MotionSurface href="/apps/carcaster/faults" className="home-module-card">
               <p className="home-module-label">Fault Workspace</p>
