@@ -20,18 +20,23 @@ Fastest local usage center:
 
 - `/quick-use`
 
+Local operations runbook:
+
+- `/runbook`
+
 Recommended first route:
 
 1. `/start` — choose app
 2. `/quick-use` — see every usable local mode
-3. `/dashboard` — Caster command center
-4. `/modules` — full module map
-5. `/apps/carcaster` — car assistant with local forms
-6. `/apps/travelcaster` — travel assistant with local forms
+3. `/runbook` — check commands and smoke test steps
+4. `/backup` — export local data
+5. `/dashboard` — Caster command center
+6. `/modules` — full module map
 
 Direct usable workspace pages:
 
 - `/quick-use`
+- `/runbook`
 - `/backup`
 - `/apps/carcaster`
 - `/apps/travelcaster`
@@ -57,6 +62,7 @@ Then open:
 ```text
 http://localhost:3000/start
 http://localhost:3000/quick-use
+http://localhost:3000/runbook
 ```
 
 ## Product vision
@@ -86,6 +92,8 @@ The prototype includes the public-facing pages needed for public alpha launch:
 - `/` — Home
 - `/start` — Start using Caster apps
 - `/quick-use` — Quick Use Center
+- `/runbook` — Local runbook and smoke test
+- `/backup` — Local backup and restore
 - `/dashboard` — Control Center
 - `/agent` — AI Decision Interface
 - `/system` — System Health
@@ -100,62 +108,6 @@ The prototype includes the public-facing pages needed for public alpha launch:
 - `/terms` — Prototype Terms
 - `/disclaimer` — Responsible Use Disclaimer
 - `/contact` — Contact / Discussion Paths
-
-## Tech stack
-
-- Next.js App Router
-- React
-- TypeScript
-- Tailwind CSS
-- Vercel Analytics
-- Framer Motion ready
-
-## Launch readiness
-
-Implemented:
-
-- Metadata / SEO
-- OpenGraph and Twitter metadata
-- OpenGraph image
-- Sitemap
-- Robots file
-- Web app manifest
-- App icon
-- Loading screen
-- Custom 404 page
-- Footer with legal and launch links
-- Product, business, pricing and demo flows
-- Start page for using apps
-- Quick Use Center
-- Carcaster local forms
-- Travelcaster local forms
-- Carcaster workspaces
-- Travelcaster workspaces
-
-## Public demo path
-
-1. Start
-2. Quick Use
-3. Dashboard
-4. Modules
-5. Carcaster
-6. Travelcaster
-7. Demo
-8. Agent
-9. System
-10. Pitch
-11. Business
-
-## Next production steps
-
-1. Verify production build and deployment logs.
-2. Check mobile navigation on real devices.
-3. Connect accounts and Supabase memory.
-4. Add saved dashboard layouts.
-5. Replace seed/demo content with real integrations.
-6. Add real Caster AI actions with confirmation and safety controls.
-7. Add billing, onboarding and production support pages.
-8. Build persistent forms for Carcaster and Travelcaster.
 
 ## Development
 
