@@ -16,20 +16,34 @@ Open the new start page:
 
 - `/start`
 
+Fastest local usage center:
+
+- `/quick-use`
+
 Recommended first route:
 
 1. `/start` — choose app
-2. `/dashboard` — Caster command center
-3. `/modules` — full module map
-4. `/apps/carcaster` — car assistant demo
-5. `/apps/travelcaster` — travel assistant demo
+2. `/quick-use` — see every usable local mode
+3. `/dashboard` — Caster command center
+4. `/modules` — full module map
+5. `/apps/carcaster` — car assistant with local forms
+6. `/apps/travelcaster` — travel assistant with local forms
 
 Direct usable workspace pages:
 
+- `/quick-use`
+- `/backup`
+- `/apps/carcaster`
+- `/apps/travelcaster`
 - `/apps/carcaster/faults`
 - `/apps/carcaster/maintenance`
 - `/apps/travelcaster/itinerary`
 - `/apps/travelcaster/budget`
+
+Other app repos now also have local quick-use modes:
+
+- Scorecaster: `/quick-use`
+- Stockcaster: `/quick-use`
 
 Run locally:
 
@@ -42,6 +56,7 @@ Then open:
 
 ```text
 http://localhost:3000/start
+http://localhost:3000/quick-use
 ```
 
 ## Product vision
@@ -54,7 +69,7 @@ Caster OS is designed as one intelligent layer for the decisions that matter:
 - **Modules Map** — full OS structure and shared intelligence layers.
 - **Stockcaster** — wealth, portfolio and market intelligence.
 - **Scorecaster** — sports signals, edge, odds movement and risk control.
-- **Relaxcaster** — calm, clarity, recovery and human decision control.
+- **Relaxcaster** — calm, recovery and human decision control.
 - **Carcaster** — car diagnostics, maintenance, ownership costs and repair guidance.
 - **Travelcaster** — trips, hotels, routes, budgets, activities and local planning.
 
@@ -70,6 +85,7 @@ The prototype includes the public-facing pages needed for public alpha launch:
 
 - `/` — Home
 - `/start` — Start using Caster apps
+- `/quick-use` — Quick Use Center
 - `/dashboard` — Control Center
 - `/agent` — AI Decision Interface
 - `/system` — System Health
@@ -110,21 +126,25 @@ Implemented:
 - Footer with legal and launch links
 - Product, business, pricing and demo flows
 - Start page for using apps
+- Quick Use Center
+- Carcaster local forms
+- Travelcaster local forms
 - Carcaster workspaces
 - Travelcaster workspaces
 
 ## Public demo path
 
 1. Start
-2. Dashboard
-3. Modules
-4. Carcaster
-5. Travelcaster
-6. Demo
-7. Agent
-8. System
-9. Pitch
-10. Business
+2. Quick Use
+3. Dashboard
+4. Modules
+5. Carcaster
+6. Travelcaster
+7. Demo
+8. Agent
+9. System
+10. Pitch
+11. Business
 
 ## Next production steps
 

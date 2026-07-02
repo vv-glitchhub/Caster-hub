@@ -4,37 +4,40 @@ const apps = [
   {
     name: 'Scorecaster',
     href: '/apps/scorecaster',
-    status: 'Ready for production sprint',
-    use: 'Open sports intelligence, risk control and betting analysis direction.',
-    next: 'Use Scorecaster repo for live odds and betting workspace.'
+    status: 'Ready for local quick use',
+    use: 'Use Scorecaster repo /quick-use for manual picks, odds, stake and risk decision.',
+    next: 'Run scorecaster locally and open /quick-use.'
   },
   {
     name: 'Stockcaster',
     href: '/apps/stockcaster',
-    status: 'Ready for production sprint',
-    use: 'Open investing intelligence, watchlist, portfolio and market brief direction.',
-    next: 'Use Stockcaster repo for market brief and investing demo.'
+    status: 'Ready for local quick use',
+    use: 'Use Stockcaster repo /quick-use for local portfolio and watchlist.',
+    next: 'Run Stockcaster locally and open /quick-use.'
   },
   {
     name: 'Carcaster',
     href: '/apps/carcaster',
     status: 'Usable MVP demo in hub',
     use: 'Open car profile, fault intelligence, maintenance and cost workspaces.',
-    next: 'Start with faults and maintenance.'
+    next: 'Start with Add Your Data.'
   },
   {
     name: 'Travelcaster',
     href: '/apps/travelcaster',
     status: 'Usable MVP demo in hub',
     use: 'Open trip profile, itinerary, budget, packing and practical tips.',
-    next: 'Start with itinerary and budget.'
+    next: 'Start with Add Your Trip.'
   }
 ]
 
 const routes = [
+  ['/quick-use', 'Quick Use Center'],
   ['/backup', 'Backup local data'],
   ['/dashboard', 'Caster dashboard'],
   ['/modules', 'All modules'],
+  ['/apps/carcaster', 'Carcaster local forms'],
+  ['/apps/travelcaster', 'Travelcaster local forms'],
   ['/apps/carcaster/faults', 'Carcaster faults'],
   ['/apps/carcaster/maintenance', 'Carcaster maintenance'],
   ['/apps/travelcaster/itinerary', 'Travelcaster itinerary'],
@@ -56,7 +59,8 @@ export default function StartPage() {
             Tämä sivu näyttää mistä aloitat, mitä voit käyttää heti ja miten varmuuskopioit selaimeen tallennetun datan.
           </p>
           <div className="home-actions">
-            <a className="primary-button" href="/apps/carcaster">Use Carcaster</a>
+            <a className="primary-button" href="/quick-use">Quick Use Center</a>
+            <a className="secondary-button" href="/apps/carcaster">Use Carcaster</a>
             <a className="secondary-button" href="/apps/travelcaster">Use Travelcaster</a>
             <a className="secondary-button" href="/backup">Backup Data</a>
           </div>
@@ -101,15 +105,16 @@ export default function StartPage() {
           <p className="section-label">How to use now</p>
           <h2 className="section-title">Mitä voit tehdä heti selaimessa.</h2>
           <div className="home-module-grid">
-            <MotionSurface className="home-module-card">
+            <MotionSurface href="/quick-use" className="home-module-card">
               <p className="home-module-label">1</p>
-              <h3 className="home-module-title">Syötä dataa</h3>
-              <p className="home-module-text">Carcaster ja Travelcaster tallentavat nyt omat rivit selaimeen.</p>
+              <h3 className="home-module-title">Avaa Quick Use Center</h3>
+              <p className="home-module-text">Näet kaikkien neljän appin käyttötilat, linkit ja komennot.</p>
+              <p className="home-module-link">Open Quick Use →</p>
             </MotionSurface>
             <MotionSurface className="home-module-card">
               <p className="home-module-label">2</p>
-              <h3 className="home-module-title">Käytä workspaces</h3>
-              <p className="home-module-text">Avaa faults, maintenance, itinerary ja budget sivut.</p>
+              <h3 className="home-module-title">Syötä dataa</h3>
+              <p className="home-module-text">Carcaster, Travelcaster, Scorecaster ja Stockcaster tukevat nyt localStorage-käyttöä.</p>
             </MotionSurface>
             <MotionSurface href="/backup" className="home-module-card">
               <p className="home-module-label">3</p>
