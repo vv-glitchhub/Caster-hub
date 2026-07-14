@@ -1,5 +1,8 @@
 import AppModulePage from '../../../components/AppModulePage'
+import ScorecasterLiveStatus from '../../../components/ScorecasterLiveStatus'
 import { getCasterApp } from '../../../lib/caster-apps'
+
+export const dynamic = 'force-dynamic'
 
 export default function ScorecasterAppPage() {
   const app = getCasterApp('scorecaster')
@@ -8,5 +11,10 @@ export default function ScorecasterAppPage() {
     return null
   }
 
-  return <AppModulePage app={app} />
+  return (
+    <>
+      <AppModulePage app={app} />
+      <ScorecasterLiveStatus />
+    </>
+  )
 }
