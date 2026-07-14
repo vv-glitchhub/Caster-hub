@@ -10,31 +10,43 @@ It is not just a landing page. It is a connected product demo that brings togeth
 
 Caster OS is ready for public preview, feedback, product direction discussions and early business conversations.
 
+Scorecaster is now the first connected production app:
+
+- live app: `https://scorecaster.vercel.app`
+- account: `https://scorecaster.vercel.app/profile`
+- Cloud Sync: `https://scorecaster.vercel.app/cloud-sync`
+- health API: `https://scorecaster.vercel.app/api/health`
+- Hub status page: `/apps/scorecaster/status`
+
 ## Start using
 
-Open the new start page:
+Open the start page:
 
 - `/start`
 
-Fastest local usage center:
+Fastest usage center:
 
 - `/quick-use`
 
-Local operations runbook:
+Operations runbook:
 
 - `/runbook`
 
 Recommended first route:
 
 1. `/start` — choose app
-2. `/quick-use` — see every usable local mode
-3. `/runbook` — check commands and smoke test steps
-4. `/backup` — export local data
-5. `/dashboard` — Caster command center
-6. `/modules` — full module map
+2. `/apps/scorecaster` — open the first connected production app
+3. `/apps/scorecaster/status` — read live Scorecaster health
+4. `/quick-use` — see every usable local mode
+5. `/runbook` — check commands and smoke-test steps
+6. `/backup` — export local data
+7. `/dashboard` — Caster command center
+8. `/modules` — full module map
 
 Direct usable workspace pages:
 
+- `/apps/scorecaster`
+- `/apps/scorecaster/status`
 - `/quick-use`
 - `/runbook`
 - `/backup`
@@ -45,15 +57,16 @@ Direct usable workspace pages:
 - `/apps/travelcaster/itinerary`
 - `/apps/travelcaster/budget`
 
-Other app repos now also have local quick-use modes:
+Other app repos also have local quick-use modes:
 
-- Scorecaster: `/quick-use`
+- Scorecaster: `/quick-use`, `/login`, `/profile`, `/cloud-sync`
 - Stockcaster: `/quick-use`
 
 Run locally:
 
 ```bash
-npm install
+npm install --no-audit --no-fund
+npm run build
 npm run dev
 ```
 
@@ -61,9 +74,19 @@ Then open:
 
 ```text
 http://localhost:3000/start
+http://localhost:3000/apps/scorecaster
+http://localhost:3000/apps/scorecaster/status
 http://localhost:3000/quick-use
 http://localhost:3000/runbook
 ```
+
+## Production guardrails
+
+- Node.js 22 is pinned through `.nvmrc`.
+- GitHub Actions runs a production build for pull requests and `main` pushes.
+- CI uploads the build log as a short-lived artifact for diagnostics.
+- The Scorecaster status page uses a no-cache server request to the live health API.
+- External Scorecaster links open the real deployed app instead of a duplicate Hub implementation.
 
 ## Product vision
 
@@ -74,7 +97,7 @@ Caster OS is designed as one intelligent layer for the decisions that matter:
 - **System Health** — core status, product readiness and platform overview.
 - **Modules Map** — full OS structure and shared intelligence layers.
 - **Stockcaster** — wealth, portfolio and market intelligence.
-- **Scorecaster** — sports signals, edge, odds movement and risk control.
+- **Scorecaster** — sports signals, edge, odds movement, accounts, cloud history and risk control.
 - **Relaxcaster** — calm, recovery and human decision control.
 - **Carcaster** — car diagnostics, maintenance, ownership costs and repair guidance.
 - **Travelcaster** — trips, hotels, routes, budgets, activities and local planning.
@@ -98,6 +121,7 @@ The prototype includes the public-facing pages needed for public alpha launch:
 - `/agent` — AI Decision Interface
 - `/system` — System Health
 - `/modules` — OS Map
+- `/apps/scorecaster/status` — live Scorecaster service health
 - `/demo` — Investor Demo Flow
 - `/roadmap` — Product Roadmap
 - `/pitch` — Pitch Page
@@ -112,8 +136,8 @@ The prototype includes the public-facing pages needed for public alpha launch:
 ## Development
 
 ```bash
-npm install
-npm run dev
+npm install --no-audit --no-fund
 npm run build
+npm run dev
 npm run lint
 ```
