@@ -35,15 +35,15 @@ export const casterApps: CasterApp[] = [
     name: 'Stockcaster',
     label: 'Market Intelligence',
     domain: 'Stocks, portfolio, news and market risk',
-    status: 'MVP sprint',
+    status: 'Production alpha · Local portfolio and health online',
     href: '/apps/stockcaster',
     repo: 'https://github.com/vv-glitchhub/Stockcaster-',
     summary: 'AI-powered investing assistant for watchlists, portfolio intelligence, market briefs, stock explanations and news reliability scoring.',
     promise: 'Turn market noise into understandable signals and help the user know what to watch next.',
     metrics: ['Risk rating', 'Sentiment', 'Trend', 'Valuation note', 'News reliability'],
-    features: ['Watchlist', 'Portfolio dashboard', 'Stock detail pages', 'Daily market brief', 'Sector trends', 'AI stock analysis'],
+    features: ['Local portfolio', 'Local watchlist', 'Portfolio valuation and P/L', 'Concentration warnings', 'Market brief engine', 'Production health and Caster Core status'],
     agent: ['Explains why a stock moved', 'Separates signal from noise', 'Summarizes market news', 'Highlights risks and next catalysts'],
-    next: ['Add watchlist database', 'Add portfolio database', 'Add stock search', 'Add news provider', 'Add AI analysis endpoint']
+    next: ['Reuse Scorecaster account pattern', 'Add user-specific holdings and watchlist tables', 'Add Row Level Security', 'Add duplicate-safe cloud migration', 'Connect live market data and portfolio history']
   },
   {
     slug: 'carcaster',
