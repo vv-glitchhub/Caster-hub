@@ -35,15 +35,15 @@ export const casterApps: CasterApp[] = [
     name: 'Stockcaster',
     label: 'Market Intelligence',
     domain: 'Stocks, portfolio, news and market risk',
-    status: 'MVP sprint',
+    status: 'Production alpha · Local portfolio and health layer deployed',
     href: '/apps/stockcaster',
     repo: 'https://github.com/vv-glitchhub/Stockcaster-',
-    summary: 'AI-powered investing assistant for watchlists, portfolio intelligence, market briefs, stock explanations and news reliability scoring.',
-    promise: 'Turn market noise into understandable signals and help the user know what to watch next.',
-    metrics: ['Risk rating', 'Sentiment', 'Trend', 'Valuation note', 'News reliability'],
-    features: ['Watchlist', 'Portfolio dashboard', 'Stock detail pages', 'Daily market brief', 'Sector trends', 'AI stock analysis'],
-    agent: ['Explains why a stock moved', 'Separates signal from noise', 'Summarizes market news', 'Highlights risks and next catalysts'],
-    next: ['Add watchlist database', 'Add portfolio database', 'Add stock search', 'Add news provider', 'Add AI analysis endpoint']
+    summary: 'AI-powered investing assistant with a running local portfolio, watchlist, market brief foundation, production health endpoint and shared Caster Core state.',
+    promise: 'Turn market noise into understandable signals while showing data freshness, uncertainty and portfolio risk without promising returns.',
+    metrics: ['Portfolio value', 'Profit / loss', 'Concentration risk', 'Data freshness', 'News reliability'],
+    features: ['Local portfolio', 'Local watchlist', 'Portfolio risk engine', 'Market brief engine', 'Production status', 'Caster Core contract', 'Future verified market data'],
+    agent: ['Explains why a stock moved', 'Separates signal from noise', 'Summarizes market news', 'Highlights concentration and data-quality risk', 'Refuses to present demo values as verified live prices'],
+    next: ['Verify local persistence on mobile', 'Select a licensed market-data provider', 'Build a server-only provider adapter', 'Show source and freshness with every quote', 'Reuse Scorecaster auth and RLS for isolated portfolios']
   },
   {
     slug: 'carcaster',
