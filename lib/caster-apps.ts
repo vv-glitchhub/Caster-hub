@@ -20,15 +20,15 @@ export const casterApps: CasterApp[] = [
     name: 'Scorecaster',
     label: 'Sports Intelligence',
     domain: 'Odds, edge, EV and risk control',
-    status: 'Production sprint',
+    status: 'Production alpha · Auth and cloud layer deployed',
     href: '/apps/scorecaster',
     repo: 'https://github.com/vv-glitchhub/scorecaster',
     summary: 'AI-powered sports intelligence for odds comparison, model probability, edge detection, staking discipline and transparent pick reasoning.',
     promise: 'Find value, explain risk and help the user skip weak bets instead of chasing action.',
     metrics: ['Edge', 'EV', 'Confidence', 'CLV', 'Bankroll risk'],
-    features: ['Live odds flow', 'Best odds finder', 'Daily Top 3 picks', 'Bet slip', 'Bet tracking', 'Market movement history'],
+    features: ['Live odds flow', 'Best odds finder', 'Daily Top 3 picks', 'Local and cloud bet slip', 'Protected user accounts', 'Market movement history'],
     agent: ['Explains why a pick exists', 'Shows the risk before staking', 'Compares model probability against market odds', 'Warns when a bet should be skipped'],
-    next: ['Stabilize odds API', 'Add bankroll setting', 'Add saved bet slip', 'Add Supabase tracking', 'Add CLV tracking']
+    next: ['Run Supabase auth/RLS migration', 'Test two-user data isolation', 'Validate local-to-cloud sync', 'Connect shared login to Caster Hub', 'Add automatic settlement and CLV']
   },
   {
     slug: 'stockcaster',
