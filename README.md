@@ -12,9 +12,11 @@ Caster OS is ready for public preview, feedback, product direction discussions a
 
 Scorecaster is the first connected production-alpha application. Its module page reads the live Scorecaster health endpoint and links directly to account, cloud sync and production tools.
 
+Stockcaster is the second connected production-alpha application. Its module page reads the live Stockcaster health endpoint and links directly to local portfolio, production status and Caster Core tools.
+
 ## Start using
 
-Open the new start page:
+Open the start page:
 
 - `/start`
 
@@ -29,13 +31,15 @@ Local operations runbook:
 Recommended first route:
 
 1. `/start` — choose app
-2. `/quick-use` — see every usable local mode
-3. `/apps/scorecaster` — view the first live production app
-4. `/apps/scorecaster/setup` — complete the Scorecaster cloud checklist
-5. `/runbook` — check commands and smoke test steps
-6. `/backup` — export local data
-7. `/dashboard` — Caster command center
-8. `/modules` — full module map
+2. `/apps/scorecaster` — view the first live production app
+3. `/apps/scorecaster/setup` — complete the Scorecaster cloud checklist
+4. `/apps/stockcaster` — view the second live production app
+5. `/apps/stockcaster/setup` — complete the Stockcaster data and account checklist
+6. `/quick-use` — see every usable local mode
+7. `/runbook` — check commands and smoke-test steps
+8. `/backup` — export local data
+9. `/dashboard` — Caster command center
+10. `/modules` — full module map
 
 Direct usable workspace pages:
 
@@ -44,6 +48,8 @@ Direct usable workspace pages:
 - `/backup`
 - `/apps/scorecaster`
 - `/apps/scorecaster/setup`
+- `/apps/stockcaster`
+- `/apps/stockcaster/setup`
 - `/apps/carcaster`
 - `/apps/travelcaster`
 - `/apps/carcaster/faults`
@@ -51,12 +57,14 @@ Direct usable workspace pages:
 - `/apps/travelcaster/itinerary`
 - `/apps/travelcaster/budget`
 
-Other app repos also have quick-use modes:
+Connected app routes:
 
-- Scorecaster: `https://scorecaster.vercel.app/quick-use`
+- Scorecaster Quick Use: `https://scorecaster.vercel.app/quick-use`
 - Scorecaster login: `https://scorecaster.vercel.app/login`
-- Scorecaster cloud sync: `https://scorecaster.vercel.app/cloud-sync`
-- Stockcaster: `/quick-use` in the Stockcaster project
+- Scorecaster Cloud Sync: `https://scorecaster.vercel.app/cloud-sync`
+- Stockcaster Quick Use: `https://stockcaster.vercel.app/quick-use`
+- Stockcaster Production Status: `https://stockcaster.vercel.app/production-status`
+- Stockcaster Caster Core: `https://stockcaster.vercel.app/core-status`
 
 Run locally:
 
@@ -72,6 +80,7 @@ Then open:
 http://localhost:3000/start
 http://localhost:3000/quick-use
 http://localhost:3000/apps/scorecaster
+http://localhost:3000/apps/stockcaster
 http://localhost:3000/runbook
 ```
 
@@ -81,6 +90,8 @@ http://localhost:3000/runbook
 - Runtime is pinned to Node.js 22 through `.nvmrc`.
 - `/api/health` reports the Caster Hub deployment and module state.
 - The Scorecaster module reads `https://scorecaster.vercel.app/api/health` server-side with no cache.
+- The Stockcaster module reads its production health endpoint server-side with no cache.
+- `STOCKCASTER_URL` can override the default Stockcaster deployment URL.
 
 ## Scorecaster production integration
 
@@ -97,6 +108,21 @@ Scorecaster now contains:
 The remaining activation work is manual Supabase setup and a real two-user isolation test. See:
 
 - [`docs/SCORECASTER_PRODUCTION_INTEGRATION.md`](docs/SCORECASTER_PRODUCTION_INTEGRATION.md)
+
+## Stockcaster production integration
+
+Stockcaster now contains:
+
+- local portfolio and watchlist
+- portfolio value, P/L and concentration analysis
+- production health endpoint
+- production status page
+- Caster Core contract
+- GitHub CI and successful Vercel deployment
+
+The next phase is trustworthy market data followed by isolated cloud portfolios that reuse the validated Scorecaster account pattern. See:
+
+- [`docs/STOCKCASTER_PRODUCTION_INTEGRATION.md`](docs/STOCKCASTER_PRODUCTION_INTEGRATION.md)
 
 ## Product vision
 
@@ -131,6 +157,10 @@ The prototype includes the public-facing pages needed for public alpha launch:
 - `/agent` — AI Decision Interface
 - `/system` — System Health
 - `/modules` — OS Map
+- `/apps/scorecaster` — live Scorecaster production status
+- `/apps/scorecaster/setup` — Scorecaster activation checklist
+- `/apps/stockcaster` — live Stockcaster production status
+- `/apps/stockcaster/setup` — Stockcaster activation checklist
 - `/demo` — Investor Demo Flow
 - `/roadmap` — Product Roadmap
 - `/pitch` — Pitch Page
