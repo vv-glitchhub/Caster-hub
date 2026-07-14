@@ -6,6 +6,11 @@ export type CasterApp = {
   status: string
   href: string
   repo?: string
+  liveUrl?: string
+  healthUrl?: string
+  accountUrl?: string
+  syncUrl?: string
+  statusPath?: string
   summary: string
   promise: string
   metrics: string[]
@@ -19,16 +24,21 @@ export const casterApps: CasterApp[] = [
     slug: 'scorecaster',
     name: 'Scorecaster',
     label: 'Sports Intelligence',
-    domain: 'Odds, edge, EV and risk control',
-    status: 'Production sprint',
+    domain: 'Odds, edge, EV, accounts and risk control',
+    status: 'Production alpha · Auth + Cloud Sync ready',
     href: '/apps/scorecaster',
     repo: 'https://github.com/vv-glitchhub/scorecaster',
-    summary: 'AI-powered sports intelligence for odds comparison, model probability, edge detection, staking discipline and transparent pick reasoning.',
-    promise: 'Find value, explain risk and help the user skip weak bets instead of chasing action.',
+    liveUrl: 'https://scorecaster.vercel.app',
+    healthUrl: 'https://scorecaster.vercel.app/api/health',
+    accountUrl: 'https://scorecaster.vercel.app/profile',
+    syncUrl: 'https://scorecaster.vercel.app/cloud-sync',
+    statusPath: '/apps/scorecaster/status',
+    summary: 'AI-powered sports intelligence for odds comparison, model probability, edge detection, staking discipline, account-based cloud history and transparent pick reasoning.',
+    promise: 'Find value, explain risk, preserve the user’s history and help the user skip weak bets instead of chasing action.',
     metrics: ['Edge', 'EV', 'Confidence', 'CLV', 'Bankroll risk'],
-    features: ['Live odds flow', 'Best odds finder', 'Daily Top 3 picks', 'Bet slip', 'Bet tracking', 'Market movement history'],
-    agent: ['Explains why a pick exists', 'Shows the risk before staking', 'Compares model probability against market odds', 'Warns when a bet should be skipped'],
-    next: ['Stabilize odds API', 'Add bankroll setting', 'Add saved bet slip', 'Add Supabase tracking', 'Add CLV tracking']
+    features: ['Live odds flow', 'Best odds finder', 'Daily Top 3 picks', 'Local-first bet slip', 'Supabase accounts', 'Protected Cloud Sync', 'Bet tracking', 'Market movement history'],
+    agent: ['Explains why a pick exists', 'Shows the risk before staking', 'Compares model probability against market odds', 'Warns when a bet should be skipped', 'Keeps account history isolated with RLS'],
+    next: ['Run and verify the Supabase auth/RLS migration', 'Test two-user data isolation', 'Connect live odds picks to cloud history', 'Report signed-in state to Caster Hub', 'Add cross-device notifications']
   },
   {
     slug: 'stockcaster',
