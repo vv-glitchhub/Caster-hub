@@ -1,6 +1,12 @@
 import MotionSurface from './MotionSurface'
 import type { CasterApp } from '../lib/caster-apps'
 
+function externalProps(href?: string) {
+  return href?.startsWith('http')
+    ? { target: '_blank', rel: 'noreferrer' }
+    : {}
+}
+
 export default function AppModulePage({ app }: { app: CasterApp }) {
   return (
     <main className="home-page">
@@ -13,10 +19,19 @@ export default function AppModulePage({ app }: { app: CasterApp }) {
           <h1 className="home-title">{app.name}</h1>
           <h2 className="home-subtitle">{app.domain}</h2>
           <p className="home-lead">{app.summary}</p>
+          <p className="home-card-text">Status: {app.status}</p>
           <div className="home-actions">
-            <a className="primary-button" href="/dashboard">Open Dashboard</a>
+            {app.liveUrl ? (
+              <a className="primary-button" href={app.liveUrl} {...externalProps(app.liveUrl)}>Open Live App</a>
+            ) : (
+              <a className="primary-button" href="/dashboard">Open Dashboard</a>
+            )}
+            {app.statusPath ? <a className="secondary-button" href={app.statusPath}>Service Status</a> : null}
+            {app.accountUrl ? <a className="secondary-button" href={app.accountUrl} {...externalProps(app.accountUrl)}>Account</a> : null}
+            {app.syncUrl ? <a className="secondary-button" href={app.syncUrl} {...externalProps(app.syncUrl)}>Cloud Sync</a> : null}
+            {app.healthUrl ? <a className="secondary-button" href={app.healthUrl} {...externalProps(app.healthUrl)}>Health API</a> : null}
             <a className="secondary-button" href="/modules">Back to Modules</a>
-            {app.repo ? <a className="secondary-button" href={app.repo}>GitHub Repo</a> : null}
+            {app.repo ? <a className="secondary-button" href={app.repo} {...externalProps(app.repo)}>GitHub Repo</a> : null}
           </div>
         </div>
       </section>
