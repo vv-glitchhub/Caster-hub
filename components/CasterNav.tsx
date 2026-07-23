@@ -1,6 +1,7 @@
 const links = [
   { href: '/apps', label: 'Apps' },
   { href: '/dashboard', label: 'Dashboard' },
+  { href: '/autonomy', label: 'Autonomy' },
   { href: '/agent', label: 'Agent' },
   { href: '/system', label: 'System' },
   { href: '/modules', label: 'Modules' },
@@ -28,7 +29,7 @@ export default function CasterNav() {
         ))}
       </nav>
 
-      <a className="caster-nav-action" href="/apps">Apps</a>
+      <a className="caster-nav-action" href="/autonomy">Autonomy</a>
     </header>
   )
 }
