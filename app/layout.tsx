@@ -5,6 +5,7 @@ import CasterFooter from '../components/CasterFooter'
 import CasterMobileBar from '../components/CasterMobileBar'
 import CasterNav from '../components/CasterNav'
 import CasterShell from '../components/CasterShell'
+import PwaRegister from '../components/PwaRegister'
 import './globals.css'
 import './polish.css'
 import './cinematic.css'
@@ -18,9 +19,20 @@ export const metadata: Metadata = {
     template: '%s | Caster OS',
   },
   description: 'Premium AI operating system prototype for decisions, markets, personal intelligence and focused action.',
-  keywords: ['Caster OS', 'AI operating system', 'decision intelligence', 'AI dashboard', 'personal AI', 'Stockcaster', 'Scorecaster', 'Relaxcaster'],
+  keywords: ['Caster OS', 'AI operating system', 'decision intelligence', 'AI dashboard', 'personal AI', 'Stockcaster', 'Scorecaster', 'Carcaster', 'Travelcaster'],
   authors: [{ name: 'Caster OS' }],
   creator: 'Caster OS',
+  applicationName: 'Caster OS',
+  manifest: '/manifest.webmanifest',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Caster',
+  },
+  icons: {
+    icon: '/icon.svg',
+    apple: '/icon.svg',
+  },
   openGraph: {
     title: 'Caster OS',
     description: 'Premium AI operating system prototype for decisions, markets, personal intelligence and focused action.',
@@ -39,6 +51,13 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover' as const,
+  themeColor: '#020207',
+}
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
@@ -48,6 +67,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <CasterMobileBar />
         {children}
         <CasterFooter />
+        <PwaRegister />
         <Analytics />
       </body>
     </html>
