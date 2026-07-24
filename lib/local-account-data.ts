@@ -9,6 +9,7 @@ export const CASTER_LOCAL_STORAGE_KEYS = {
   carcasterServices: 'caster.carcaster.services',
   travelcasterItems: 'caster.travelcaster.items',
   travelcasterBudget: 'caster.travelcaster.budget',
+  relaxcasterCheckIns: 'caster.relaxcaster.checkins',
 } as const
 
 export type CasterLocalDataKey = keyof typeof CASTER_LOCAL_STORAGE_KEYS
