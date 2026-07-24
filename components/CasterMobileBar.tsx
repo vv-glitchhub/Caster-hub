@@ -1,8 +1,8 @@
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/demo', label: 'Demo' },
+  { href: '/apps', label: 'Apps' },
+  { href: '/autonomy', label: 'Auto' },
   { href: '/agent', label: 'AI' },
-  { href: '/pitch', label: 'Pitch' },
 ]
 
 export default function CasterMobileBar() {

@@ -14,10 +14,12 @@ export async function GET() {
         stockcaster: 'production-alpha',
         carcaster: 'local-mvp',
         travelcaster: 'local-mvp',
+        autonomy: 'live-control',
       },
       integrations: {
         scorecasterHealth: 'https://scorecaster.vercel.app/api/health',
         stockcasterHealth: `${stockcasterUrl}/api/health`,
+        autonomySnapshot: '/api/autonomy',
         sharedAuth: 'planned-after-scorecaster-validation',
       },
       timestamp: new Date().toISOString(),

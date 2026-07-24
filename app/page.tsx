@@ -9,6 +9,7 @@ import { casterApps } from '../lib/caster-apps'
 
 const systemModules = [
   ['Dashboard', 'Command Center', 'Profile-aware widgets, memory and daily AI focus.', '/dashboard'],
+  ['Autonomy', 'Autonomous Core', 'Live app health, readiness scoring and a ranked action queue with approval gates.', '/autonomy'],
   ['Agent', 'Caster AI', 'Context-aware recommendations for the next decision.', '/agent'],
   ['System', 'Health Center', 'Core status, product connections, memory and analytics readiness.', '/system'],
   ['Modules', 'OS Map', 'Full map of surfaces, products and shared intelligence layers.', '/modules'],
@@ -28,7 +29,7 @@ export default function Home() {
           <p className="section-label">Unified Intelligence Ecosystem</p>
           <h2 className="section-title">One operating layer for sports, markets, cars and travel.</h2>
           <p className="home-section-lead">
-            Caster OS is not a set of disconnected pages. It is a premium product experience where every app connects back to the same agent, memory and command layer.
+            Caster OS is not a set of disconnected pages. It is a premium product experience where every app connects back to the same agent, memory, autonomous control and command layer.
           </p>
 
           <div className="home-module-grid">
@@ -69,7 +70,7 @@ export default function Home() {
             <p className="section-label">Caster Core</p>
             <h2 className="section-title">The intelligence layer connecting every area of life.</h2>
             <p className="home-section-lead">
-              The public alpha already includes profile selection, widget state, layout memory, focus logic and an agent recommendation layer.
+              The public alpha includes profile selection, widget state, layout memory, focus logic, agent recommendations and a safe autonomous control loop.
             </p>
           </div>
           <CommandCenter />
@@ -78,12 +79,12 @@ export default function Home() {
 
       <section className="home-final">
         <div>
-          <p className="section-label">Public Alpha Live</p>
-          <h2 className="final-title">Start with the demo flow.</h2>
+          <p className="section-label">Autonomous Public Alpha</p>
+          <h2 className="final-title">Open the live command center.</h2>
           <p className="home-final-text">
-            The public presentation should move from the story into the dashboard, agent, modules, pitch and business layer.
+            Start with the autonomous view to see app health, the readiness score and the next ranked actions across the Caster ecosystem.
           </p>
-          <a className="primary-button home-final-button" href="/demo">Run Caster Demo</a>
+          <a className="primary-button home-final-button" href="/autonomy">Open Autonomy</a>
         </div>
       </section>
     </main>

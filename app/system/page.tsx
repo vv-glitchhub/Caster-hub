@@ -16,11 +16,12 @@ type AppHealth = {
 
 const systems = [
   ['Core', 'Online', 'Caster Hub health, build CI and production deployment are active.'],
+  ['Autonomy', 'Active', 'Live health, freshness checks, readiness scoring and action ranking run through one safe control loop.'],
   ['Agent', 'Ready', 'Recommendations and context layer are available for the connected product surfaces.'],
   ['Memory', 'Local V1', 'Local seed memory, browser workspaces and backup tools remain available.'],
   ['Products', 'Connected', 'Scorecaster and Stockcaster report live health to the shared OS layer.'],
   ['Analytics', 'Enabled', 'Vercel analytics and deployment status are connected.'],
-  ['Safety', 'Active', 'Risk controls, RLS plans and responsible-use boundaries are documented.'],
+  ['Safety', 'Active', 'Risk controls, RLS plans, approval gates and responsible-use boundaries are documented.'],
 ]
 
 const roadmap = [
@@ -94,7 +95,8 @@ export default async function SystemPage() {
             A unified operating view for Caster Hub, live product health, cloud readiness, local workspaces and the next activation tasks.
           </p>
           <div className="home-actions">
-            <a className="primary-button" href="/dashboard">Open Dashboard</a>
+            <a className="primary-button" href="/autonomy">Open Autonomy</a>
+            <a className="secondary-button" href="/dashboard">Dashboard</a>
             <a className="secondary-button" href="/agent">Ask Agent</a>
             <a className="secondary-button" href="/api/health">Hub Health JSON</a>
           </div>

@@ -12,6 +12,7 @@ import WidgetManager from '../../components/WidgetManager'
 import WidgetOrderControls from '../../components/WidgetOrderControls'
 
 const actions = [
+  ['Open Autonomy', '/autonomy'],
   ['Ask Agent', '/agent'],
   ['Plan Life', '/life'],
   ['Open Wealth', '/wealth/stockcaster'],
@@ -20,8 +21,8 @@ const actions = [
 ]
 
 const launchStats = [
-  ['10', 'Widgets'],
-  ['5', 'Profiles'],
+  ['30s', 'Autonomy loop'],
+  ['4', 'Caster apps'],
   ['AI', 'Agent'],
   ['V1', 'Memory'],
 ]
@@ -39,7 +40,7 @@ export default function DashboardPage() {
           <h1 className="home-title">Command.</h1>
           <h2 className="home-subtitle">Control Center.</h2>
           <p className="home-lead">
-            A cleaner operating view for focus, profile, widgets, memory and next actions.
+            A cleaner operating view for focus, profile, widgets, memory, autonomous health and next actions.
           </p>
 
           <div className="home-highlight-grid">
@@ -52,7 +53,8 @@ export default function DashboardPage() {
           </div>
 
           <div className="home-actions">
-            <a className="primary-button" href="/agent">Ask Caster AI</a>
+            <a className="primary-button" href="/autonomy">Open Autonomy</a>
+            <a className="secondary-button" href="/agent">Ask Caster AI</a>
             <a className="secondary-button" href="/">Back Home</a>
           </div>
         </div>
@@ -78,9 +80,9 @@ export default function DashboardPage() {
       <section className="home-section">
         <div className="home-container">
           <p className="section-label">Live Intelligence</p>
-          <h2 className="section-title">Signals across wealth, gaming and health.</h2>
+          <h2 className="section-title">Signals across the connected Caster ecosystem.</h2>
           <p className="home-section-lead">
-            Dashboard 3.0 now surfaces intelligence graphs directly inside the operating view.
+            Dashboard intelligence stays focused on explainable signals while the autonomous control layer monitors application readiness separately.
           </p>
           <IntelligenceGraphs />
         </div>
