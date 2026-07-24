@@ -11,6 +11,7 @@ import {
 
 const labels: Record<CasterLocalDataKey, string> = {
   profile: 'Shared profile',
+  carcasterProfile: 'Carcaster vehicle profile',
   carcasterFaults: 'Carcaster faults',
   carcasterServices: 'Carcaster services',
   travelcasterItems: 'Travelcaster trip items',
@@ -108,14 +109,7 @@ export default function AccountPortabilityClient() {
         <label className="secondary-button" htmlFor="caster-account-import">
           {busy ? 'Checking file…' : 'Choose export file'}
         </label>
-        <input
-          id="caster-account-import"
-          type="file"
-          accept="application/json,.json"
-          hidden
-          disabled={busy}
-          onChange={importFile}
-        />
+        <input id="caster-account-import" type="file" accept="application/json,.json" hidden disabled={busy} onChange={importFile} />
       </article>
 
       <article className="home-module-card min-h-0">
