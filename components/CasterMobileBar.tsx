@@ -1,6 +1,7 @@
 const links = [
   { href: '/', label: 'Home' },
   { href: '/apps', label: 'Apps' },
+  { href: '/notifications', label: 'Alerts' },
   { href: '/autonomy', label: 'Auto' },
   { href: '/agent', label: 'AI' },
 ]
