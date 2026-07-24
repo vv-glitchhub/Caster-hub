@@ -16,6 +16,7 @@ const labels: Record<CasterLocalDataKey, string> = {
   carcasterServices: 'Carcaster services',
   travelcasterItems: 'Travelcaster trip items',
   travelcasterBudget: 'Travelcaster budget',
+  relaxcasterCheckIns: 'Relaxcaster check-ins',
 }
 
 export default function AccountPortabilityClient() {
@@ -78,7 +79,7 @@ export default function AccountPortabilityClient() {
 
   function deleteLocalAccountData() {
     const accepted = window.confirm(
-      'Delete the shared profile plus all local Carcaster and Travelcaster data from this browser? Export first if you need a backup.',
+      'Delete the shared profile plus all local Carcaster, Travelcaster and Relaxcaster data from this browser? Export first if you need a backup.',
     )
     if (!accepted) return
 
@@ -93,7 +94,7 @@ export default function AccountPortabilityClient() {
         <p className="home-module-label">Portable Backup</p>
         <h2 className="home-module-title">Export your local Caster data.</h2>
         <p className="home-module-text">
-          Download one versioned JSON file containing the shared profile and recognized Carcaster and Travelcaster browser data. Passwords, tokens and external application sessions are never included.
+          Download one versioned JSON file containing the shared profile and recognized Carcaster, Travelcaster and Relaxcaster browser data. Passwords, tokens and external application sessions are never included.
         </p>
         <div className="home-actions">
           <button className="primary-button" type="button" onClick={downloadExport}>Download export</button>
@@ -125,7 +126,7 @@ export default function AccountPortabilityClient() {
         <p className="home-module-label">Cloud Boundary</p>
         <h2 className="home-module-title">Production deletion remains gated.</h2>
         <p className="home-module-text">
-          This page manages browser-local Caster Hub data only. Authenticated cloud export and deletion must be verified against Supabase RLS before cloud synchronization is enabled.
+          This page manages browser-local Caster Hub data. Authenticated cloud export and deletion must be verified against Supabase RLS before cloud synchronization is enabled.
         </p>
         <a className="secondary-button" href="/production-readiness">Open production readiness</a>
       </article>
