@@ -2,7 +2,7 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/apps', label: 'Apps' },
   { href: '/brief', label: 'Brief' },
-  { href: '/production-readiness', label: 'Ready' },
+  { href: '/account', label: 'Account' },
   { href: '/profile', label: 'Profile' },
 ]
 
