@@ -7,6 +7,7 @@ const links = [
   { href: '/autonomy', label: 'Autonomy' },
   { href: '/notifications', label: 'Notifications' },
   { href: '/profile', label: 'Profile' },
+  { href: '/account', label: 'Account Data' },
   { href: '/agent', label: 'Agent' },
   { href: '/system', label: 'System' },
   { href: '/modules', label: 'Modules' },
@@ -34,7 +35,7 @@ export default function CasterNav() {
         ))}
       </nav>
 
-      <a className="caster-nav-action" href="/production-readiness">Readiness</a>
+      <a className="caster-nav-action" href="/account">Account</a>
     </header>
   )
 }
