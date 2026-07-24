@@ -4,6 +4,7 @@ export const CASTER_LOCAL_DATA_VERSION = 1 as const
 
 export const CASTER_LOCAL_STORAGE_KEYS = {
   profile: CASTER_PROFILE_STORAGE_KEY,
+  carcasterProfile: 'caster.carcaster.profile',
   carcasterFaults: 'caster.carcaster.faults',
   carcasterServices: 'caster.carcaster.services',
   travelcasterItems: 'caster.travelcaster.items',
@@ -63,7 +64,7 @@ export function previewCasterImport(input: unknown): ImportPreview {
   if (!candidate.data || typeof candidate.data !== 'object' || Array.isArray(candidate.data)) warnings.push('Export data section is missing or invalid.')
 
   const keys = candidate.data && typeof candidate.data === 'object' && !Array.isArray(candidate.data)
-    ? (Object.keys(candidate.data).filter((key): key is CasterLocalDataKey => allowedKeys.has(key as CasterLocalDataKey)))
+    ? Object.keys(candidate.data).filter((key): key is CasterLocalDataKey => allowedKeys.has(key as CasterLocalDataKey))
     : []
 
   if (keys.length === 0) warnings.push('No recognized Caster data was found in the export.')
