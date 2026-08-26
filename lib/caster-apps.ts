@@ -46,6 +46,20 @@ export const casterApps: CasterApp[] = [
     next: ['Reuse Scorecaster account pattern', 'Add user-specific holdings and watchlist tables', 'Add Row Level Security', 'Add duplicate-safe cloud migration', 'Connect live market data and portfolio history']
   },
   {
+    slug: 'landcaster',
+    name: 'Landcaster',
+    label: 'Housing Intelligence',
+    domain: 'Housing markets, property value, loans, ASP and area intelligence',
+    status: 'MVP 0.1 · Finance engine and Finland data foundation',
+    href: '/apps/landcaster',
+    summary: 'Whole-Finland housing intelligence for ASP readiness, loan stress, true housing costs, area development, fair value and buy-versus-rent-or-build decisions.',
+    promise: 'Answer whether this home, on this area, at this price and with this financing makes sense now.',
+    metrics: ['Area Score', 'Fair Value', 'Affordability', 'ASP readiness', 'Renovation risk'],
+    features: ['ASP readiness calculator', 'Loan payment engine', '6% interest stress test', 'True housing cost', 'Finland-wide data model', 'Property decision stack'],
+    agent: ['Separates facts, model estimates and forecasts', 'Explains the largest property risks', 'Compares areas and financing scenarios', 'Builds BUY / WAIT / RENT / BUILD reasoning'],
+    next: ['Ingest municipality and postal-area master data', 'Connect official price-history sources', 'Build Area Score V1', 'Add Fair Value comparables', 'Add buy-vs-rent and buy-vs-build workspaces']
+  },
+  {
     slug: 'carcaster',
     name: 'Carcaster',
     label: 'Car Intelligence',

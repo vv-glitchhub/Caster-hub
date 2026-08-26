@@ -27,7 +27,7 @@ export default function Home() {
       <section className="home-section">
         <div className="home-container">
           <p className="section-label">Unified Intelligence Ecosystem</p>
-          <h2 className="section-title">One operating layer for sports, markets, cars and travel.</h2>
+          <h2 className="section-title">One operating layer for sports, markets, housing, cars and travel.</h2>
           <p className="home-section-lead">
             Caster OS is not a set of disconnected pages. It is a premium product experience where every app connects back to the same agent, memory, autonomous control and command layer.
           </p>
@@ -48,7 +48,7 @@ export default function Home() {
       <section className="home-section">
         <div className="home-container">
           <p className="section-label">Caster Apps</p>
-          <h2 className="section-title">Four focused products. One shared intelligence core.</h2>
+          <h2 className="section-title">Five focused products. One shared intelligence core.</h2>
           <div className="home-module-grid">
             {casterApps.map((app) => (
               <MotionSurface key={app.slug} href={app.href} className="home-module-card">
