@@ -1,6 +1,8 @@
 import { getSupabaseConfig } from './supabase'
 import { searchPostalAreas, type LandcasterPropertyType } from './landcaster-statfin'
 
+export const LANDCASTER_AREA_SCORE_V2_MODEL = 'area_score_v2_paavo_2026_02'
+
 export type LandcasterFundamentals = {
   postal_code: string
   statistical_year: number
@@ -65,7 +67,7 @@ async function publicRest<T>(path: string): Promise<T> {
 }
 
 export async function getAreaIntelligenceV2(postalCode: string, propertyType: LandcasterPropertyType) {
-  const scorePath = `landcaster_area_score_v2_snapshots?select=postal_code,property_type,market_period_end,fundamentals_year,market_score,fundamentals_score,income_score,employment_score,demographic_score,workplace_score,area_score_v2,confidence_pct,latest_price_per_sqm,sample_size,model_version,evidence&postal_code=eq.${encodeURIComponent(postalCode)}&property_type=eq.${encodeURIComponent(propertyType)}&order=market_period_end.desc&limit=1`
+  const scorePath = `landcaster_area_score_v2_snapshots?select=postal_code,property_type,market_period_end,fundamentals_year,market_score,fundamentals_score,income_score,employment_score,demographic_score,workplace_score,area_score_v2,confidence_pct,latest_price_per_sqm,sample_size,model_version,evidence&postal_code=eq.${encodeURIComponent(postalCode)}&property_type=eq.${encodeURIComponent(propertyType)}&model_version=eq.${LANDCASTER_AREA_SCORE_V2_MODEL}&order=market_period_end.desc&limit=1`
   const fundamentalsPath = `landcaster_paavo_fundamentals_v1?select=postal_code,statistical_year,population,average_age,young_adults_20_39,working_age_20_64,seniors_65_plus,adults_18_plus,average_income_eur,median_income_eur,purchasing_power_eur,employed,unemployed,students,pensioners,workplaces_total,services_workplaces,employment_rate_pct,unemployment_rate_pct,young_adult_share_pct,working_age_share_pct,workplace_per_100_residents,as_of,provenance&postal_code=eq.${encodeURIComponent(postalCode)}&order=statistical_year.desc&limit=1`
 
   const [scores, fundamentals, postal] = await Promise.all([
@@ -84,14 +86,14 @@ export async function getAreaIntelligenceV2(postalCode: string, propertyType: La
       provider: 'Statistics Finland',
       dataset: 'Paavo — Open data by postal code area',
       tables: ['12ey', '12f1', '12f5', '12f6'],
-      caveat: 'Area Score V2 uses the latest Paavo cross-section. Postal-area classifications can change between years, so Landcaster does not infer historical Paavo trends by postal code.',
+      caveat: 'Area Score V2 uses the latest Paavo cross-section. Postal-area classifications can change between years, so Landcaster does not infer historical Paavo trends by postal code. The current 12f5/2024 workplace series is zero-variance in the imported classification, so that pillar is neutral and excluded from the composite until it becomes informative.',
     },
   }
 }
 
 export async function getFinlandAreaRankingV2(propertyType: LandcasterPropertyType, limit = 12) {
   const safeLimit = Math.max(1, Math.min(30, Math.round(limit)))
-  const path = `landcaster_area_score_v2_snapshots?select=postal_code,property_type,market_period_end,fundamentals_year,market_score,fundamentals_score,income_score,employment_score,demographic_score,workplace_score,area_score_v2,confidence_pct,latest_price_per_sqm,sample_size,model_version,evidence&property_type=eq.${encodeURIComponent(propertyType)}&confidence_pct=gte.50&order=area_score_v2.desc&limit=${safeLimit}`
+  const path = `landcaster_area_score_v2_snapshots?select=postal_code,property_type,market_period_end,fundamentals_year,market_score,fundamentals_score,income_score,employment_score,demographic_score,workplace_score,area_score_v2,confidence_pct,latest_price_per_sqm,sample_size,model_version,evidence&property_type=eq.${encodeURIComponent(propertyType)}&model_version=eq.${LANDCASTER_AREA_SCORE_V2_MODEL}&confidence_pct=gte.50&order=area_score_v2.desc&limit=${safeLimit}`
   const scores = await publicRest<LandcasterAreaScoreV2[]>(path)
 
   const ranking = await Promise.all(scores.map(async (score) => {
@@ -119,8 +121,8 @@ export async function getFinlandAreaRankingV2(propertyType: LandcasterPropertyTy
   return {
     propertyType,
     ranking,
-    modelVersion: scores[0]?.model_version ?? 'area_score_v2_paavo_2026_01',
-    methodology: '50 % market signal + 50 % Paavo fundamentals. Fundamentals: employment 35 %, median income 30 %, demographic demand 20 %, workplace intensity 15 %. Inputs are ranked as nationwide cross-sectional percentiles.',
+    modelVersion: scores[0]?.model_version ?? LANDCASTER_AREA_SCORE_V2_MODEL,
+    methodology: '50 % market signal + 50 % Paavo fundamentals. Fundamentals: labour-force employment 40 %, median income 35 % and demographic demand 25 %. Nationwide tied values use midpoint percentile ranks. The current zero-variance workplace series is shown neutrally but excluded from the composite.',
     caveat: 'Area Score V2 is an explainable comparison score, not a house-price forecast or investment recommendation.',
   }
 }
