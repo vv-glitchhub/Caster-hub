@@ -50,14 +50,15 @@ export const casterApps: CasterApp[] = [
     name: 'Landcaster',
     label: 'Housing Intelligence',
     domain: 'Housing markets, property value, loans, ASP and area intelligence',
-    status: 'MVP 0.1 · Finance engine and Finland data foundation',
-    href: '/apps/landcaster',
+    status: 'Standalone MVP 0.3 · Dedicated GitHub + Vercel production',
+    href: 'https://landcaster.vercel.app',
+    repo: 'https://github.com/vv-glitchhub/landcaster',
     summary: 'Whole-Finland housing intelligence for ASP readiness, loan stress, true housing costs, area development, fair value and buy-versus-rent-or-build decisions.',
     promise: 'Answer whether this home, on this area, at this price and with this financing makes sense now.',
-    metrics: ['Area Score', 'Fair Value', 'Affordability', 'ASP readiness', 'Renovation risk'],
-    features: ['ASP readiness calculator', 'Loan payment engine', '6% interest stress test', 'True housing cost', 'Finland-wide data model', 'Property decision stack'],
+    metrics: ['Area Score V2', 'Fair Value V2', 'Affordability', 'ASP readiness', 'Renovation risk'],
+    features: ['Whole-Finland postal-area intelligence', 'Area Score V2 + Paavo fundamentals', 'Fair Value V2', 'ASP and loan engine', '6% interest stress test', 'True housing cost', 'Buy vs Rent'],
     agent: ['Separates facts, model estimates and forecasts', 'Explains the largest property risks', 'Compares areas and financing scenarios', 'Builds BUY / WAIT / RENT / BUILD reasoning'],
-    next: ['Ingest municipality and postal-area master data', 'Connect official price-history sources', 'Build Area Score V1', 'Add Fair Value comparables', 'Add buy-vs-rent and buy-vs-build workspaces']
+    next: ['Separate Landcaster Supabase infrastructure', 'Add Suomen Pankki interest-rate data', 'Build affordability and value scores', 'Add Decision Engine', 'Add licensed property comparables']
   },
   {
     slug: 'carcaster',
