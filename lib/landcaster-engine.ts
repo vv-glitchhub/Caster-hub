@@ -151,6 +151,101 @@ export function calculateFairValueEstimate(input: {
   }
 }
 
+export function calculateFairValueV2(input: {
+  areaM2: number
+  debtFreeAskingPrice: number
+  areaPricePerSqm: number
+  condition: FairValueCondition
+  confidencePct: number
+  housingCompanyDebtShare: number
+  upcomingRenovationShare: number
+  maintenanceFeeMonthly: number
+  financeChargeMonthly: number
+  buildingYear: number
+}) {
+  const conditionFactor: Record<FairValueCondition, number> = {
+    needs_work: 0.88,
+    average: 1,
+    good: 1.05,
+    renovated: 1.10,
+  }
+
+  const areaM2 = clean(input.areaM2)
+  const basePrice = areaM2 * clean(input.areaPricePerSqm)
+  const conditionAdjustedValue = basePrice * conditionFactor[input.condition]
+  const renovationShare = clean(input.upcomingRenovationShare)
+  const debtFreeAskingPrice = clean(input.debtFreeAskingPrice)
+  const companyDebt = clean(input.housingCompanyDebtShare)
+  const fairValueMid = Math.max(0, conditionAdjustedValue - renovationShare)
+  const debtReference = Math.max(1, debtFreeAskingPrice || conditionAdjustedValue || basePrice)
+  const debtRatio = companyDebt / debtReference
+  const renovationRatio = renovationShare / Math.max(1, conditionAdjustedValue)
+  const currentYear = new Date().getFullYear()
+  const buildingYear = Math.round(clean(input.buildingYear))
+  const buildingAge = buildingYear > 0 && buildingYear <= currentYear ? currentYear - buildingYear : 0
+
+  const baseConfidence = clamp(clean(input.confidencePct), 0, 100)
+  const debtPenalty = Math.min(12, debtRatio * 30)
+  const renovationPenalty = Math.min(14, renovationRatio * 45)
+  const agePenalty = buildingAge > 40 ? Math.min(10, (buildingAge - 40) * 0.25) : 0
+  const effectiveConfidencePct = clamp(baseConfidence - debtPenalty - renovationPenalty - agePenalty, 20, 100)
+  const bandPct = clamp(
+    0.08
+      + (100 - effectiveConfidencePct) / 280
+      + Math.min(0.07, debtRatio * 0.10)
+      + Math.min(0.08, renovationRatio * 0.35),
+    0.08,
+    0.30,
+  )
+
+  const fairValueLow = fairValueMid * (1 - bandPct)
+  const fairValueHigh = fairValueMid * (1 + bandPct)
+  const equityFairValueMid = Math.max(0, fairValueMid - companyDebt)
+  const askingEquityPrice = Math.max(0, debtFreeAskingPrice - companyDebt)
+  const allInAskingExposure = debtFreeAskingPrice + renovationShare
+  const priceGapEur = debtFreeAskingPrice > 0 ? debtFreeAskingPrice - fairValueMid : 0
+  const priceGapPct = debtFreeAskingPrice > 0 && fairValueMid > 0 ? (priceGapEur / fairValueMid) * 100 : 0
+  const monthlyHousingCompanyCharges = clean(input.maintenanceFeeMonthly) + clean(input.financeChargeMonthly)
+
+  const riskFlags: string[] = []
+  if (debtRatio >= 0.30) riskFlags.push('HIGH_COMPANY_DEBT')
+  else if (debtRatio >= 0.15) riskFlags.push('ELEVATED_COMPANY_DEBT')
+  if (renovationRatio >= 0.15) riskFlags.push('LARGE_KNOWN_RENOVATION')
+  else if (renovationShare > 0) riskFlags.push('KNOWN_RENOVATION_COST')
+  if (buildingAge >= 50) riskFlags.push('OLDER_BUILDING')
+  if (clean(input.financeChargeMonthly) > clean(input.maintenanceFeeMonthly) && clean(input.financeChargeMonthly) > 0) riskFlags.push('HIGH_FINANCE_CHARGE')
+
+  const label = debtFreeAskingPrice <= 0
+    ? 'NO_ASKING_PRICE'
+    : debtFreeAskingPrice < fairValueLow
+      ? 'BELOW_RISK_ADJUSTED_BAND'
+      : debtFreeAskingPrice > fairValueHigh
+        ? 'ABOVE_RISK_ADJUSTED_BAND'
+        : 'INSIDE_RISK_ADJUSTED_BAND'
+
+  return {
+    basePrice,
+    conditionAdjustedValue,
+    fairValueLow,
+    fairValueMid,
+    fairValueHigh,
+    equityFairValueMid,
+    askingEquityPrice,
+    allInAskingExposure,
+    priceGapEur,
+    priceGapPct,
+    debtRatioPct: debtRatio * 100,
+    renovationRatioPct: renovationRatio * 100,
+    buildingAge,
+    monthlyHousingCompanyCharges,
+    effectiveConfidencePct,
+    bandPct: bandPct * 100,
+    riskFlags,
+    label,
+    methodology: 'Debt-free area benchmark × condition adjustment − known upcoming renovation share. Housing-company debt is shown as equity/cash-price exposure and uncertainty, not subtracted twice from a debt-free regional benchmark.',
+  }
+}
+
 export function calculateBuyVsRentDetailed(input: {
   purchasePrice: number
   downPayment: number
