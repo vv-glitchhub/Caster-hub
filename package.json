@@ -1,15 +1,14 @@
 {
+  "name": "landcaster",
+  "version": "0.4.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint ."
+    "start": "next start"
   },
   "dependencies": {
-    "@vercel/analytics": "latest",
-    "framer-motion": "latest",
-    "lucide-react": "latest",
-    "next": "latest",
+    "next": "16.2.7",
     "react": "latest",
     "react-dom": "latest"
   },
@@ -18,9 +17,6 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "autoprefixer": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
     "postcss": "latest",
     "tailwindcss": "latest",
     "typescript": "latest"
