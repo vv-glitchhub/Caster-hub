@@ -1,5 +1,7 @@
 import LandcasterAreaIntelligence from '../../../components/LandcasterAreaIntelligence'
 import LandcasterBuyVsRent from '../../../components/LandcasterBuyVsRent'
+import LandcasterFairValueV2 from '../../../components/LandcasterFairValueV2'
+import LandcasterFundamentalsV2 from '../../../components/LandcasterFundamentalsV2'
 import LandcasterWorkspace from '../../../components/LandcasterWorkspace'
 import MotionSurface from '../../../components/MotionSurface'
 
@@ -7,12 +9,17 @@ const layers = [
   {
     label: 'Market',
     title: 'Alueiden hintakehitys',
-    text: 'Kunta- ja postinumeroalueiden toteutuneet hinnat, kauppamäärät, trendit ja likviditeetti koko Suomessa.',
+    text: 'Postinumeroalueiden toteutuneet hinnat, kauppamäärät, trendit ja likviditeetti koko Suomessa.',
+  },
+  {
+    label: 'Fundamentals',
+    title: 'Alueen elinvoima',
+    text: 'Paavo tuo mukaan väestörakenteen, mediaanitulot ja työmarkkinan, jotta markkinahinta ei jää ainoaksi signaaliksi.',
   },
   {
     label: 'Property',
-    title: 'Kohteen käypä arvo',
-    text: 'Pyyntihinta vastaan alueen toteutunut hintataso, pinta-ala, kunto ja myöhemmin tarkemmat kohdekohtaiset vertailutekijät.',
+    title: 'Kohteen riskikorjattu arvo',
+    text: 'Pyyntihinta, alueen toteutunut hintataso, kunto, yhtiölaina, tiedossa olevat remontit ja vastikkeet samassa näkymässä.',
   },
   {
     label: 'Finance',
@@ -22,7 +29,7 @@ const layers = [
   {
     label: 'Decision',
     title: 'Osta, vuokraa vai odota?',
-    text: 'Skenaariot, joissa huomioidaan myös sivukulut, myyntiarvo, jäljellä oleva velka, vuokran kehitys ja omistusaika.',
+    text: 'Skenaariot huomioivat sivukulut, myyntiarvon, jäljellä olevan velan, vuokran kehityksen ja omistusajan.',
   },
 ]
 
@@ -38,16 +45,18 @@ export default function LandcasterPage() {
           <h1 className="home-title">Landcaster</h1>
           <h2 className="home-subtitle">Asuntomarkkina, alue, kohde ja rahoitus yhdessä päätöksessä.</h2>
           <p className="home-lead">
-            Landcaster kattaa nyt ASP- ja lainalaskennan lisäksi Tilastokeskuksen postinumeroaluekohtaisen markkinadatan, Area Score V1:n, Fair Value V1:n, koko Suomen aluevertailun ja osta-vs-vuokraa-skenaarion.
+            Landcaster yhdistää nyt Tilastokeskuksen toteutuneet asuntohinnat, Area Score V2:n Paavo-fundamentalsit, Fair Value V2:n kohderiskit, ASP- ja lainalaskennan sekä osta-vs-vuokraa-skenaarion yhdeksi päätöskerrokseksi.
           </p>
           <div className="home-actions">
-            <a className="primary-button" href="#area-intelligence">Analysoi alue</a>
-            <a className="secondary-button" href="#plan">Avaa oma suunnitelma</a>
+            <a className="primary-button" href="#area-score-v2">Avaa Area Score V2</a>
+            <a className="secondary-button" href="#fair-value-v2">Arvioi kohde</a>
           </div>
         </div>
       </section>
 
       <LandcasterAreaIntelligence />
+      <LandcasterFundamentalsV2 />
+      <LandcasterFairValueV2 />
 
       <div id="plan">
         <LandcasterWorkspace />
@@ -58,7 +67,7 @@ export default function LandcasterPage() {
       <section className="home-section" id="roadmap">
         <div className="home-container">
           <p className="section-label">Decision Stack</p>
-          <h2 className="section-title">Neljä kerrosta ennen BUY / WAIT / RENT / BUILD -päätöstä.</h2>
+          <h2 className="section-title">Viisi kerrosta ennen BUY / WAIT / RENT / BUILD -päätöstä.</h2>
           <div className="home-module-grid">
             {layers.map((layer) => (
               <MotionSurface key={layer.label} className="home-module-card">
@@ -78,19 +87,19 @@ export default function LandcasterPage() {
           <div className="home-highlight-grid">
             <MotionSurface className="home-highlight-card">
               <p className="home-card-title">Tilastokeskus · 13mt</p>
-              <p className="home-card-text">Postinumeroalueiden toteutuneet vanhojen osakeasuntojen neliöhinnat ja kauppamäärät neljännesvuosittain. Landcasterin live-aluehaku ja ranking käyttävät tätä nyt.</p>
+              <p className="home-card-text">Postinumeroalueiden toteutuneet vanhojen osakeasuntojen neliöhinnat ja kauppamäärät neljännesvuosittain. Area Score V1:n markkinakerros käyttää tätä.</p>
             </MotionSurface>
             <MotionSurface className="home-highlight-card">
-              <p className="home-card-title">Paavo</p>
-              <p className="home-card-text">Seuraava Area Score -laajennus tuo väestön, tulot, työpaikat, koulutuksen ja asumisrakenteen postinumeroalueelle.</p>
+              <p className="home-card-title">Tilastokeskus · Paavo</p>
+              <p className="home-card-text">V2 käyttää nyt 1 700+ postinumeroalueen väestö-, tulo- ja työmarkkinadataa. Pisteytys säilyttää lähdevuoden ja postinumeroalueluokituksen caveatit näkyvinä.</p>
             </MotionSurface>
             <MotionSurface className="home-highlight-card">
               <p className="home-card-title">Maanmittauslaitos</p>
-              <p className="home-card-text">Kiinteistökauppojen tarkempi vertailukauppakerros on luvan- ja sopimuksenvarainen. Arkkitehtuuri on valmisteltu, mutta Landcaster ei teeskentele luvanvaraista dataa avoimeksi dataksi.</p>
+              <p className="home-card-text">Kiinteistökauppojen tarkempi vertailukauppakerros on luvan- ja sopimuksenvarainen. Landcaster ei esitä lisensoitua dataa avoimena datana.</p>
             </MotionSurface>
             <MotionSurface className="home-highlight-card">
               <p className="home-card-title">Valtiokonttori + Suomen Pankki</p>
-              <p className="home-card-text">ASP-säännöt on versionoitu 1.6.2026 voimaan tulleiden ehtojen mukaan. Korkokerros voidaan seuraavaksi kytkeä Suomen Pankin ajantasaiseen lainakorkodataan.</p>
+              <p className="home-card-text">ASP-säännöt ovat versionoituina. Seuraava rahoituskerros tuo Suomen Pankin korkosarjat ja pankkikohtaisten tarjousten vertailurakenteen.</p>
             </MotionSurface>
           </div>
         </div>
@@ -98,10 +107,10 @@ export default function LandcasterPage() {
 
       <section className="home-final">
         <div>
-          <p className="section-label">MVP 0.2 · Area Intelligence</p>
-          <h2 className="final-title">Seuraava laatuhyppy: Paavo + kohdekohtaiset vertailutekijät.</h2>
-          <p className="home-final-text">Area Score V1 käyttää nyt markkinadataa läpinäkyvästi. Seuraava versio nostaa pisteytyksen markkinapisteestä oikeaksi alueen elinvoima- ja kysyntämalliksi ja vie Fair Value -mallin kohti kohdekohtaista arviota.</p>
-          <a className="primary-button home-final-button" href="#area-intelligence">Aloita alueanalyysi</a>
+          <p className="section-label">MVP 0.3 · Fundamentals + Property Risk</p>
+          <h2 className="final-title">Seuraava iso kerros: vertailukaupat, korkodata ja oma päätösmoottori.</h2>
+          <p className="home-final-text">Area Score V2 erottaa markkinan ja alueen perustekijät. Fair Value V2 erottaa velattoman arvon, yhtiölainan ja tiedossa olevan remonttiriskin. Seuraavaksi Landcaster voi siirtyä kohdekohtaisiin vertailukauppoihin ja BUY / WAIT / RENT / BUILD -suosituksen evidenssikerrokseen.</p>
+          <a className="primary-button home-final-button" href="#area-score-v2">Aloita V2-analyysi</a>
         </div>
       </section>
     </main>
